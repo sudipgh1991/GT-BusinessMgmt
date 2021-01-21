@@ -153,3 +153,4 @@ D:\20 01(2)\BOD_DAL\bin\Debug\BOD_DAL.pdb
 D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
 D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.dll
 D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
