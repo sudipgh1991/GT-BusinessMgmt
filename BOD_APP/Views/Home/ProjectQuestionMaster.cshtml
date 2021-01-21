@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "ProjectQuestionMaster";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+  <!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Create Question</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+<div class="row justify-content-center">
+    <input type="hidden" value="@ViewBag.UserId" id="UserId">
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-info"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Page Information</a>
+                                <p class="mb-0 text-sm">This page is intended to add / edit enterprise.</p><p> Enlisted below are few field description.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Usage</a>
+                                <p class="mb-0 text-sm">Please give us the business usage write up</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+      
+        <form  id="frmQs">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Sector
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="hidden" id="Id" name="Id" />
+                                <select class="custom-select" name="PIM_Id" id="PIM_Id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Answer Type
+                                </label>
+                                <span style="color: red">*</span>
+                                <select class="custom-select" id="Container" name="Container">
+                                    <option value="">Select</option>
+                                    <option value="T">TextBox</option>
+                                    <option value="R">Yes/No</option>
+                                    <option value="U">Upload Document</option>
+                                    <option value="D">DropDown</option>
+                                    <option value="M">Multiselect</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Assessment Type
+                                </label>
+                                <span style="color: red">*</span>
+                               
+                                <select class="custom-select" name="CategoryId" id="CategoryId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Type Your Question
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Your Question">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Choose For
+                                </label>
+                                <div class="row">
+                                    @*<div class="col-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="hidden" id="ForClient" name="ForClient" />
+                                            <input type="checkbox" class="custom-control-input" value="" id="check_group1" name="project-privacy5">
+                                            <label class="custom-control-label form-control-label text-muted" for="check_group1">For Client</label>
+                                        </div>
+                                    </div>*@
+                                    <div class="col-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="hidden" id="ForSME" name="ForSME" />
+                                            <input type="checkbox" class="custom-control-input" value="" id="check_group2" name="project-privacy6">
+                                            <label class="custom-control-label form-control-label text-muted" for="check_group2">For SME</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-4">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="hidden" id="ForEMP" name="ForEMP" />
+                                            <input type="checkbox" class="custom-control-input" value="" id="check_group3" name="project-privacy8">
+                                            <label class="custom-control-label form-control-label text-muted" for="check_group3">For Employee</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Required
+                        </label>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="hidden" id="IsRequired" name="IsRequired" />
+                                    <input type="checkbox" class="custom-control-input" value="" id="check_group4" name="project-privacy4">
+                                    <label class="custom-control-label form-control-label text-muted" for="check_group4">Is Required</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- Buttons -->
+                    <div class="text-right">
+                        <a href="/Home/ProjectQuestionMasterList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <script type="text/javascript">
+                var URLList = {
+
+                    SaveRecord: '@Url.Action("ProjectQuestionMaster", "ScriptJson")',
+                    GetEntityMasterById: '@Url.Action("GetGlobalMaster", "ScriptJson")'
+                };
+
+                var globalData = {
+                    TransactionType: 'Select',
+                    Param: 'PQM_Id',
+                    //paramValue: parseInt(id),
+                    StoreProcedure: 'ProjectQuestionMaster_USP'
+                };
+            </script>
+            <script src="~/Scripts/custom/ProjectQuestionMaster.js"></script>
+            <script src="~/Scripts/utility/dropdown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

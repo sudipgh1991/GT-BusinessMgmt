@@ -1,0 +1,89 @@
+﻿@model IList<BOD_DAL.Models.ClientWiseSSME>
+
+@{
+    ViewBag.Title = "ClientWiseSMMEList";
+    Layout = "~/Views/Shared/_LayoutNewTempDatatable.cshtml";
+}
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Enterprise</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2">@ViewBag.Count</span>
+                <span class="text-sm opacity-7 text-white">SMME</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+
+            <div class="card-body">
+                <!-- Chart -->
+                <div class="table-responsive">
+                    <table id="invoices-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="input-chk-all"></th>
+                                <th>SMME</th>
+                                <th>CorporateName</th>
+                                <th>PhNo </th>
+                                <th>Address</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @{ int i = 1; foreach (var item in Model)
+                             {
+
+                                <tr>
+                                    <td><input type="checkbox" class="input-chk"></td>
+                                    <td><a href="/Home/SMMEProfile?sm_id=@item.CWS_SMMEId" class=" text-bold-600">@item.SM_CorporateName </a></td>
+
+                                    <td>
+                                        <span class="badge badge-success badge-md"> @item.CC_CorporateName.Trim()</span>
+
+                                    </td>
+                                    <td><p class="text-muted text-bold-500">@item.SM_PhoneNo</p></td>
+
+
+                                    <td><p class="text-muted text-bold-500" style="white-space:nowrap;text-overflow: ellipsis;width:300px; overflow: hidden;">@item.SM_PostalAddress</p></td>
+
+
+
+                                </tr>
+                             }
+                            }
+                        </tbody>
+
+
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+

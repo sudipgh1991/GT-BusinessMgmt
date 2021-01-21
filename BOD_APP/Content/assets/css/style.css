@@ -1,0 +1,259 @@
+/*================================================================================
+	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+.dynamic-column-item {
+	display: table-cell;
+	font-weight: bold;
+	color: #6b6f82;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+    min-width: 150px !important;
+    font-size:small
+	/*min-width: 176px !important;*/
+}
+
+.dynamic-column-item-performance {
+	display: table-cell;
+	font-weight: bold;
+	color: #6b6f82;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+    /*min-width: 150px !important;*/
+	min-width: 176px !important;
+    font-size:small;
+}
+
+
+.dynamic-column-item-btn {
+	display: table-cell;
+	font-weight: bold;
+	color: #6b6f82;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	min-width: 150px !important;
+}
+
+.dynamic-column-item-value {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	/*min-width: 88px !important;*/
+    min-width: 150px !important;
+}
+
+.dynamic-column-item-value-performance {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 88px !important;
+    /*min-width: 150px !important;*/
+}
+
+.dynamic-column-item-value-input {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	/*min-width: 88px !important;*/
+    min-width: 150px !important;
+}
+.dynamic-column-item-value-input-performance {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 88px !important;
+    /*min-width: 150px !important;*/
+}
+.row-total {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 150px !important;
+}
+.col-total {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 150px !important;
+}
+.dynamic-column-item-value-desc {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 150px !important;
+}
+
+
+.total-Text {
+	display: table-cell;
+	font-weight: bold;
+	color: #6b6f82;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 1px 2rem;
+	min-width: 600px !important;
+}
+/*  arijit*/
+.desc {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	/*min-width: 176px !important;*/
+    min-width: 150px !important;
+}
+
+.desc-performance {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 176px !important;
+    /*min-width: 150px !important;*/
+}
+.dynamic-column-item-value-total {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 150px !important;
+}
+.dynamic-column-item-value-blank {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 150px !important;
+}
+
+.short {
+	width: 500px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	resize: horizontal;
+}
+.short-task {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	resize: horizontal;
+}
+/*  arijit*/
+
+.dynamic-column-item-ddl {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	/*min-width: 176px !important;*/
+    min-width: 150px !important;
+}
+
+.dynamic-column-item-ddl-perfromance {
+	display: table-cell;
+	color: #6b6f82;
+	text-align: inherit;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 0.75rem 2rem;
+	min-width: 176px !important;
+    /*min-width: 150px !important;*/
+}
+
+#add-row .delete {
+	cursor: pointer;
+}
+
+.total-ProjectIndicator {
+	display: table-cell;
+	font-weight: bold;
+	color: #6b6f82;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: top;
+	border: 1px solid #e3ebf3;
+	border-bottom: 1px solid #e3ebf3;
+	padding: 1px 2rem;
+	min-width: 300px !important;
+}

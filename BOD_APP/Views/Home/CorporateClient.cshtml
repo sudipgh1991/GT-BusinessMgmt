@@ -1,0 +1,548 @@
+﻿
+@{
+    ViewBag.Title = "CorporateClient";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Enterprise</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+@*<div class="row justify-content-center">
+
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-info"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Page Information</a>
+                                <p class="mb-0 text-sm">This page is intended to add / edit enterprise.</p><p> Enlisted below are few field description.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Usage</a>
+                                <p class="mb-0 text-sm">Please give us the business usage write up</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+
+
+        <form id="frmClient">
+            <input type="hidden" id="Id" name="Id" />
+            <div class="card bg-gradient-warning hover-shadow-lg border-0">
+                <div class="card-body py-3">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-lg-8">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar avatar-lg rounded-circle mr-3 pic">
+                                    <img alt="Image placeholder" class="pic" src="~/Content/app-assets/images/elements/no-image-icon.png" id="user_image">
+                                </a>
+                                <div class="media-body">
+
+                                    <div>
+                                        <form>
+                                            <input type="file" id="account-upload" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple="" accept="image/x-png,image/gif,image/jpeg" />
+                                            <label for="account-upload">
+                                                <span class="text-white">Add/Edit Enterprise Logo</span>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="style: float-right">
+                                <small>
+                                    Allowed JPG, GIF or PNG. Max
+                                    size of
+                                     100kB
+                                </small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- General information -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Enterprise Name</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="CorporateName" name="CorporateName" placeholder="Enter Enterprise Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Zipcode</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="Zipcode" name="Zipcode" placeholder="Enter Zipcode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Trading Name</label>
+
+                                <input type="text" class="form-control" id="TradingName" name="TradingName" placeholder="Enter Trading Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+
+                            <div class="form-group">
+                                <label class="form-control-label">Industry Name</label>
+                                <span style="color: red">*</span>
+                                <select class="form-control select2-hidden-accessible" id="IndustryId" data-toggle="select" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">CIPC Registration No</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="CIPC_RegistrationNo" name="CIPC_RegistrationNo" placeholder="Enter CIPC Registration Number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Phone No</label>
+                                <span style="color: red">*</span>
+                                <input type="number" class="form-control" id="PhoneNo" name="PhoneNo" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">VAT Registration No</label>
+
+                                <input type="text" class="form-control" id="SARS_VATNo" placeholder="Enter VAT Registration Number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Email</label>
+                                <span style="color: red">*</span>
+                                <input type="email" class="form-control" name="Email" id="Email" placeholder="Enter Email ID">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Physical Address</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="Address" name="Address" placeholder="Enter Physical Addres">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">PostalAddress</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="PostalAddress" name="PostalAddress" placeholder="Enter PostalAddress ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person Name</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="ContactPersonName" name="ContactPersonName" placeholder="Enter Contact Person Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person Phone</label>
+                                <span style="color: red">*</span>
+                                <input type="number" class="form-control" id="ContactPersonPhNo" name="ContactPersonPhNo" placeholder="Enter Contact Person Phone Number">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Attachments</label>
+                                <small class="form-text text-muted mb-2 mt-0">
+                                    Drag and drop files
+                                </small>
+                                <div class="dropzone dropzone-multiple" data-toggle="dropzone" data-dropzone-url="http://" data-dropzone-multiple>
+                                    <div class="fallback">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="dropzone-1" multiple>
+                                            <label class="custom-file-label" for="customFileUpload">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <ul class="dz-preview dz-preview-multiple list-group list-group-lg list-group-flush">
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="avatar">
+                                                        <img class="rounded" src="" alt="Image placeholder" data-dz-thumbnail>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <h6 class="text-sm mb-1" data-dz-name>...</h6>
+                                                    <p class="small text-muted mb-0" data-dz-size></p>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="#" class="dropdown-item" data-dz-remove>
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <input type="hidden" class="form-control" id="ContactPersonEmail" name="ContactPersonEmail" placeholder="Enter Contact Mail ID">
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Save changes buttons -->
+                    <div class="text-right">
+                        <a href="/Home/CorporateClientList" class="btn btn-link text-muted">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord();">Submit</button>
+
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+        </div>*@
+
+
+
+
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-info"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Page Information</a>
+                                <p class="mb-0 text-sm">This page is intended to add / edit enterprise.</p><p> Enlisted below are few field description.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Usage</a>
+                                <p class="mb-0 text-sm">Please give us the business usage write up</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+
+
+        <form id="frmClient">
+            <input type="hidden" id="Id" name="Id" />
+            <div class="card bg-gradient-warning hover-shadow-lg border-0">
+                <div class="card-body py-3">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-lg-8">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar avatar-lg rounded-circle mr-3 pic">
+                                    <img alt="Image placeholder" class="pic" src="~/Content/app-assets/images/elements/no-image-icon.png" id="user_image">
+                                </a>
+                                <div class="media-body">
+
+                                    <div>
+                                        <form>
+                                            <input type="file" id="account-upload" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple="" @*accept=".jpg,.jpeg,.png"*@ accept="image/x-png,image/gif,image/jpeg" />
+                                            <label for="account-upload">
+                                                <span class="text-white">Add/Edit Enterprise Logo</span>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="style: float-right">
+                                <small>
+                                    Allowed JPG, GIF or PNG. Max
+                                    size of
+                                    100kB
+                                </small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- General information -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Enterprise Name</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="CorporateName" name="CorporateName" placeholder="Enter Enterprise Name">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Trading Name</label>
+                                @*<span style="color: red">*</span>*@
+                                <input type="text" class="form-control" id="TradingName" name="TradingName" placeholder="Enter Trading Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+
+                            <div class="form-group">
+                                <label class="form-control-label">Industry Name</label>
+                                <span style="color: red">*</span>
+                                <select class="form-control select2-hidden-accessible" id="IndustryId" data-toggle="select" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">CIPC Registration No</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="CIPC_RegistrationNo" name="CIPC_RegistrationNo" placeholder="Enter CIPC Registration Number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">VAT Registration No</label>
+                                @*<span style="color: red">*</span>*@
+                                <input type="text" class="form-control" id="SARS_VATNo" placeholder="Enter VAT Registration Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Phone No</label>
+                                <span style="color: red">*</span>
+                                <input type="number" class="form-control" id="PhoneNo" name="PhoneNo" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Email</label>
+                                <span style="color: red">*</span>
+                                <input type="email" class="form-control" name="Email" id="Email" placeholder="Enter Email ID">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Physical Address</label>
+                                <span style="color: red">*</span>
+
+                                <textarea class="form-control" placeholder="Enter Physical Address " rows="3" id="Address" name="Address"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">PostalAddress</label>
+                                <span style="color: red">*</span>
+                                <span class="text-muted mb-2 mt-0">
+                                    (Same as Physical Address)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" value="" id="check_group1" name="project-privacy6">
+                                        <label class="custom-control-label form-control-label text-muted" for="check_group1"></label>
+                                    </span>
+
+                                </span>
+                                @*<span class="custom-control custom-checkbox">
+
+                                    <input type="checkbox" class="custom-control-input" value="" id="check_group2" name="project-privacy6">
+                                    <label class="custom-control-label form-control-label text-muted" for="check_group2"></label>
+                                </span>*@
+
+
+                                <textarea class="form-control" placeholder="Enter PostalAddress " rows="3" id="PostalAddress" name="PostalAddress"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Zipcode</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="Zipcode" name="Zipcode" placeholder="Enter Zipcode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person Name</label>
+
+                                <input type="text" class="form-control" id="ContactPersonName" name="ContactPersonName" placeholder="Enter Contact Person Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person Phone</label>
+
+                                <input type="number" class="form-control" id="ContactPersonPhNo" name="ContactPersonPhNo" placeholder="Enter Contact Person Phone Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="uploadtable" style="width:100%">
+                                <tr>
+                                    <td style="width:90%">
+                                        <div class="media-body mt-75">
+                                            <div class="form-group">
+                                                @*<input type="file" name="file" id="file-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" class="custom-input-file">*@
+                                                <input type="file" onchange="encodeImgtoBase64(this)" name="file-1[]" id="file-1" class="custom-input-file" data-multiple-caption="{count} files selected" multiple />
+                                                <label for="file-1">
+                                                    <i class="fa fa-upload"></i>
+                                                    <span>Choose a file…</span>
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width:10%;padding-left:7px;text-align:center;padding-bottom:10px;">
+                                        <a href="javascript:void(0);" class="btn btn-sm btn-icon-only rounded-circle bg-primary-light text-white" onclick="return saveFile()">
+                                            <span class="btn-inner--icon"><i class="fa fa-plus" data-toggle="tooltip" title="" data-original-title="Add new Document"></i></span>
+                                        </a>
+                                        @*<a href="javascript:void(0);" class="btn btn-sm btn-blue rounded-circle" onclick="return saveFile()">
+                                            <span class="dropdown-item"><i class="fa fa-plus fa-2x"></i></span>
+                                            <span class="btn-inner--icon d-block pt-2">&nbsp;</span>
+                                        </a>*@
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @*<label class="form-control-label">Contact Person Email</label>*@
+                                @*<span style="color: red">*</span>*@
+                                <input type="hidden" class="form-control" id="ContactPersonEmail" name="ContactPersonEmail" placeholder="Enter Contact Mail ID">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <!-- Save changes buttons -->
+                    <div class="text-right">
+                        <a href="/Home/CorporateClientList" class="btn btn-link text-muted">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord();">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var globalData = {
+        TransactionType: 'Select',
+        param1: 'CC_Id',
+        StoreProcedure: 'CorporateClient_USP'
+    };
+
+
+</script>
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="~/Scripts/custom/CorporateClient.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="~/Scripts/utility/dropzone.min.js"></script>

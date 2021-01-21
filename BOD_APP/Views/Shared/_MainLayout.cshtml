@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+@using BOD_APP.Controllers;
+
+@{
+    string Role;
+    string name = "";
+     string logo = "/Content/app-assets/images/elements/no-image-icon.png";
+    BOD_DAL.Models.UserModel UserObj;
+    BOD_DAL.Models.UserModel UserObjA;
+    UserObjA = Session["UserDataModel"] as BOD_DAL.Models.UserModel;
+    UserObj = UserObjA;
+    if (UserObjA == null)
+    {
+        BOD_DAL.Models.UserModel UserObjC;
+        BOD_DAL.Models.UserModel UserObjE;
+        UserObjC = Session["CUserDataModel"] as BOD_DAL.Models.UserModel;
+        UserObjE = Session["EUserDataModel"] as BOD_DAL.Models.UserModel;
+
+
+        if ((UserObjC == null) && (UserObjE == null))
+        {
+            BOD_DAL.Models.UserModel UserObjSM;
+            UserObjSM = Session["SMUserDataModel"] as BOD_DAL.Models.UserModel;
+            UserObj = UserObjSM;
+            UserObj.Role = "SM";
+            logo = UserObjSM.Logo;
+            name = UserObjSM.UserName;
+        }
+        else if (UserObjE != null)
+        {
+            UserObj = UserObjE;
+            UserObj.Role = "E";
+            logo = UserObjE.Logo;
+            name = UserObjE.UserName;
+        }
+        else
+        {
+            UserObj = UserObjC;
+            UserObj.Role = "C";
+            logo = UserObjC.Logo;
+            name = UserObjC.UserName;
+        }
+
+
+    }
+
+    var SessionModule = Session["AuthorisedModuleModel"] as IList<BOD_DAL.Models.AuthorisedModule>;
+    var SessionComapny = Session["CompanyModel"];
+}
+
+
+
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
+    <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+    <meta name="author" content="PIXINVENT">
+    <title>GROWTHties Portal For Bussiness Purpose</title>
+    <link rel="apple-touch-icon" href="~/Content/app-assets/images/ico/apple-icon-120.png">
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <link rel="apple-touch-icon" href="~/Content/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/pickers/daterange/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/selects/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/icheck/icheck.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/toggle/switchery.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/icheck/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/extensions/sweetalert2.min.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/plugins/forms/switch.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/colors/palette-switch.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/colors/palette-callout.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/plugins/pickers/daterange/daterange.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/plugins/forms/checkboxes-radios.css">
+
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    <!-- END: Custom CSS-->
+
+    <script src="~/Content/app-assets/vendors/js/vendors.min.js"></script>
+
+    <script src="~/Content/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/pickers/daterange/daterangepicker.js"></script>
+
+    <script src="~/Content/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/icheck/icheck.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/extensions/polyfill.min.js"></script>
+
+    <script>
+    $.noConflict();
+    // Code that uses other library's $ can follow here.
+    </script>
+
+</head>
+<!-- END: Head-->
+<!-- BEGIN: Body-->
+<body class="vertical-layout vertical-menu-modern 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-dark navbar-shadow">
+        <div class="navbar-wrapper">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav flex-row">
+                    <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                    <li class="nav-item mr-auto">
+                        <a class="navbar-brand" href="index.html">
+                            <img class="brand-logo" alt="modern admin logo" src="~/Content/app-assets/images/logo/logo.png">
+                            <h3 class="brand-text">GROWTHties</h3>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="toggle-icon ft-toggle-right font-medium-3 white" data-ticon="ft-toggle-right"></i></a></li>
+                    <li class="nav-item d-lg-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a></li>
+                </ul>
+            </div>
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse" id="navbar-mobile">
+                    <ul class="nav navbar-nav mr-auto float-left"></ul>
+                    <ul class="nav navbar-nav float-right">
+
+                        <li class="dropdown dropdown-notification nav-item">
+                            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-monitor"></i><span class="badge badge-pill badge-danger badge-up badge-glow">3</span></a>
+                            <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                <li class="dropdown-menu-header">
+                                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Switch Module</span></h6><span class="notification-tag badge badge-danger float-right m-0">3</span>
+                                </li>
+                                <li class="scrollable-container media-list w-100">
+                                    <a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan mr-0"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Admin</h6>
+
+                                            </div>
+                                        </div>
+                                    </a><a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1 mr-0"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">Client</h6>
+                                            </div>
+                                        </div>
+                                    </a><a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-left align-self-center"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3 mr-0"></i></div>
+                                            <div class="media-body">
+                                                <h6 class="media-heading">SSME</h6>
+                                            </div>
+                                        </div>
+                                    </a>
+
+
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown dropdown-user nav-item">
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"><span class="mr-1 user-name text-bold-700">@UserObj.UserName</span><span class="avatar avatar-online"><img src="@logo" alt="avatar"><i></i></span></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                @if (UserObj.Role == "C")
+                                {
+                                    <a class="dropdown-item" href="/Client/CorpUserProfile?Id=@UserObj.UM_MainID"><i class="ft-user"></i> Edit Profile</a>
+                                }
+                                else if (UserObj.Role == "SM")
+                                {
+                                      <a class="dropdown-item" href="/SSME/SSMEUserProfile?Id=@UserObj.UM_MainID"><i class="ft-user"></i> Edit Profile</a>
+                                }
+                                
+                                <a class="dropdown-item" href="app-kanban.html"><i class="ft-clipboard"></i> Todo</a>
+                                <a class="dropdown-item" href="user-cards.html"><i class="ft-check-square"></i> Task</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="/Account/AppLogin"><i class="ft-power"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Header-->
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="main-menu-content">
+            @Html.Partial("_AdminMenu")
+        </div>
+    </div>
+    <!-- END: Main Menu-->
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+
+            <div class="content-body">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">GROWTHties &copy; 2020 <a class="text-bold-800 grey darken-2" href="#" target="_blank"></a></span><span class="float-md-right d-none d-lg-block"><i class="ft-heart pink"></i><span id="scroll-top"></span></span></p>
+    </footer>
+    <!-- END: Footer-->
+    <!-- BEGIN: Vendor JS-->
+    <script type="text/javascript">
+
+
+    </script>
+    @*<script src="~/Content/app-assets/vendors/js/vendors.min.js"></script>*@
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/Content/app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/toggle/bootstrap-checkbox.min.js"></script>
+    <script src="~/Content/app-assets/js/core/app-menu.js"></script>
+    <script src="~/Content/app-assets/js/core/app.js"></script>
+    @*<script src="~/Content/app-assets/js/scripts/forms/validation/form-validation.js"></script>*@
+    <script src="~/Content/app-assets/js/scripts/forms/switch.min.js"></script>
+</body>
+<!-- END: Body-->
+</html>

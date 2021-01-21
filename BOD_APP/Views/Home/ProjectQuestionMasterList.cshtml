@@ -1,0 +1,119 @@
+﻿@model IList<BOD_DAL.Models.ProjectQuestionMaster>
+@{
+    ViewBag.Title = "ProjectQuestionMasterList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+   }
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+
+
+
+
+
+
+
+
+                <!-- Page title -->
+                <div class="page-title">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                            <!-- Page title + Go Back button -->
+                            <div class="d-inline-block">
+                                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Project Wise Question Name</h5>
+                            </div>
+                            <!-- Additional info -->
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                            <a id="btnGo" class="btn btn-sm btn-white btn-icon rounded-pill" data-toggle="modal">
+                                <span class="btn-inner--icon"><i class="fa fa-users"></i></span>
+                                <span class="btn-inner--text"> Create New </span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- HTML5 export buttons table -->
+               
+                                <!-- data table goes here -->
+                            
+
+
+                                <div class="row" style="height:100% !important">
+
+                                    <div class="col-xl-12 col-md-6" style="height:100% !important">
+                                        <div class="card card-fluid" style="height:100% !important">
+                                            <div class="card-body" style="height:100% !important">
+                                                <!-- data table goes here -->
+                                                <div class="table-responsive">
+                                                    <table id="active-accounts" class="table alt-pagination table-wrapper">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="border-top-0">Industry Name</th>
+                                                                <th class="border-top-0">Question</th>
+                                                                <th class="border-top-0">Status</th>
+                                                                <th class="border-top-0">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @{ int i = 1; foreach (var item in Model)
+                                                             {
+                                                                <tr>
+                                                                    <td class="align-middle" width="30">
+                                                                        <div class="media align-items-center">
+                                                                            <div>
+                                                                                <i class="fa fa-industry"></i>
+                                                                            </div>
+                                                                            <div class="media-body ml-4">
+                                                                                <a href="#" class="name mb-0 h6 text-sm">@item.PIM_Name</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="align-middle" width="60%">
+                                                                        <div class="media-body ml-4">
+                                                                            <a href="#" class="name mb-0 h6 text-sm">@item.Name</a>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="align-middle" width="5%">
+                                                                        <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                                            Active
+                                                                        </div>
+                                                                    </td>
+
+                                                                    <td class="align-middle" width="5%">
+                                                                        <div class="action">
+                                                                            <a href="ProjectQuestionMaster?Id=@item.Id"><i class="fa fa-cog fa-2x" data-toggle="tooltip" title="Edit Question Details"></i></a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                             }
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <style>
+                                    #active-accounts_filter input {
+                                        border-radius: 50px !important;
+                                    }
+                                </style>
+                        
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#btnGo").click(function () {
+            window.location.href = 'ProjectQuestionMaster';
+        });
+    });
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

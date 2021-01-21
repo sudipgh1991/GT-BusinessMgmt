@@ -1,0 +1,221 @@
+﻿@model BOD_DAL.Models.ProjectWiseTask
+@{
+    ViewBag.Title = "ProjectWiseEmployeeTask";
+   
+    Layout = "~/Views/Shared/_LayoutNewForCheckDatatable.cshtml";
+}
+
+
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Activity Assign To Employee</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        @{
+            Html.RenderPartial("_ProjectDetailsTask", new ViewDataDictionary { { "id", @ViewBag.Id } });
+        }
+        @{
+
+          
+                <div class="col-sm-6">
+                    <!-- Project overview -->
+                    <div class="card card-fluid">
+                        <div class="card-header">
+
+                            <h6 class="mb-0"><span id="taskName">@Model.PWT_TaskTitle</span></h6>
+                        </div>
+                        <div class="card-body py-3 flex-grow-1">
+                            <!-- Progress -->
+                            <div class="pb-3 mb-3 border-bottom">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <!-- Avatar -->
+                                        <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-2.png" class="avatar rounded-circle">
+                                    </div>
+                                    <div class="col ml-n2">
+                                        <div class="progress-wrapper">
+                                            <span class="progress-percentage"><small class="font-weight-bold">Completed: </small>70%</span>
+                                            <div class="progress progress-xs mt-2">
+                                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Description -->
+                            <p class="text-sm mb-0">
+                               @Model.PWT_TaskTitle
+                            </p>
+                        </div>
+                        <div class="card-footer py-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <span class="form-control-label">Project </span>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <span class="badge badge-success badge-pill" id="client">Yes</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <span class="form-control-label">Published:</span>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <span class="badge badge-danger badge-pill">No</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <small>Start date:</small>
+                                            <div class="h6 mb-0"><span id="tstartdate">@Model.PWT_StartDate</span></div>
+                                        </div>
+                                        <div class="col-6">
+                                            <small>End date:</small>
+                                            <div class="h6 mb-0"><span id="yenddate">@Model.PWT_EndDate</span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+           
+        }
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-md-6">
+            <div class="card card-fluid">
+                <div class="card-header">
+                    <h6 class="mb-0">Assign Employee</h6>
+                </div>
+                <div class="card-body">
+
+                    <div class="content-detached">
+                        <div class="content-body">
+                            <div class="content-overlay"></div>
+
+                            <div class="row">
+
+                                <div class="card-body">
+                                    <!-- Task List table -->
+                                    <div class="table-responsive">
+                                        <table id="users-contacts" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="checkboxsmallall">
+                                                            <label class="custom-control-label" for="checkboxsmallall"></label>
+                                                        </div>
+                                                    </th>
+                                                    <th>Name</th>
+                                                    <th>Reg.No</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{int i = 1;
+                                                foreach (var a in Model.emplist)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <input type="hidden" value="@a.EM_EmpId" id="emp_@i" />
+                                                            <input type="hidden" value="@a.CreatedbyProject" id="hdnCreatedbyProject_@i" />
+                                                            <input type="hidden" value="@a.EM_IsSuper" id="hdnIsSuper_@i" />
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" @a.AssociateProject
+                                                                       id="checkboxsmall_@i" @a.EM_EmpId>
+                                                                <label class="custom-control-label" for="checkboxsmall_@i"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="media">
+                                                                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="@a.EM_ProfilePic" alt="avatar"><i></i></span></div>
+                                                                <div class="media-body media-middle">
+                                                                    <a class="media-heading name">@a.EM_EmpName</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">@a.EM_EmpCode</td>
+                                                        <td class="text-center">
+                                                            <a class="email" href="mailto:email@example.com">@a.EM_Email</a>
+                                                        </td>
+                                                        <td class="phone">@a.EM_EmpContactNo</td>
+
+                                                        <td>
+                                                            <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+
+                                                        </td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                                }
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+
+          
+
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- Buttons -->
+                    <div class="text-right">
+                        <a href="/Project/ProjectWiseTaskList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord(@ViewBag.Id,@ViewBag.TaskId)">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@*<script src="~/Scripts/utility/project_details_report.js"></script>*@
+
+<script src="~/Scripts/custom/project_task_wise_smme.js"></script>
+
+<script src="~/Scripts/utility/project_details_global.js"></script>
+
+
+<script src="~/Scripts/custom/projectTaskwiseEmp.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

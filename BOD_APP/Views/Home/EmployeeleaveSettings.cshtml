@@ -1,0 +1,179 @@
+﻿@model BOD_DAL.Models.EmployeeViewModel
+@{
+    ViewBag.Title = "EmployeeleaveSettings";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+
+<style type="text/css">
+    .modal-header {
+        background-color: #00c851;
+    }
+
+    .modal-dialog-slideout {
+        min-height: 100%;
+        margin: 0 0 0 auto;
+        background: #fff;
+    }
+
+    .modal.fade .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(100%,0)scale(1);
+        transform: translate(100%,0)scale(1);
+    }
+
+    .modal.fade.show .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(0,0);
+        transform: translate(0,0);
+        display: flex;
+        align-items: stretch;
+        -webkit-box-align: stretch;
+        height: 100%;
+    }
+
+        .modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+    .modal-dialog-slideout .modal-content {
+        border: 0;
+    }
+
+    .modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {
+        height: 69px;
+        display: block;
+    }
+
+        .modal-dialog-slideout .modal-header h5 {
+            float: left;
+        }
+</style>
+
+
+
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Leave Setting</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+<!-- HTML5 export buttons table -->
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-header">
+                <h6 class="mb-0">Employee List</h6>
+            </div>
+            <div class="card-body">
+                <!-- data table goes here -->
+                <div class="table-responsive">
+                    <table id="active-accounts" class="table alt-pagination table-wrapper">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0"></th>
+                                <th class="border-top-0">Image</th>
+                                <th class="border-top-0">Employee Name</th>
+
+                                <th class="border-top-0">Designation</th>
+                                <th class="border-top-0">Date of Joining</th>
+                                <th class="border-top-0">Contact No</th>
+                                <th class="border-top-0">Email</th>
+                                <th class="border-top-0">Status</th>
+                                <th class="border-top-0">Action</th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @if (Model.cList != null)
+                            {
+                                foreach (var item in Model.cList)
+                                {
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol saving">
+                                                <i class="la la-users"></i>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            @if (item.EM_ProfilePic == "")
+                                            {
+                                                <img class="rounded-circle mr-2" src="~/Content/app-assets/images/elements/no-image-icon.png" alt="img-placeholder" height="40" width="50" />
+                                            }
+                                            else
+                                            {
+                                                <img src="@item.EM_ProfilePic" class="rounded-circle mr-2" alt="img-placeholder" height="40" width="50">
+                                            }
+                                        </td>
+                                        <td>
+                                            @item.EM_EmpName
+                                        </td>
+                                        <td>@item.EM_Designation</td>
+                                        <td>@item.EM_EmpDOJ</td>
+
+                                        <td>@item.EM_EmpContactNo</td>
+                                        <td>@item.EM_Email</td>
+
+
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+
+
+
+                                        <td class="align-middle">
+
+                                            <a href="EmployeeLeaveSetting?Id=@item.EM_EmpId&&pageId=1"> <i class=" la la-plus-square success"></i></a>
+                                            @*<i class="la la-hotel"></i>*@
+
+                                        </td>
+
+
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@Scripts.Render("~/bundles/dtjquery")
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/EmplyoeeManager.js"></script>
+<script type="text/javascript">
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#btnGo").click(function () {
+                window.location.href = '';
+            });
+        });
+
+</script>
+

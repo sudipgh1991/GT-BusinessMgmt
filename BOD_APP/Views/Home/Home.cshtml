@@ -1,0 +1,799 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <h5 class="h3 font-weight-400 mb-0 text-white"></h5>
+                <span class="text-sm text-white opacity-8"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-8 col-md-6">
+            <div class="card card-fluid">
+                <div class="card-header">
+                    <h6 class="mb-0">Engagement</h6>
+                </div>
+                <div class="card-body">
+                    <!-- Chart -->
+                    <div id="apex-engagement" data-color="primary" data-height="280"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+            <div class="card card-fluid">
+                <div class="card-body text-center d-flex flex-column justify-content-center">
+                    <h5 class="mb-4">Emails sent</h5>
+                    <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning"></div>
+                    <div class="d-flex mt-4">
+                        <div class="col">
+                            <span class="d-block badge badge-dot badge-lg h6">
+                                <i class="bg-danger"></i>30 not sent
+                            </span>
+                            <span class="d-block badge badge-dot badge-lg h6">
+                                <i class="bg-success"></i>68 success
+                            </span>
+                        </div>
+                        <div class="col">
+                            <span class="d-block badge badge-dot badge-lg h6">
+                                <i class="bg-warning"></i>38 opened
+                            </span>
+                            <span class="d-block badge badge-dot badge-lg h6">
+                                <i class="bg-danger"></i>SMTP error
+                            </span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-block btn-secondary mt-auto">Open insights</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-6">
+            <div class="card card-fluid">
+                <div class="card-body">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-auto">
+                            <div class="progress-circle progress-sm" id="progress-1" data-progress="90" data-color="primary"></div>
+                        </div>
+                        <div class="col">
+                            <a href="#!" class="d-block h6 mb-0">98 tasks solved</a>
+                            <a href="#" class="text-sm text-muted">Purpose Website UI</a>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mb-4">
+                        <div class="col-auto">
+                            <div class="progress-circle progress-sm" id="progress-2" data-progress="40" data-color="warning"></div>
+                        </div>
+                        <div class="col">
+                            <a href="#!" class="d-block h6 mb-0">13 tasks solved</a>
+                            <a href="#" class="text-sm text-muted">Webpixels website</a>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <div class="progress-circle progress-sm" id="progress-3" data-progress="60" data-color="info"></div>
+                        </div>
+                        <div class="col">
+                            <a href="#!" class="d-block h6 mb-0">23 tasks solved</a>
+                            <a href="#" class="text-sm text-muted">Purpose Dashboard UI</a>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-block btn-secondary mt-5">Open insights</a>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-xl-8 col-md-6">
+            <div class="card card-fluid">
+                <div class="card-header border-0">
+                    <h6 class="mb-0">My projects</h6>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">Project</th>
+                                <th scope="col" class="sort" data-sort="budget">Tasks</th>
+                                <th scope="col" class="sort" data-sort="status">Status</th>
+                                <th scope="col" class="sort" data-sort="completion">Completion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-1.png" class="avatar  rounded-circle avatar-sm">
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="overview.html" class="name mb-0 h6 text-sm">Purpose Website UI</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    1
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-warning"></i>
+                                        <span class="status">pending</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">60%</span>
+                                        <div>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-2.png" class="avatar  rounded-circle avatar-sm">
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="overview.html" class="name mb-0 h6 text-sm">Website Redesign</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    2
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-success"></i>
+                                        <span class="status">completed</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">100%</span>
+                                        <div>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-3.png" class="avatar  rounded-circle avatar-sm">
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="overview.html" class="name mb-0 h6 text-sm">Webpixels Website</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    3
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-danger"></i>
+                                        <span class="status">delayed</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">72%</span>
+                                        <div>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-4.png" class="avatar  rounded-circle avatar-sm">
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="overview.html" class="name mb-0 h6 text-sm">Purpose Application UI</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    4
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-info"></i>
+                                        <span class="status">on schedule</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">90%</span>
+                                        <div>
+                                            <div class="progress" style="width: 100px;">
+                                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-xl-7 d-sm-flex flex-sm-column">
+            <div class="row flex-sm-fill">
+                <div class="col-sm-4">
+                    <div class="card card-fluid">
+                        <div class="card-body text-center">
+                            <div class="avatar-parent-child">
+                                <a href="#" class="avatar avatar-lg rounded-circle">
+                                    <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg">
+                                </a>
+                                <span class="avatar-child avatar-badge bg-success"></span>
+                            </div>
+                            <h5 class="h6 mt-4 mb-0">John Sullivan</h5>
+                            <a href="#" class="d-block text-sm text-muted mb-3">john.sullivan</a>
+                            <div class="actions d-flex justify-content-between px-4">
+                                <a href="#" class="action-item">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-phone"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card card-fluid">
+                        <div class="card-body text-center">
+                            <div class="avatar-parent-child">
+                                <a href="#" class="avatar avatar-lg rounded-circle">
+                                    <img alt="Image placeholder" src="../assets/img/theme/light/team-2-800x800.jpg">
+                                </a>
+                                <span class="avatar-child avatar-badge bg-warning"></span>
+                            </div>
+                            <h5 class="h6 mt-4 mb-0">Heather Wright</h5>
+                            <a href="#" class="d-block text-sm text-muted mb-3">heather.wright</a>
+                            <div class="actions d-flex justify-content-between px-4">
+                                <a href="#" class="action-item">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-phone"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card card-fluid">
+                        <div class="card-body text-center">
+                            <div class="avatar-parent-child">
+                                <a href="#" class="avatar avatar-lg rounded-circle">
+                                    <img alt="Image placeholder" src="../assets/img/theme/light/team-3-800x800.jpg">
+                                </a>
+                                <span class="avatar-child avatar-badge bg-danger"></span>
+                            </div>
+                            <h5 class="h6 mt-4 mb-0">James Lewis</h5>
+                            <a href="#" class="d-block text-sm text-muted mb-3">james.lewis</a>
+                            <div class="actions d-flex justify-content-between px-4">
+                                <a href="#" class="action-item">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-phone"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-sm-fill">
+                <div class="col-sm-4">
+                    <div class="card card-fluid">
+                        <div class="card-body text-center">
+                            <div class="avatar-parent-child">
+                                <a href="#" class="avatar avatar-lg rounded-circle">
+                                    <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg">
+                                </a>
+                                <span class="avatar-child avatar-badge bg-success"></span>
+                            </div>
+                            <h5 class="h6 mt-4 mb-0">John Snow</h5>
+                            <a href="#" class="d-block text-sm text-muted mb-3">john.snow</a>
+                            <div class="actions d-flex justify-content-between px-4">
+                                <a href="#" class="action-item">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-phone"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card card-fluid">
+                        <div class="card-body text-center">
+                            <div class="avatar-parent-child">
+                                <a href="#" class="avatar avatar-lg rounded-circle">
+                                    <img alt="Image placeholder" src="../assets/img/theme/light/team-2-800x800.jpg">
+                                </a>
+                                <span class="avatar-child avatar-badge bg-success"></span>
+                            </div>
+                            <h5 class="h6 mt-4 mb-0">John Michael</h5>
+                            <a href="#" class="d-block text-sm text-muted mb-3">john.michael</a>
+                            <div class="actions d-flex justify-content-between px-4">
+                                <a href="#" class="action-item">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-phone"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card card-fluid">
+                        <div class="card-body text-center">
+                            <div class="avatar-parent-child">
+                                <a href="#" class="avatar avatar-lg rounded-circle">
+                                    <img alt="Image placeholder" src="../assets/img/theme/light/team-3-800x800.jpg">
+                                </a>
+                                <span class="avatar-child avatar-badge bg-warning"></span>
+                            </div>
+                            <h5 class="h6 mt-4 mb-0">Monroe Parker</h5>
+                            <a href="#" class="d-block text-sm text-muted mb-3">monroe.parker</a>
+                            <div class="actions d-flex justify-content-between px-4">
+                                <a href="#" class="action-item">
+                                    <i class="far fa-envelope"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-phone"></i>
+                                </a>
+                                <a href="#" class="action-item">
+                                    <i class="far fa-share-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <!-- Calendar -->
+            <div class="card widget-calendar">
+                <div class="card-header">
+                    <div class="text-sm text-muted mb-1 widget-calendar-year"></div>
+                    <div class="h5 mb-0 widget-calendar-day"></div>
+                </div>
+                <!-- Calendar -->
+                <div data-toggle="widget-calendar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+@*<link rel="stylesheet" type="text/css" href="~/Content/app-assets/fonts/simple-line-icons/style.css">
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css">
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/charts/morris.css">
+<div class="content-body">
+    <!-- Revenue, Hit Rate & Deals -->
+    <div class="row">
+        <div class="col-xl-6 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Revenue</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body pt-0">
+                        <div class="row mb-1">
+                            <div class="col-6 col-md-4">
+                                <h5>Current week</h5>
+                                <h2 class="danger">$82,124</h2>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <h5>Previous week</h5>
+                                <h2 class="text-muted">$52,502</h2>
+                            </div>
+                        </div>
+                        <div class="chartjs">
+                            <canvas id="thisYearRevenue" width="400" class="position-absolute"></canvas>
+                            <canvas id="lastYearRevenue" width="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-12">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="card pull-up">
+                        <div class="card-header bg-hexagons">
+                            <h4 class="card-title">Hit Rate <span class="danger">-12%</span></h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show bg-hexagons">
+                            <div class="card-body pt-0">
+                                <div class="chartjs">
+                                    <canvas id="hit-rate-doughnut" height="275"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card pull-up">
+                        <div class="card-content collapse show bg-gradient-directional-danger ">
+                            <div class="card-body bg-hexagons-danger">
+                                <h4 class="card-title white">
+                                    Deals <span class="white">-55%</span> <span class="float-right"><span class="white">152</span><span class="red lighten-4">/200</span></span>
+                                </h4>
+                                <div class="chartjs">
+                                    <canvas id="deals-doughnut" height="275"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="card pull-up">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="media-body text-left">
+                                        <h6 class="text-muted">Order Value </h6>
+                                        <h3>$ 88,568</h3>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="icon-trophy success font-large-2 float-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="card pull-up">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="media-body text-left">
+                                        <h6 class="text-muted">Calls</h6>
+                                        <h3>3,568</h3>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="icon-call-in danger font-large-2 float-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Revenue, Hit Rate & Deals -->
+    <!-- Emails Products & Avg Deals -->
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Emails</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body pt-0">
+                        <p>Open rate <span class="float-right text-bold-600">89%</span></p>
+                        <div class="progress progress-sm mt-1 mb-0 box-shadow-1">
+                            <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <p class="pt-1">
+                            Sent <span class="float-right"><span class="text-bold-600">310</span>/500</span>
+                        </p>
+                        <div class="progress progress-sm mt-1 mb-0 box-shadow-1">
+                            <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Top Products</h4>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a href="#">Show all</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="border-top-0">iPhone X</th>
+                                        <td class="border-top-0 text-right">2245</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">One Plus</th>
+                                        <td class="text-right">1850</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Samsung S7</th>
+                                        <td class="text-right">1550</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Average Deal Size</h4>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-md-6 col-12 border-right-blue-grey border-right-lighten-5 text-center">
+                                <h6 class="danger text-bold-600">-30%</h6>
+                                <h4 class="font-large-2 text-bold-400">$12,536</h4>
+                                <p class="blue-grey lighten-2 mb-0">Per rep</p>
+                            </div>
+                            <div class="col-md-6 col-12 text-center">
+                                <h6 class="success text-bold-600">12%</h6>
+                                <h4 class="font-large-2 text-bold-400">$18,548</h4>
+                                <p class="blue-grey lighten-2 mb-0">Per team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Emails Products & Avg Deals -->
+    <!-- Total earning & Recent Sales  -->
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <div class="card-content">
+                    <div class="earning-chart position-relative">
+                        <div class="chart-title position-absolute mt-2 ml-2">
+                            <h1 class="display-4">$1,596</h1>
+                            <span class="text-muted">Total Earning</span>
+                        </div>
+                        <canvas id="earning-chart" class="height-450"></canvas>
+                        <div class="chart-stats position-absolute position-bottom-0 position-right-0 mb-2 mr-3">
+                            <a href="#" class="btn round btn-danger mr-1 btn-glow">Statistics <i class="ft-bar-chart"></i></a> <span class="text-muted">for the <a href="#" class="danger darken-2">last year.</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="recent-sales" class="col-12 col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Recent Sales</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a class="btn btn-sm btn-danger box-shadow-2 round btn-min-width pull-right" href="invoice-summary.html" target="_blank">View all</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content mt-1">
+                    <div class="table-responsive">
+                        <table id="recent-orders" class="table table-hover table-xl mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">Product</th>
+                                    <th class="border-top-0">Customers</th>
+                                    <th class="border-top-0">Categories</th>
+                                    <th class="border-top-0">Popularity</th>
+                                    <th class="border-top-0">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-truncate">iPhone X</td>
+                                    <td class="text-truncate p-1">
+                                        <ul class="list-unstyled users-list m-0">
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-4.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-5.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-6.png" alt="Avatar">
+                                            </li>
+                                            <li class="avatar avatar-sm">
+                                                <span class="badge badge-info">+8 more</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-danger round">Mobile</button>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                            <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-truncate">$ 1200.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-truncate">iPad</td>
+                                    <td class="text-truncate p-1">
+                                        <ul class="list-unstyled users-list m-0">
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-7.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-8.png" alt="Avatar">
+                                            </li>
+                                            <li class="avatar avatar-sm">
+                                                <span class="badge badge-info">+5 more</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-success round">Tablet</button>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                            <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-truncate">$ 1190.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-truncate">OnePlus</td>
+                                    <td class="text-truncate p-1">
+                                        <ul class="list-unstyled users-list m-0">
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-1.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-2.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Rebecca Jones" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-3.png" alt="Avatar">
+                                            </li>
+                                            <li class="avatar avatar-sm">
+                                                <span class="badge badge-info">+3 more</span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-danger round">Mobile</button>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                            <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-truncate">$ 999.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-truncate">ZenPad</td>
+                                    <td class="text-truncate p-1">
+                                        <ul class="list-unstyled users-list m-0">
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-11.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-12.png" alt="Avatar">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-success round">Tablet</button>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                            <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-truncate">$ 1150.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-truncate">Pixel 2</td>
+                                    <td class="text-truncate p-1">
+                                        <ul class="list-unstyled users-list m-0">
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-6.png" alt="Avatar">
+                                            </li>
+                                            <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Willie Torres" class="avatar avatar-sm pull-up">
+                                                <img class="media-object rounded-circle" src="~/Content/app-assets/images/portrait/small/avatar-s-4.png" alt="Avatar">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-danger round">Mobile</button>
+                                    </td>
+                                    <td>
+                                        <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                                            <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-truncate">$ 1180.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<script src="~/Content/app-assets/vendors/js/charts/chart.min.js"></script>
+<script src="~/Content/app-assets/vendors/js/charts/raphael-min.js"></script>
+<script src="~/Content/app-assets/vendors/js/charts/morris.min.js"></script>
+<script src="~/Content/app-assets/vendors/js/charts/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+<script src="~/Content/app-assets/vendors/js/charts/jvector/jquery-jvectormap-world-mill.js"></script>
+
+<script src="~/Content/app-assets/js/scripts/pages/dashboard-sales.js"></script>*@

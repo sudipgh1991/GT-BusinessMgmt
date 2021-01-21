@@ -1,0 +1,1307 @@
+﻿
+@{
+    ViewBag.Title = "ClientWiseSMME2";
+    Layout = "~/Views/Shared/_LayoutNewForCheckDatatable.cshtml";
+}
+  <!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 mb-3 mb-md-0">
+            <h5 class="h3 font-weight-400 mb-0 text-white">Moning, Heather!</h5>
+            <span class="text-sm text-white opacity-8">Have a nice day!</span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-header">
+                <h6 class="mb-0">Assign SMME</h6>
+            </div>
+            <div class="card-body">
+               
+                <div class="content-detached">
+                    <div class="content-body">
+                        <div class="content-overlay"></div>
+                      
+                        <div class="row">
+                           
+                                        <div class="card-body">
+                                            <!-- Task List table -->                                           
+                                            <div class="table-responsive">
+                                                <table id="users-contacts" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle text-center">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmallall">
+                                                                    <label class="custom-control-label" for="checkboxsmallall"></label>
+                                                                </div>
+                                                            </th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone</th>
+                                                            <th>Favorite</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall1">
+                                                                    <label class="custom-control-label" for="checkboxsmall1"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Alice Collins</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">alice@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+658-254-256</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop2" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall2">
+                                                                    <label class="custom-control-label" for="checkboxsmall2"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-11.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Margaret Govan</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">margaret@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+125-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop3" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right secondary"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop3" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall3">
+                                                                    <label class="custom-control-label" for="checkboxsmall3"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-14.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Eugene Woods</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">eugene@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+987-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop4" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop4" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall4">
+                                                                    <label class="custom-control-label" for="checkboxsmall4"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Russell Bryant</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">russell@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+235-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop5" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop5" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall5">
+                                                                    <label class="custom-control-label" for="checkboxsmall5"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Cynthia Tucker</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">cynthia@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+987-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop6" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop6" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall6">
+                                                                    <label class="custom-control-label" for="checkboxsmall6"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-5.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Scott Marshall</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">scott@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+954-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop7" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop7" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall7">
+                                                                    <label class="custom-control-label" for="checkboxsmall7"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-8.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Catherine Smith</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">catherine@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+254-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop8" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop8" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall8">
+                                                                    <label class="custom-control-label" for="checkboxsmall8"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-off rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-7.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Eric Howard</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">eric@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+545-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop9" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop9" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall9">
+                                                                    <label class="custom-control-label" for="checkboxsmall9"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-9.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Donald Watkins</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">donald@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+987-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop10" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop10" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall10">
+                                                                    <label class="custom-control-label" for="checkboxsmall10"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-10.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Brittany Barnes</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">brittany@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+632-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop11" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop11" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall11">
+                                                                    <label class="custom-control-label" for="checkboxsmall11"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-5.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Andrew Marsh</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">andrew@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+932-741-123</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop12" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop12" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall12">
+                                                                    <label class="custom-control-label" for="checkboxsmall12"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-18.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Cherry Smith</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">cherry@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+296-021-604</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop13" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop13" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall13">
+                                                                    <label class="custom-control-label" for="checkboxsmall13"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-off rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-17.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Erica Red</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">erica@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+595-680-123</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop14" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop14" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall14">
+                                                                    <label class="custom-control-label" for="checkboxsmall14"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-9.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Will Trumpt</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">will@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+289-614-504</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop15" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop15" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall15">
+                                                                    <label class="custom-control-label" for="checkboxsmall15"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-10.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Verty Barny</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">verty@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+132-954-114</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop16" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop16" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall16">
+                                                                    <label class="custom-control-label" for="checkboxsmall16"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Steffy Agile</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">steffy@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+699-654-238</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop17" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop17" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall17">
+                                                                    <label class="custom-control-label" for="checkboxsmall17"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Meggi Jelly</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">meggi@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+932-854-554</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop18" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop18" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall18">
+                                                                    <label class="custom-control-label" for="checkboxsmall18"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-4.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Ken Woodsy</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">ken@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+896-320-964</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop19" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop19" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall19">
+                                                                    <label class="custom-control-label" for="checkboxsmall19"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-13.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Rushee Brent</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">rushee@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+135-614-594</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop20" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop20" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall20">
+                                                                    <label class="custom-control-label" for="checkboxsmall20"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Sinthia Tecker</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">Sinthia@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+987-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop21" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop21" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall21">
+                                                                    <label class="custom-control-label" for="checkboxsmall21"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-4.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Rose Wends</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">rose@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+387-694-567</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop22" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop22" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall22">
+                                                                    <label class="custom-control-label" for="checkboxsmall22"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="name media-heading">Grees Rebet</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">grees@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+295-634-567</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop23" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop23" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall23">
+                                                                    <label class="custom-control-label" for="checkboxsmall23"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-16.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Chimmi React</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">chimmi@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+997-684-565</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop24" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop24" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall24">
+                                                                    <label class="custom-control-label" for="checkboxsmall24"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-22.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Andy Chews</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">andy@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+987-478-965</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop25" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop25" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall25">
+                                                                    <label class="custom-control-label" for="checkboxsmall25"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Missy Loen</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">missi@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+987-654-564</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop26" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop26" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall26">
+                                                                    <label class="custom-control-label" for="checkboxsmall26"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-5.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Prezi Henz</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">prezi@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+194-854-857</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop27" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop27" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall27">
+                                                                    <label class="custom-control-label" for="checkboxsmall27"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-8.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">John Stric</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">john@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+154-704-904</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop28" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop28" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall28">
+                                                                    <label class="custom-control-label" for="checkboxsmall28"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-off rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-7.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Creta Hord</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">creta@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+165-651-594</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop29" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop29" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall29">
+                                                                    <label class="custom-control-label" for="checkboxsmall29"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-9.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Daizy kigs</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">daizy@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+627-054-524</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite active"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop30" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop30" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="checkboxsmall30">
+                                                                    <label class="custom-control-label" for="checkboxsmall30"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="media">
+                                                                    <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="app-assets/images/portrait/small/avatar-s-10.png" alt="avatar"><i></i></span></div>
+                                                                    <div class="media-body media-middle">
+                                                                        <a class="media-heading name">Lara Barndy</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="email" href="mailto:email@example.com">lara@example.com</a>
+                                                            </td>
+                                                            <td class="phone">+502-611-569</td>
+                                                            <td class="text-center">
+                                                                <div class="favorite"></div>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+                                                                <a class="danger delete mr-1"><i class="la la-trash-o"></i></a>
+                                                                <span class="dropdown">
+                                                                    <a id="btnSearchDrop31" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle dropdown-menu-right"><i class="la la-ellipsis-v"></i></a>
+                                                                    <span aria-labelledby="btnSearchDrop31" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                                        <a data-toggle="modal" data-target="#EditContactModal" class="dropdown-item edit">
+                                                                            <i class="ft-edit-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                        <a href="#" class="dropdown-item delete"><i class="ft-trash-2"></i> Delete</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle primary"></i> Projects</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle info"></i> Team</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle warning"></i> Clients</a>
+                                                                        <a href="#" class="dropdown-item"><i class="ft-plus-circle success"></i> Friends</a>
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone</th>
+                                                            <th>Favorite</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Content-->
+                <div class="sidenav-overlay"></div>
+                <div class="drag-target"></div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

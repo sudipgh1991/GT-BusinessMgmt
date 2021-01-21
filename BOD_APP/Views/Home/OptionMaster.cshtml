@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "OptionMaster";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+
+
+    <!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Option Master</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-user"></i>
+                            <div class="media-body ml-3">
+                                <a href="settings.html" class="stretched-link h6 mb-1">Settings</a>
+                                <p class="mb-0 text-sm">Details about your personal information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div class="media-body ml-3">
+                                <a href="addresses.html" class="stretched-link h6 mb-1">Addresses</a>
+                                <p class="mb-0 text-sm">Faster checkout with saved addresses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a href="billing.html" class="stretched-link h6 mb-1">Billing</a>
+                                <p class="mb-0 text-sm">Speed up your shopping experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-file-invoice"></i>
+                            <div class="media-body ml-3">
+                                <a href="payment-history.html" class="stretched-link h6 mb-1">Payment history</a>
+                                <p class="mb-0 text-sm">See previous orders and invoices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-bell"></i>
+                            <div class="media-body ml-3">
+                                <a href="notifications.html" class="stretched-link h6 mb-1">Notifications</a>
+                                <p class="mb-0 text-sm">Choose what notification you will receive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+    
+        <form  id="frmOptionMaster">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="hidden" id="Id" name="Id" />
+                                <label class="form-control-label">
+                                    Option Master Name
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Option Master Name">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Option Type
+                                </label>
+                                <span style="color: red">*</span>
+                                @*<select id="OTM_Id" name="OTM_Id" class="form-control select2-hidden-accessible" data-toggle="select" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>*@
+                                <select class="form-control" id="OTM_Id" name="OTM_Id"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Description
+                                </label>
+                                <textarea type="text" class="form-control" id="Description" name="Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- Buttons -->
+                    <div class="text-right">
+                        <a href="/Home/OptionMasterList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnIcnSubmit">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var URLList = {
+
+        SaveRecord: '@Url.Action("OptionMaster", "ScriptJson")',
+        GetEntityMasterById: '@Url.Action("GetGlobalMaster", "ScriptJson")'
+    };
+
+    var globalData = {
+        TransactionType: 'Select',
+        Param: 'OM_Id',
+        //paramValue: parseInt(id),
+        StoreProcedure: 'OptionMaster_USP'
+    };
+</script>
+
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="~/Scripts/custom/OptionMaster.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

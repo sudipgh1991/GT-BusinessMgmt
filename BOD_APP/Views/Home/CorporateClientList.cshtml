@@ -1,0 +1,131 @@
+﻿@model IList<BOD_DAL.Models.CorporateClient>
+@{
+    ViewBag.Title = "CorporateClientList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">All Enterprise</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                @*<span class="h4 text-info mb-0 mr-2" id="count"></span>*@
+                
+            </div>
+            <!-- Optional link -->
+            <a href="/Home/CorporateClientCardList" class="text-sm text-info d-none d-lg-inline-block ml-4">See card</a>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+           
+            @*<form class="bg-neutral rounded-pill d-inline-block">
+                <div class="input-group input-group-sm input-group-merge input-group-flush">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent"><i class="fa fa-filter"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-flush" placeholder="Filter results">
+                </div>
+            </form>*@
+            <a href="/Home/CorporateClient" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus" data-toggle="tooltip" title="Add new Enterprise"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+  <!-- Stats -->
+
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-body">
+                <!-- data table goes here -->
+                <div class="table-responsive">
+                    <table id="active-accounts" class="table alt-pagination table-wrapper">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0" style="width:40%">Name</th>
+                                <th class="border-top-0" style="width:20%">Trading Name</th>
+                                <th class="border-top-0" style="width:15%">Phone No</th>
+                                <th class="border-top-0" style="width:10%">Status</th>
+                                <th class="border-top-0" style="width:5%">Assesment</th>
+                                <th class="border-top-0" style="width:5%">Employee</th>
+                                <th class="border-top-0" style="width:5%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; foreach (var item in Model)
+                             {
+                                <tr>
+                                    <td class="align-middle" style="vertical-align:middle !important">
+                                        <div class="media align-items-center">
+                                            <div>
+                                                <div class="avatar-parent-child">
+                                                    @if (item.CC_Logo == "")
+                                                    {
+                                                        <img alt="Image placeholder" src="~/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <img alt="Image placeholder" src="@item.CC_Logo" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="media-body ml-4">
+                                                <a href="/Home/CorpProfile?id=@item.CC_Id" class="name h6 mb-0 text-sm">@item.CC_CorporateName</a>
+                                                <small class="d-block font-weight-bold">@item.CC_Email</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="vertical-align:middle !important">@item.CC_CorporateName</td>
+                                    <td style="vertical-align:middle !important">@item.CC_PhoneNo</td>
+                                    <td class="align-middle">
+                                        <div class="ac-status badge badge-success badge-pill badge-sm">
+                                            Active
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="/Project/AsessmentQuestion?userId=@item.UserId&name=C"><i class="fa fa-file fa-2x" data-toggle="tooltip" title="View Assesment Answers"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="/Home/EmployeeMaster?CCId=@item.UserId&Mode=O"><i class="fa fa-users fa-2x" data-toggle="tooltip" title="Manage Employee"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="CorporateClient?Id=@item.CC_Id"><i class="fa fa-cog fa-2x" data-toggle="tooltip" title="Edit Enterprise Details"></i></a>
+                                        <a href="CorporateClient?Id=@item.CC_Id&mode=v" data-toggle="tooltip" title="View Enterprise Details"><i class="fa fa-address-card fa-2x"></i></a>
+
+                                    </td>
+                                </tr>
+                             }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#btnGo").click(function () {
+            window.location.href = 'CorporateClient';
+        });
+    });
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+

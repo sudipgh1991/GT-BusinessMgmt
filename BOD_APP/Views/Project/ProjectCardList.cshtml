@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "ProjectCardList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-12">
+        <!-- Page title -->
+        <div class="page-title">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                    <!-- Page title + Go Back button -->
+                    <div class="d-inline-block">
+                        <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">All Project </h5>
+                    </div>
+                    <!-- Additional info -->
+                    <div class="align-items-center ml-4 d-inline-flex">
+
+                    </div>
+                    <!-- Optional link -->
+                    <a href="/Project/ProjectList" class="text-sm text-info d-none d-lg-inline-block ml-4">See table</a>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                    <!-- Filter input -->
+                    @*<form class="bg-neutral rounded-pill d-inline-block">
+                        <div class="input-group input-group-sm input-group-merge input-group-flush">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-transparent"><i class="fa fa-filter"></i></span>
+                            </div>
+                            <input type="text" class="form-control form-control-flush" placeholder="Filter results">
+                        </div>
+                    </form>*@
+                    <a href="/Project/Project" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                        <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="dvProject">
+            
+           
+        </div>
+
+        <div class="modal fade fixed-right" id="modalincomeMenu" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-vertical" role="document">
+                <div class="modal-content">
+                    <div class="modal-header align-items-center">
+                        <div class="modal-title">
+                            <h6 class="mb-0">Manage Income</h6>
+                          
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="scrollbar-inner">
+                        <!-- Chat contacts -->
+                        <div class="list-group list-group-flush" id="dvIMnu">
+
+                            
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade fixed-right" id="modalExpenMenu" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-vertical" role="document">
+                <div class="modal-content">
+                    <div class="modal-header align-items-center">
+                        <div class="modal-title">
+                            <h6 class="mb-0">Manage Expenses</h6>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="scrollbar-inner">
+                        <!-- Chat contacts -->
+                        <div class="list-group list-group-flush" id="dvEMnu">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="~/Scripts/custom/ProjectCard.js"></script>

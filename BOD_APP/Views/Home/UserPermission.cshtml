@@ -1,0 +1,334 @@
+﻿@model BOD_DAL.Models.UserModel
+@{
+    ViewBag.Title = "UserPermission";
+    //Layout = "~/Views/Shared/_UserProfile.cshtml";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+@*<section class="users-edit">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <ul class="nav nav-tabs mb-2" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center active" id="account-tab" data-toggle="tab" href="#account" aria-controls="account" role="tab" aria-selected="true">
+                            <i class="ft-user mr-25"></i><span class="d-none d-sm-block">Account</span>
+                        </a>
+                    </li>
+                   
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
+                        
+                        <form novalidate="">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Super Admin</h5>
+                                        <fieldset>
+                                            <div class="float-left">
+                                                <input type="checkbox" class="switch" id="switch9" data-icon-cls="fa" data-off-icon-cls="ft-thumbs-down"
+                                                       data-on-icon-cls="ft-thumbs-up" />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <input type="hidden" id="User_ID" name="User_ID" value="@ViewBag.userId" />
+                                        <div class="controls">
+                                            <label>LoginId</label>
+                                            <input type="text" class="form-control" placeholder="LoginId" value="@Model.UserLoginID" disabled>
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        <div class="controls">
+                                            <label>Password</label>
+                                            <input type="text" class="form-control" id="password">
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <label>User Name</label>
+                                            <input type="text" class="form-control" placeholder="Name" value="@Model.UserName" disabled>
+                                            <div class="help-block"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="controls">
+                                            <label>Confirm Password</label>
+                                            <input type="text" class="form-control" id="confirm_password">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="table-responsive">
+                                        <table class="table mt-1">
+                                            <thead>
+                                                <tr>
+                                                    <th>Menu Permission</th>
+                                                    <th colspan="100%">Choose Submenu</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{ int mid = 1;
+                                                 foreach (var MenuItem in Model.mainmenuLst)
+                                                 {
+                                                     var SubMenuItem = Model.submenuList.Where(m => m.MainMenuID == MenuItem.MenuId);
+                                                     var action = (ViewContext.RouteData.Values["action"] ?? "").ToString().ToLower();
+
+                                                     var controller = (ViewContext.RouteData.Values["controller"] ?? "").ToString().ToLower();
+                                                     string path = "/" + controller + "/" + action;
+                                                     string aa = path.Equals(MenuItem.MainMenuURL.ToLower()) ? "active" : "";
+                                                     string MenuStatus = "";
+                                                     string MenuCollapsibleStatus = "";
+                                                    <tr>
+                                                        <td>
+                                                            <label>
+                                                                <input type="checkbox" id="menu_@MenuItem.MenuId" class="mainMenu" value="@MenuItem.MenuId" onclick="activateSubMenu(this, @mid)" @MenuItem.Checked />
+                                                                <span>@MenuItem.MainMenuItem</span>
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="100%">
+                                                            @if (SubMenuItem.Count() > 0)
+                                                            {
+                                                                foreach (var SubItem in SubMenuItem)
+                                                                {
+                                                                    <label>
+
+                                                                        <input type="checkbox" id="submenu_@SubItem.MenuId" class="subMenu submenu_@mid" value="@SubItem.MenuId" @SubItem.Checked />
+                                                                        <span>@SubItem.SubMenuItem</span>
+                                                                    </label><br />
+                                                                }
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                            mid++;
+                                                 }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                                    <button type="button" onclick="SaveRecord()" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">
+                                        Save
+                                        changes
+                                    </button>
+                                    <button type="reset" class="btn btn-light">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+
+
+
+
+
+<div class="col-md-12">
+
+    <form>
+        <div class="card">
+            <div class="card-body">
+              
+
+                <div class="row">
+                    <div class="col-md-10">
+                    </div>
+                    <div class="col-md-2">
+                        <h5>Super Admin</h5>
+                        <fieldset>
+                            <div class="float-left">
+                                <input type="checkbox" class="switch" id="switch9" data-icon-cls="fa" data-off-icon-cls="ft-thumbs-down" data-on-icon-cls="ft-thumbs-up" hidden=""><div class="btn-group" tabindex="0"><button is="0" type="button" tabindex="-1" class="btn active btn-danger"><span is="0" class="fa ft-thumbs-down"></span>&nbsp;No</button><button is="1" type="button" tabindex="-1" class="btn btn-default"><span is="0" class="fa ft-thumbs-up"></span>&nbsp;Yes</button></div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="hidden" id="User_ID" name="User_ID" value="@ViewBag.userId" />
+                            <label class="form-control-label">
+                                LoginId
+                            </label>
+                            <span style="color: red">*</span>
+                            <input type="text" class="form-control" placeholder="LoginId" value="@Model.UserLoginID" disabled>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label class="form-control-label">
+                                User Name
+                            </label>
+                            <span style="color: red">*</span>
+                            <input type="text" class="form-control" placeholder="Name" value="@Model.UserName" disabled>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label class="form-control-label">
+                                Password
+                            </label>
+                            <span style="color: red">*</span>
+                            <input type="text" class="form-control" placeholder="Enter password" id="password">
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label class="form-control-label">
+                                Confirm Password
+                            </label>
+                            <span style="color: red">*</span>
+                            <input type="text" class="form-control" placeholder="Confirm password" id="confirm_password">
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+       
+                <div class="card card-fluid" style="height:100% !important">
+                    <div class="card-body" style="height:100% !important">
+                        <!-- data table goes here -->
+                        <div class="table-responsive">
+                            <table id="active-accounts" class="table table-wrapper">
+                                <thead>
+                                    <tr>
+                                        <th>Menu Permission</th>
+                                        <th colspan="100%">Choose Submenu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ int mid = 1;
+                                     foreach (var MenuItem in Model.mainmenuLst)
+                                     {
+                                         var SubMenuItem = Model.submenuList.Where(m => m.MainMenuID == MenuItem.MenuId);
+                                         var action = (ViewContext.RouteData.Values["action"] ?? "").ToString().ToLower();
+
+                                         var controller = (ViewContext.RouteData.Values["controller"] ?? "").ToString().ToLower();
+                                         string path = "/" + controller + "/" + action;
+                                         string aa = path.Equals(MenuItem.MainMenuURL.ToLower()) ? "active" : "";
+                                         string MenuStatus = "";
+                                         string MenuCollapsibleStatus = "";
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    <input type="checkbox" id="menu_@MenuItem.MenuId" class="mainMenu" value="@MenuItem.MenuId" onclick="activateSubMenu(this, @mid)" @MenuItem.Checked />
+                                                    <span>@MenuItem.MainMenuItem</span>
+                                                </label>
+                                            </td>
+                                            <td colspan="100%">
+                                                @if (SubMenuItem.Count() > 0)
+                                                {
+                                                    foreach (var SubItem in SubMenuItem)
+                                                    {
+                                                        <label>
+
+                                                            <input type="checkbox" id="submenu_@SubItem.MenuId" class="subMenu" name="submenu_@mid" value="@SubItem.MenuId" @SubItem.Checked />
+                                                            <span>@SubItem.SubMenuItem</span>
+                                                        </label><br />
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                                mid++;
+                                     }
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            
+
+
+
+        <div class="card">
+            <div class="card-body">
+
+                <!-- Buttons -->
+                <div class="text-right">
+                    <a href="/Home/OptionMasterList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                    <button type="button" class="btn btn-sm btn-primary rounded-pill" onclick="SaveRecord()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+
+
+<script src="~/Scripts/custom/User_Permission.js"></script>
+
+<script type="text/javascript">
+
+    function activateSubMenu(menu, mid) {
+        if ($(menu).is(':checked')) {
+           // $('submenu_' + mid).removeAttr('disabled');
+            'input:checkbox[class=mainMenu]'
+            $('input:checkbox[name=submenu_' + mid + ']').removeAttr('disabled');
+        }
+        else {
+            // $('submenu_' + mid).prop('checked', false).attr('disabled', 'disabled');
+            $('input:checkbox[name=submenu_' + mid + ']').prop('checked', false).attr('disabled', 'disabled');
+        }
+    }
+
+</script>
+
+
+<link href="~/Content/app-assets/css/plugins/forms/switch.css" rel="stylesheet" />
+<link href="~/Content/app-assets/css/core/colors/palette-switch.min.css" rel="stylesheet" />
+<script src="~/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+<script src="~/app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js"></script>
+<script src="~/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+
+<link href="~/Content/app-assets/css/plugins/forms/switch.min.css" rel="stylesheet" />
+<script src="~/app-assets/js/scripts/forms/switch.min.js"></script>
+<script src="~/app-assets/js/scripts/forms/switchery.min.js"></script>
+<script src="~/app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js"></script>
+<script src="~/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+<script src="~/app-assets/js/scripts/forms/switch.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -1,0 +1,250 @@
+﻿@model IList<BOD_DAL.Models.QA>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
+    <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
+    <meta name="author" content="PIXINVENT">
+    <title>GROWTHties Holdings</title>
+    <link rel="apple-touch-icon" href="~/Content/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
+    <script src="~/Content/app-assets/js/core/libraries/jquery.min.js"></script>
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/icheck/icheck.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/icheck/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/pickers/daterange/daterangepicker.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/plugins/forms/checkboxes-radios.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/pages/under-maintenance.css">
+
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    <!-- END: Custom CSS-->
+</head>
+<!-- END: Head-->
+<!-- BEGIN: Body-->
+<body class="vertical-layout vertical-menu-modern 1-column  bg-maintenance-image blank-page" style="background-repeat:repeat-y" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="row flexbox-container">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="col-lg-10 col-md-8 col-10 box-shadow-2 p-0">
+                            <div class="card border-grey border-lighten-3 m-0">
+                                <div class="card-header border-0">
+                                    <div class="card-title text-center">
+                                        <div class="p-1"><img src="~/Content/app-assets/images/logo/logo-dark.png" alt="branding logo"></div>
+                                    </div>
+
+                                </div>
+                                <div class="card-content">
+
+                                    <div class="card-body pt-0">
+                                        <form action="/Home/Assesment" method="post">
+                                            <section id="validation">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                <h4 class="card-title"></h4>
+                                                                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
+                                                            </div>
+                                                            <div class="card-content collapse show">
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        @foreach (var item in ViewBag.QCategory)
+                                                                        {
+                                                                            var count = 0;
+                                                                            for (int i = 0; i < Model.Count; i++)
+                                                                            {
+
+                                                                                if (item.QC_Id == Model[i].QM_QC_Id)
+                                                                                {
+                                                                                    if (count == 0)
+                                                                                    {
+                                                                                        <div class="alert " style="width: 100%;">
+                                                                                            <h4 class="form-section" style="border-bottom:1px solid #666667">
+                                                                                                <i class="la la-tasks"></i>
+                                                                                                <strong>@item.QC_Name</strong>
+                                                                                            </h4>
+                                                                                        </div>
+                                                                                        count++;
+                                                                                    }
+                                                                                    if (Model[i].Type.ToString() == "T")
+                                                                                    {
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group">
+                                                                                                <label for="@Model[i].Answer">
+                                                                                                    @Model[i].Question
+                                                                                                    @if (@Model[i].Required == "required")
+                                                                                                    {
+                                                                                                        <span class="danger">*</span>
+                                                                                                    }
+                                                                                                </label>
+                                                                                                @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                                                                @Html.HiddenFor(model => @Model[i].QAId)
+                                                                                                @Html.HiddenFor(model => @Model[i].Question)
+                                                                                                @Html.HiddenFor(model => @Model[i].Type)
+                                                                                                @if (@Model[i].Required == "required")
+                                                                                                {
+                                                                                                    @Html.TextBoxFor(model => @Model[i].Answer, new { @class = "form-control required", @type = "text" })
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @Html.TextBoxFor(model => @Model[i].Answer, new { @class = "form-control", @type = "text" })
+                                                                                                }
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <hr />
+                                                                                    }
+                                                                                    else if (Model[i].Type.ToString() == "U")
+                                                                                    {
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group">
+
+                                                                                                <label for="@Model[i].Answer">
+                                                                                                    @Model[i].Question
+
+                                                                                                </label>
+                                                                                                @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                                                                @Html.HiddenFor(model => @Model[i].QAId)
+                                                                                                @Html.HiddenFor(model => @Model[i].Question)
+                                                                                                @Html.HiddenFor(model => @Model[i].Type)
+                                                                                                @Html.HiddenFor(model => @Model[i].Answer)
+                                                                                                @*@Html.TextBoxFor(model => @Model[i].Answer, new { @class = "form-control required", @type = "text" })*@
+                                                                                                <div class="media">
+
+                                                                                                    <div class="media-body mt-75">
+
+                                                                                                        <div class="controls">
+                                                                                                            @if (@Model[i].Required == "required")
+                                                                                                            {
+                                                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'QA[@i].Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" required>
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'QA[@i].Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp">
+                                                                                                            }
+
+
+
+                                                                                                        </div>
+                                                                                                        <p class="text-muted ml-75 mt-50">
+                                                                                                            <small>
+                                                                                                                Allowed .doc,.docx,.pdf, GIF or PNG. Max
+                                                                                                                size of
+                                                                                                                800kB
+                                                                                                            </small>
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <hr />
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="form-group" style="display: block;">
+                                                                                                <label for="@Model[i].Answer">
+                                                                                                    @Model[i].Question
+                                                                                                    <span class="danger"></span>
+                                                                                                </label>
+                                                                                                @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                                                                @Html.HiddenFor(model => @Model[i].QAId)
+                                                                                                @Html.HiddenFor(model => @Model[i].Question)
+                                                                                                @Html.HiddenFor(model => @Model[i].Type)
+                                                                                                <div class="skin skin-square">
+                                                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, true, new { @type = "radio", })
+                                                                                                    Yes
+                                                                                                    &nbsp;
+                                                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, false, new { @type = "radio", })
+                                                                                                    No
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <hr />
+
+                                                                                    }
+                                                                                }
+
+                                                                            }
+
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <span class="btn btn-danger btn-block mb-5 alert-msg" style="display:none;">Some thing is going wrong</span>
+                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                                                <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">
+                                                    Save
+                                                    changes
+                                                </button>
+
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/Content/app-assets/vendors/js/vendors.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/icheck/icheck.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/Content/app-assets/vendors/js/extensions/jquery.steps.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js"></script>
+    <script src="~/Content/app-assets/vendors/js/pickers/daterange/daterangepicker.js"></script>
+    <script src="~/Content/app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/Content/app-assets/js/core/app-menu.js"></script>
+    <script src="~/Content/app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page JS-->
+    <script src="~/Content/app-assets/js/scripts/forms/wizard-steps.js"></script>
+    <script src="~/Content/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+
+    <script src="~/Content/app-assets/js/scripts/forms/custom-file-input.min.js"></script>
+</body>
+<!-- END: Body-->
+</html>

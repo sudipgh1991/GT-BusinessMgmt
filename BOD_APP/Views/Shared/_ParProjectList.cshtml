@@ -1,0 +1,169 @@
+﻿<div class="col-lg-4 order-lg-2">
+    <div class="card">
+        <div class="list-group list-group-flush">
+            <div class="list-group-item">
+
+                <div class="media">
+                    <i class="fa fa-user"></i>
+                    <div class="media-body ml-3">
+                        <a href="settings.html" class="stretched-link h6 mb-1">Project:</a>
+                        <p class="mb-0 text-sm" id="projectName"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item">
+
+                <div class="media">
+                    <i class="fa fa-user"></i>
+                    <div class="media-body ml-3">
+                        <a href="settings.html" class="stretched-link h6 mb-1">Project Owner:</a>
+                        <p class="mb-0 text-sm" id="client"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item">
+
+                <div class="media">
+                    <i class="fa fa-user"></i>
+                    <div class="media-body ml-3">
+                        <a href="settings.html" class="stretched-link h6 mb-1">Start:</a>
+                        <p class="mb-0 text-sm" id="startdate"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item">
+
+                <div class="media">
+                    <i class="fa fa-user"></i>
+                    <div class="media-body ml-3">
+                        <a href="settings.html" class="stretched-link h6 mb-1">Due on:</a>
+                        <p class="mb-0 text-sm" id="enddate"></p>
+                    </div>
+                </div>
+            </div>
+          
+           
+            <div class="list-group-item">
+
+                <div class="media">
+                   
+                    <div class="media-body ml-3">
+                        @*<a href="settings.html" class="stretched-link h6 mb-1">Highest Qualification:</a>
+                        <p class="mb-0 text-sm" id="ParHq"></p>*@
+                        <a href="#" onclick="Print(@ViewBag.Id)" class="text-muted" data-toggle="tooltip" data-placement="bottom" title="Export as PDF"><i class="la la-file-pdf-o"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="list-group-item">
+
+                <div class="media">
+                    
+                    <div class="media-body ml-3">
+                        <span class="dropdown">
+                            <button id="btnSearchDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-danger btn-sm dropdown-toggle dropdown-menu-right">
+                                <i class="ft-file white"></i>
+                                Expenses
+                            </button>
+                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+                                <a href="ProjectWiseExpenses?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Add Expenses
+                                </a>
+
+                            </span>
+                        </span>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="list-group-item">
+
+                <div class="media">
+                  
+                    <div class="media-body ml-3">
+                        <span class="dropdown">
+                            <button id="btnSearchDrop2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-sm dropdown-toggle dropdown-menu-right">
+                                <i class="ft-file white"></i>
+                                Income
+                            </button>
+                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+                                <a href="ProjectWiseJobsFundGrant?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Jobs fund
+                                </a>
+                                <a href="MatchedFunding?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Matched Funding
+                                </a>
+                                <a href="OtherContributions?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Other Contributions
+                                </a>
+                                <a href="LoanFinancing?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Loan Financing
+                                </a>
+                                <a href="InKindContributions?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> In Kind Contributions
+                                </a>
+                                <a href="InterestIncome?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i>Interest Income
+                                </a>
+                                <a href="OtherEarnings?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Other Earnings
+                                </a>
+
+                            </span>
+                        </span>
+
+
+
+
+
+
+                        @*<div class="dropdown">
+                            <button id="btnSearchDrop2" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a href="ProjectWiseJobsFundGrant?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Jobs fund
+                                </a>
+                                <a href="MatchedFunding?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Matched Funding
+                                </a>
+                                <a href="OtherContributions?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Other Contributions
+                                </a>
+                                <a href="LoanFinancing?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Loan Financing
+                                </a>
+                                <a href="InKindContributions?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> In Kind Contributions
+                                </a>
+                                <a href="InterestIncome?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i>Interest Income
+                                </a>
+                                <a href="OtherEarnings?Id=@ViewData["id"]" class="dropdown-item">
+                                    <i class="la la-money"></i> Other Earnings
+                                </a>
+                            </div>
+                        </div>*@
+
+
+                        @*<div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,5 @@
+**.suo
+*.user
+BOD_APP/bin/
+BOD_APP/obj/
+.vs/

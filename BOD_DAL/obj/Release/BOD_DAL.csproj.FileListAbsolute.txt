@@ -1,0 +1,20 @@
+D:\Picture\BusinessOnDemand\BOD_DAL\bin\Release\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\BOD_DAL\bin\Release\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\BOD_DAL\obj\Release\BOD_DAL.csprojResolveAssemblyReference.cache
+D:\Picture\BusinessOnDemand\BOD_DAL\obj\Release\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\BOD_DAL\obj\Release\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_APPNew\BOD_DAL\bin\Release\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\Newtemp\BOD_APPNew\BOD_DAL\bin\Release\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_APPNew\BOD_DAL\obj\Release\BOD_DAL.csprojResolveAssemblyReference.cache
+D:\Picture\BusinessOnDemand\Newtemp\BOD_APPNew\BOD_DAL\obj\Release\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\Newtemp\BOD_APPNew\BOD_DAL\obj\Release\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\bin\Release\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\bin\Release\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\obj\Release\BOD_DAL.csprojResolveAssemblyReference.cache
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\obj\Release\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\obj\Release\BOD_DAL.pdb
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\bin\Release\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\bin\Release\BOD_DAL.pdb
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\obj\Release\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\obj\Release\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\obj\Release\BOD_DAL.pdb

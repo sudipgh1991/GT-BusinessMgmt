@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewBag.Title = "Training Phase";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+
+
+@{
+    string Role = "";
+    int? MainId = 0;
+    string name = "";
+    string logo = "/Content/app-assets/images/elements/no-image-icon.png";
+    BOD_DAL.Models.UserModel UserObj;
+    BOD_DAL.Models.UserModel UserObjA;
+    UserObjA = Session["UserDataModel"] as BOD_DAL.Models.UserModel;
+    UserObj = UserObjA;
+    if (UserObjA == null)
+    {
+        BOD_DAL.Models.UserModel UserObjC;
+        BOD_DAL.Models.UserModel UserObjE;
+        UserObjC = Session["CUserDataModel"] as BOD_DAL.Models.UserModel;
+        UserObjE = Session["EUserDataModel"] as BOD_DAL.Models.UserModel;
+
+
+        if ((UserObjC == null) && (UserObjE == null))
+        {
+            BOD_DAL.Models.UserModel UserObjSM;
+            UserObjSM = Session["SMUserDataModel"] as BOD_DAL.Models.UserModel;
+            UserObj = UserObjSM;
+            UserObj.Role = "SM";
+            logo = UserObjSM.Logo;
+            name = UserObjSM.UserName;
+            Role = UserObjSM.Role;
+            MainId = UserObjSM.UM_MainID;
+        }
+        else if (UserObjE != null)
+        {
+            UserObj = UserObjE;
+            UserObj.Role = "E";
+            logo = UserObjE.Logo;
+            name = UserObjE.UserName;
+            Role = UserObjE.Role;
+            MainId = UserObjE.UM_MainID;
+        }
+        else
+        {
+            UserObj = UserObjC;
+            UserObj.Role = "C";
+            logo = UserObjC.Logo;
+            name = UserObjC.UserName;
+            Role = UserObjC.Role;
+            MainId = UserObjC.UM_MainID;
+        }
+
+
+    }
+
+    var SessionModule = Session["AuthorisedModuleModel"] as IList<BOD_DAL.Models.AuthorisedModule>;
+    var SessionComapny = Session["CompanyModel"];
+}
+
+<div class="page-content">
+    <!-- Create project modal -->
+    <div class="modal fade" id="modal-project-create" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Project name -->
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            Event name
+                        </label>
+                        <input type="text" class="form-control" id="TP_Title">
+                        <input type="hidden" class="form-control" id="TP_Id">
+                    </div>
+                    
+                    
+                    
+                    
+                    <!-- Project date -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <!-- Start date -->
+                                <div class="form-group">
+                                    <label class="form-control-label">
+                                        Start date
+                                    </label>
+                                    <input type="date" class="form-control" id="TP_FromDate">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Start date -->
+                                <div class="form-group">
+                                    <label class="form-control-label">
+                                        End date
+                                    </label>
+                                    <input type="date" class="form-control" id="TP_ToDate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer text-right">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill mr-auto" data-dismiss="modal" id="btnSave">Save</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Training Phases</h5>
+                </div>
+                <!-- Additional info -->
+                <div class="align-items-center ml-4 d-inline-flex">
+                    <span class="h4 text-info mb-0 mr-2" id="traningName">xxxx</span>
+                </div>
+                <!-- Optional link -->
+                <a onclick="OpenEventCalender()" href="#" class="text-sm text-info d-none d-lg-inline-block ml-4">See calendar </a>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                @*<div class="actions actions-dark d-inline-block">
+                    <a href="#" class="action-item ml-md-4">
+                        <i class="far fa-file-export mr-2"></i>Export
+                    </a>
+                    <a href="#" class="action-item ml-3">
+                        <i class="far fa-cog mr-2"></i>Settings
+                    </a>
+                </div>*@
+                @if (Role != "E")
+                {
+                <a href="#modal-project-create" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4" data-toggle="modal">
+                    <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+                </a>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Listing -->
+    <div class="card">
+        <!-- Card header -->
+        <div class="card-header actions-toolbar border-0">
+            <div class="actions-search" id="actions-search">
+                <div class="input-group input-group-merge input-group-flush">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent"><i class="far fa-search"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-flush" placeholder="Type and hit enter ...">
+                    <div class="input-group-append">
+                        <a href="#" class="input-group-text bg-transparent" data-action="search-close" data-target="#actions-search"><i class="far fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center">
+                <div class="col">
+                    <h6 class="d-inline-block mb-0">Projects Phase</h6>
+                </div>
+                <div class="col text-right">
+                    <div class="actions">
+                        <a href="#" class="action-item mr-3" data-action="search-open" data-target="#actions-search"><i class="far fa-search"></i></a>
+                        <div class="dropdown mr-3">
+                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-filter"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">
+                                    <i class="far fa-sort-amount-down"></i>Newest
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="far fa-sort-alpha-down"></i>From A-Z
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="far fa-sort-alpha-up"></i>From Z-A
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dropdown" data-toggle="dropdown">
+                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-ellipsis-h"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(22px, 25px, 0px);">
+                                <a href="#" class="dropdown-item">Refresh</a>
+                                <a href="#" class="dropdown-item">Manage Widgets</a>
+                                <a href="#" class="dropdown-item">Settings</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table align-items-center">
+                <thead>
+                    <tr>                        
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="list" id="TraningPhaseData">
+                    
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+<script src="~/Scripts/custom/TraningPhase.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+
+

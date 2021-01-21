@@ -1,0 +1,187 @@
+﻿@model BOD_DAL.Models.ProjectIndicator
+@{
+    ViewBag.Title = "PerformanceIndicatorCard";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Performance Indicator</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <div class="actions actions-dark d-inline-block">
+                <a href="#" class="action-item ml-md-4">
+                    <i class="fa fa-file-export mr-2"></i>Export
+                </a>
+                <a href="#" class="action-item ml-3">
+                    <i class="fa fa-cog mr-2"></i>Settings
+                </a>
+            </div>
+            <a href="#" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+  <!-- Listing -->
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">No. Of Projects</h6>
+                        <span class="h5 font-weight-bold mb-0 counter" data-from="0" data-to="@Model.ProjectList.Count" data-speed="2500" data-refresh-interval="100"></span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-primary text-white rounded-circle icon-shape">
+                            <i class="fa fa-hashtag"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-success mr-2"><i class="fa fa-arrow-up"></i>10</span>
+                    <span class="text-nowrap">Section Showing number of projects.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Total Indicators</h6>
+                        <span class="h5 font-weight-bold mb-0 counter" data-from="0" data-to="@Model.PI_TotalIndicator" data-speed="2500" data-refresh-interval="100"></span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-warning text-white rounded-circle icon-shape">
+                            <i class="fa fa-tags"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-success mr-2"><i class="fa fa-arrow-up"></i> 25%</span>
+                    <span class="text-nowrap">All current Indicators</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--<div class="col-lg-4">
+        <div class="card card-stats">-->
+    <!-- Card body -->
+    <!--<div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">No. Of Positive Indicator</h6>
+                        <span class="h5 font-weight-bold mb-0 counter" data-from="0" data-to="1000" data-speed="2500" data-refresh-interval="100"></span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-primary text-white rounded-circle icon-shape">
+                            <i class="fa fa-cart-arrow-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-success mr-2"><i class="fa fa-arrow-up"></i></span>
+                    <span class="text-nowrap">Section Showing all +ve metrices.</span>
+                </p>
+            </div>
+        </div>
+    </div>-->
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">No. Of Negative Indicator</h6>
+                        <span class="h5 font-weight-bold mb-0 counter" data-from="0" data-to="1000" data-speed="2500" data-refresh-interval="100"></span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-danger text-white rounded-circle icon-shape">
+                            <i class="fa fa-user-tag"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-danger mr-2"><i class="fa fa-arrow-down"></i></span>
+                    <span class="text-nowrap">Section Showing all -ve metrices</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var a in Model.ProjectList)
+    {
+        
+        <div class="col-lg-3 col-sm-6">
+        <div class="card hover-shadow-lg">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <div class="avatar-parent-child">
+                        <img alt="Image placeholder" src="@a.PE_Image" class="avatar  rounded-circle">
+                        <span class="avatar-child avatar-badge bg-info"></span>
+                    </div>
+                    <div class="avatar-content ml-3">
+                        <h6 class="mb-0">@a.PE_ProjectName</h6>
+                        <span class="text-sm text-muted"><i class="fa fa-calendar mr-2"></i>@a.PE_CardStartDate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="border-bottom pb-4">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <h6 class="mb-0">@a.PE_ProjectIndicartor</h6>
+                            <span class="text-sm text-muted">Indicators</span>
+                        </div>
+                        <div class="col-6">
+                            @*<h6 class="mb-0">@a.PE_ProjectIndicartor</h6>
+        <span class="text-sm text-muted">+ve Indicators</span>*@
+                            <a href="/Project/ProjectIndicator?Id=@a.PE_Id&start=@a.PE_StartDate&end=@a.PE_EndDate"
+                               class="badge badge-soft-success">
+                                <span style="font-size:smaller">Set Indicators</span>
+                            </a>
+
+                            @*<a href="/Project/ProjectIndicator?Id=@a.PE_Id&start=@a.PE_StartDate&end=@a.PE_EndDate" class="action-item">
+                                <h5 style="font-size:smaller; cursor:pointer" class="btn-inner--icon">Set Indicators</h5>
+                            </a>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 pt-3">
+                    <a class="btn btn-primary" href="/Project/ProjectPerformanceIndicator?Id=@a.PE_Id&start=@a.PE_StartDate&end=@a.PE_EndDate" >Manage Indicators </a>
+                </div>
+            </div>
+            @*<div class="card-footer">
+                <div class="actions d-flex justify-content-between">
+                    <a href="#">
+
+                    </a>
+                    <a href="/Project/ProjectIndicator?Id=@a.PE_Id&start=@a.PE_StartDate&end=@a.PE_EndDate" class="action-item">
+                        <span class="btn-inner--icon">Set Indicators</span>
+                    </a>
+                </div>
+            </div>*@
+        </div>
+    </div>
+
+    }
+    
+   
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

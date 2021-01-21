@@ -1,0 +1,123 @@
+﻿@model   BOD_DAL.Models.CorporateClient
+@{
+    ViewBag.Title = "CorporateClientCardList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">All Enterprise</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                @*<span class="h4 text-info mb-0 mr-2" id="count"></span>*@
+                <span class="text-sm opacity-7 text-white">Enterprise Client</span>
+            </div>
+            <!-- Optional link -->
+            <a href="/Home/CorporateClientList" class="text-sm text-info d-none d-lg-inline-block ml-4">See table</a>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <a href="/Home/CorporateClient" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus" data-toggle="tooltip" title="Add new Enterprise"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row" id="dvClient">
+    @{
+        foreach (var a in Model.clinetList)
+        {
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hover-shadow-lg">
+                <div class="card-body text-center">
+                    <div class="avatar-parent-child">
+
+
+                        @if (a.CC_Logo == "")
+                        {
+
+                            <img alt="Image placeholder" src="~/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle avatar-lg">
+                        }
+                        else
+                        {
+                            <img alt="Image placeholder" src="@a.CC_Logo" class="avatar  rounded-circle avatar-lg">
+                        }
+
+                        <span class="avatar-child avatar-badge bg-success"></span>
+                    </div>
+                    <h5 class="h6 mt-4 mb-0">@a.CC_CorporateName</h5>
+                    <a href="#" class="d-block text-sm text-muted mb-3">@a.CC_Email</a>
+                    <div class="actions d-flex justify-content-between px-4">
+                        <a href="/Home/CorporateClient?Id=@a.CC_Id" class="action-item" >
+                            <i class="fa fa-user-edit" title="Edit" data-toggle="tooltip"></i>
+                        </a>
+                        <a href="/Home/AsessmentQuestionView?Id=@a.CC_Id&name=C" class="action-item">
+                            <i class="fa fa-file" data-toggle="tooltip" title="View Assesment Answers"></i>
+                        </a>
+                        <a href="/client/ClientWiseSMMEList?Id=@a.CC_Id" class="action-item">
+                            <i class="fa fa-users" data-toggle="tooltip" title="Manage SMME"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body border-top">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-6">
+
+                           
+
+                            <div class="avatar-group">
+
+                                @{var EmpList = Model.empList.Where(m => m.CreatedBy == a.UserId);
+
+                                if (EmpList.Count() > 0)
+                                {
+                                    foreach (var b in EmpList)
+                                    {
+                                        <a href="/Home/EmployeeMaster" class="avatar rounded-circle avatar-sm" data-original-title="@b.EM_EmpName">
+                                            <img alt="@b.EM_EmpName" src="@b.EM_ProfilePic" class="">
+                                        </a>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="/Home/EmployeeMaster" class="d-block text-sm mb-3"><span>No Employee Found</span></a>
+
+                                }
+}
+                               
+                            </div>
+
+                        </div>
+                        <div class="col-auto text-center">
+                            <span class="d-block h4 mb-0">@a.CC_TotalProjects</span>
+                            <span class="d-block text-sm text-muted">Open tasks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="actions d-flex justify-content-between" >
+                        <a href="/Project/CorporateWiseProjectsList?Id=@a.CC_Id" class="action-item">
+                            <span class="btn-inner--icon">Projects</span>
+                        </a>
+                        <a href="/Home/CorpProfile?Id=@a.CC_Id" class="action-item">
+                            <span class="btn-inner--icon">See profile</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    }
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

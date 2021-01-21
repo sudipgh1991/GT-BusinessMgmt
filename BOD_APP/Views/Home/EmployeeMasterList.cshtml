@@ -1,0 +1,492 @@
+﻿@model BOD_DAL.Models.EmployeeViewModel
+
+@{
+    ViewBag.Title = "EmployeeMasterList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+    //Layout="~/Views/Shared/_MainLayout.cshtml";
+    @*<a href="~/Views/Shared/_MainLayout.cshtml">~/Views/Shared/_MainLayout.cshtml</a>*@
+}
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+
+<style type="text/css">
+
+
+    .modal-dialog-slideout {
+        min-height: 100%;
+        margin: 0 0 0 auto;
+        background: #fff;
+    }
+
+    .modal.fade .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(100%,0)scale(1);
+        transform: translate(100%,0)scale(1);
+    }
+
+    .modal.fade.show .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(0,0);
+        transform: translate(0,0);
+        display: flex;
+        align-items: stretch;
+        -webkit-box-align: stretch;
+        height: 100%;
+    }
+
+        .modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+    .modal-dialog-slideout .modal-content {
+        border: 0;
+    }
+
+    .modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {
+        height: 69px;
+        display: block;
+    }
+
+        .modal-dialog-slideout .modal-header h5 {
+            float: left;
+        }
+</style>
+@*<style>
+        .current {
+            background: #faaf5e;
+        }
+    </style>
+    @Styles.Render("~/datatable/css")*@
+
+
+@*<section id="html5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Employee List</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <button id="btnGo" class="btn btn-primary btn-sm"><i class="ft-plus white"></i> Add Employee</button>
+
+                        </div>
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body card-dashboard">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered dataex-html5-export ">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Employee Name</th>
+                                            <th>Designation</th>
+                                            <th>Date of Joining</th>
+                                            <th>Contact No</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
+                                            <th>Permission</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @if (Model.cList != null)
+                                        {
+                                            foreach (var item in Model.cList)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @if (item.EM_ProfilePic == "")
+                                                        {
+                                                            <img class="rounded-circle mr-2" src="~/Content/app-assets/images/elements/no-image-icon.png" alt="img-placeholder" height="40" width="50" />
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="@item.EM_ProfilePic" class="rounded-circle mr-2" alt="img-placeholder" height="40" width="50">
+                                                        }
+                                                    </td>
+
+                                                    <td>
+
+                                                        @item.EM_EmpName
+
+                                                    </td>
+
+                                                    <td>@item.EM_Designation</td>
+                                                    <td>@item.EM_EmpDOJ</td>
+
+                                                    <td>@item.EM_EmpContactNo</td>
+                                                    <td>@item.EM_Email</td>
+                                                    <td>
+                                                        <span class="dropdown">
+                                                            <button id="btnSearchDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-sm dropdown-toggle dropdown-menu-right">
+                                                                <i class="ft-file white"></i>
+                                                            </button>
+                                                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+
+                                                                <a href="#" data-toggle="modal" data-id="@item.EM_EmpId" class="dropdown-item addmanager" data-target="#exampleModal2"><i class="la la-user"></i>Add Manager</a>
+
+                                                                <a href="EmployeeMaster?Id=@item.EM_EmpId" class="dropdown-item">
+                                                                    <i class="la la-pencil"></i> Edit
+                                                                </a>
+                                                                <a href="EmployeeSalary?Id=@item.EM_EmpId&&pageId = 1" class="dropdown-item">
+                                                                    <i class="la la-rupee"></i> Add Salary
+                                                                </a>
+                                                                <a href="EmployeeEducationDetails?Id=@item.EM_EmpId&&pageId = 1" class="dropdown-item">
+                                                                    <i class="la la-hand-paper-o"></i> Add Exam
+                                                                </a>
+                                                                <a href="EmployeeDocumentDetails?Id=@item.EM_EmpId&&pageId = 1" class="dropdown-item">
+                                                                    <i class="la la-file"></i> Add Document
+                                                                </a>
+                                                                <a href="EmployeePreiviousEmploymentDetails?Id=@item.EM_EmpId&&pageId=1" class="dropdown-item">
+                                                                    <i class="la la-empire"></i> Add Prev Emplyoment
+                                                                </a>
+                                                                <a href="EmployeeLeaveSetting?Id=@item.EM_EmpId&&pageId=1" class="dropdown-item">
+                                                                    <i class="la la-hotel"></i> Add Leave Setting
+                                                                </a>
+                                                                <a href="EmployeeLeaveApplication" class="dropdown-item">
+                                                                    <i class="la la-hotel"></i>  Leave Application
+                                                                </a>
+
+                                                            </span>
+                                                        </span>
+
+                                                    <td align="center"><a href="UserPermission?Id=@item.UserID"><i class="ft-user-check"></i></a></td>
+
+
+                                                </tr>
+                                            }
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         Modal
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Reporting Manager</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="hdnEmpId" />
+                        <input type="hidden" id="hdnmanagerId" />
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div id="pagination-list">
+                                    <input type="text" id="txtManagername" class="search form-control round border-primary mb-1" placeholder="Search" />
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <button class="sort btn btn-block btn-outline-warning btn-round mb-2" data-sort="name">
+                                                Sort
+                                                by name
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <ul class="list-group list" id="sizelist">
+                                        @{foreach (var a in Model.managerList)
+                                        {
+                                            <li class="list-group-item" id="@a.EM_EmpId" data-value="@a.EM_EmpName">
+                                                <div class="media">
+                                                    <img src="@a.EM_ProfilePic" class="rounded-circle mr-2" alt="img-placeholder" width="50" height="50">
+                                                    <div class="media-body">
+                                                        <h5 class="mt-0 name">@a.EM_EmpName</h5>
+                                                        <p class="born">@a.EM_EmpCode</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        }
+
+
+                                    </ul>
+                                    <ul class="pagination pagination-separate pagination-flat"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="SaveRecord()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>*@
+
+<input type="hidden" id="hdnEmpId" />
+
+<div class="modal fade fixed-right" id="modal-reporting-manager" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-vertical" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center">
+                <div class="modal-title">
+                    <h6 class="mb-0">Manager List</h6>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="scrollbar-inner">
+                <!-- Chat contacts -->
+                <div class="list-group list-group-flush">
+
+                    @foreach (var a in Model.managerList)
+                    {
+                        <a href="#" onclick='return SaveRecord(@a.EM_EmpId)' class="list-group-item list-group-item-action">
+                            <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                                <div>
+                                    <div class="avatar-parent-child">
+                                        <img alt="Image placeholder" src="@a.EM_ProfilePic" class="avatar  rounded-circle">
+                                        <span class="avatar-child avatar-badge bg-warning"></span>
+                                    </div>
+                                </div>
+                                <div class="flex-fill ml-3">
+                                    <h6 class="text-sm mb-0">@a.EM_EmpName</h6>
+                                    <p class="text-sm mb-0">
+                                        @a.EM_EmpCode
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee List</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2" id="count"></span>
+
+            </div>
+            <!-- Optional link -->
+
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <!-- Filter input -->
+
+            <a href="../Home/EmployeeMaster" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">New users</h6>
+                        <span class="h5 font-weight-bold mb-0">339</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-warning text-white rounded-circle icon-shape">
+                            <i class="far fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-success mr-2"><i class="far fa-arrow-up"></i> 25%</span>
+                    <span class="text-nowrap">Since last month</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Total visits</h6>
+                        <span class="h5 font-weight-bold mb-0">13.079</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-primary text-white rounded-circle icon-shape">
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-warning mr-2"><i class="far fa-arrow-up"></i> 10%</span>
+                    <span class="text-nowrap">Since last month</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Orders</h6>
+                        <span class="h5 font-weight-bold mb-0">3.200</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-danger text-white rounded-circle icon-shape">
+                            <i class="far fa-user-tag"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-danger mr-2"><i class="far fa-arrow-down"></i> 5,85%</span>
+                    <span class="text-nowrap">Since last month</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HTML5 export buttons table -->
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-header">
+                <h6 class="mb-0">Employee List</h6>
+            </div>
+            <div class="card-body">
+                <!-- data table goes here -->
+                <div class="table-responsive">
+                    <table id="active-accounts" class="table alt-pagination table-wrapper dataTable no-footer" role="grid" aria-describedby="active-accounts_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="border-top-0 sorting_asc" style="width: 413.125px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Name</th>
+
+                                <th class="border-top-0 sorting" style="width: 133.125px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Phone No: activate to sort column ascending">Date of Joining</th>
+                                <th class="border-top-0 sorting" style="width: 133.125px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Phone No: activate to sort column ascending">Contact No</th>
+                                <th class="border-top-0 sorting" style="width: 133.125px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Phone No: activate to sort column ascending">Email</th>
+                                <th class="border-top-0 sorting" style="width: 78.6806px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th>
+                                <th class="border-top-0 sorting" style="width: 62.0139px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Assesment: activate to sort column ascending">Employment</th>
+                                <th class="border-top-0 sorting" style="width: 62.0139px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Assesment: activate to sort column ascending">Edit</th>
+                                <th class="border-top-0 sorting" style="width: 55.3472px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Employee: activate to sort column ascending">Add Manager</th>
+                                <th class="border-top-0 sorting" style="width: 58.6806px;" tabindex="0" aria-controls="active-accounts" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending">Permission</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+                            @if (Model.cList != null)
+                            {
+                                foreach (var item in Model.cList)
+                                {
+
+                            <tr role="row" class="odd">
+                                <td class="align-middle sorting_1" style="vertical-align:middle !important">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <div class="avatar-parent-child">
+                                                @if (item.EM_ProfilePic == "")
+                                                {
+                                                    <img alt="Image placeholder" src="/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle">
+                                                }
+                                                else
+                                                {
+                                                    <img alt="Image placeholder" src="@item.EM_ProfilePic" class="avatar  rounded-circle">
+                                                }
+                                                <span class="avatar-child avatar-badge bg-success"></span>
+
+                                            </div>
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="/Home/SMMEProfileDetails?id=12" class="name h6 mb-0 text-sm">@item.EM_EmpName</a>
+                                            <small class="d-block font-weight-bold">@item.EM_Designation</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td style="vertical-align:middle !important">@item.EM_EmpDOJ</td>
+                                <td style="vertical-align:middle !important">@item.EM_EmpContactNo</td>
+                                <td style="vertical-align:middle !important">@item.EM_Email</td>
+                                <td class="align-middle">
+                                    <div class="ac-status badge badge-success badge-pill badge-sm">
+                                        Active
+                                    </div>
+                                </td>
+                                <td class="align-middle">
+                                    <a href="EmployeePreiviousEmploymentDetails?Id=@item.EM_EmpId"><i class="fa fa-file fa-2x" data-toggle="tooltip" title="" data-original-title="Preivious Employment Details"></i></a>
+                                </td>
+                                <td class="align-middle">
+                                    <a href="EmployeeMaster?Id=@item.EM_EmpId"><i class="fa fa-edit fa-2x" data-toggle="tooltip" title="" data-original-title="Edit Employee"></i></a>
+                                </td>
+                                <td class="align-middle">
+                                    @if (item.EM_IsManager == 1)
+                                    {
+                                        <a disabled href="#" onclick="return OpenManagerPopUp(@item.EM_EmpId)"><i class="fa fa-user fa-2x" data-toggle="tooltip" title="" data-original-title="Add Manager"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" onclick="return OpenManagerPopUp(@item.EM_EmpId)"><i class="fa fa-user fa-2x" data-toggle="tooltip" title="" data-original-title="Add Manager"></i></a>
+                                    }
+                                   
+                                </td>
+                                <td class="align-middle">
+                                    <a href="UserPermission?Id=@item.UserID"><i class="fa fa-lock fa-2x" data-toggle="tooltip" title="" data-original-title="User Permission"></i></a>
+
+                                </td>
+                            </tr>
+
+                                }
+                            }
+                                </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/EmplyoeeManager.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+

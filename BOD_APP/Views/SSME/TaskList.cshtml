@@ -1,0 +1,150 @@
+﻿@model   BOD_DAL.Models.ProjectWiseTask
+@{
+    ViewBag.Title = "TaskList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Task</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2">@Model.projectTaskList.Count()</span>
+                <span class="text-sm opacity-7 text-white">Task</span>
+            </div>
+
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <div class="actions actions-dark d-inline-block">
+                <a href="/Project/ProjectWiseTask?Id=@Model.PWT_ProjectId&TaskId=@Model.PWT_Id" class="action-item ml-3" data-toggle="tooltip" data-original-title="Add New Task">
+                    <i class="fa fa-cog mr-2"></i>Add New Task
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="list-group list-group-flush">
+                <div class="list-group-item">
+                    <div class="media">
+                        <i class="fa fa-user"></i>
+                        <div class="media-body ml-3">
+                            <a href="settings.html" class="stretched-link h6 mb-1">Activity Name</a>
+                            <p class="mb-0 text-sm">@Model.PWT_TaskTitle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item active">
+                    <div class="media">
+                        <i class="fa fa-credit-card"></i>
+                        <div class="media-body ml-3">
+                            <a href="billing.html" class="stretched-link h6 mb-1">Activity Description</a>
+                            <p class="mb-0 text-sm">@Model.PWT_Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="media">
+                        <i class="fa fa-calendar"></i>
+                        <div class="media-body ml-3">
+                            <a href="payment-history.html" class="stretched-link h6 mb-1">Start Date</a>
+                            <p class="mb-0 text-sm">@Model.PWT_StartDate/<p>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="media">
+                        <i class="fa fa-calendar"></i>
+                        <div class="media-body ml-3">
+                            <a href="notifications.html" class="stretched-link h6 mb-1">End Date</a>
+                            <p class="mb-0 text-sm">@Model.PWT_EndDate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 order-lg-1">
+        @foreach (var a in Model.projectTaskList)
+        {
+            <div class="card">
+
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row align-items-center">
+                                <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Title</small></div>
+                                <div class="col-sm-5">
+                                    <a href="/SSME/TaskDetails?Id=@a.PWT_ProjectId&TaskId=@a.PWT_Id&IsSub=@a.PWT_ParentTaskCount&Type=T">@a.PWT_TaskTitle</a>
+                                </div>
+                                <div class="col-sm-3 text-sm-right">
+                                    @if (a.PWT_Priority == "Low")
+                                    {
+                                        <a href="#" class="btn btn-sm btn-success rounded-pill mt-3 mt-sm-0">Low</a>
+                                    }
+                                    else if (a.PWT_Priority == "Medium")
+                                    {
+                                        <a href="#" class="btn btn-sm btn-warning rounded-pill mt-3 mt-sm-0">Medium</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-sm btn-danger rounded-pill mt-3 mt-sm-0">High</a>
+
+                                    }
+
+                                    @*<a href="#" class="btn btn-sm btn-success rounded-pill mt-3 mt-sm-0">@a.PWT_Priority</a>*@
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Date </small></div>
+                                <div class="col-sm-8">
+                                    <!-- First card -->
+                                    <div class="row mb-3">
+                                        <div class="col-9">
+
+                                            (Start on @a.PWT_StartDate)
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- Second card -->
+                                    <div class="row">
+                                        <div class="col-9">
+
+                                            (Expires on @a.PWT_EndDate)
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Description</small></div>
+                                <div class="col-sm-8">
+                                    <p class="mb-0">
+                                        @a.PWT_Description
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</div>

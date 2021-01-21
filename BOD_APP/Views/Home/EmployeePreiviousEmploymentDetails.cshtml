@@ -1,0 +1,259 @@
+﻿    
+@{
+    ViewBag.Title = "EmployeePreiviousEmploymentDetails";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+<link href="~/Content/confirmbox/jquery-confirm.min.css" rel="stylesheet" />
+@*<style type="text/css">
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<section class="input-validation">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Employee Preivious Employment Details</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close" href="/Home/EmployeeMasterList"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <form class="form-horizontal bordered-row" id="frmEmpPrevEmplyoment" data-parsley-validate="">
+                            @{
+                                Html.RenderPartial("_EmpDetails");
+                            }
+                            <div class="card-body">
+
+                              
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <input type="hidden" id="hdnId" />
+                                        <input type="hidden" id="hdnUserId" />
+                                        <input type="hidden" id="txtReason" />
+                                        <input type="hidden" id="txtDDate" />
+
+                                    </div>
+
+                                </div>
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="la la-envelope"></i>Emplyoment Details</h4>
+                                    <div class="row">
+                                        <div class="card-content collapse show" style="padding:5px;">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered mb-0" id="tblemplyoment">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Designation</th>
+                                                            <th>Date of Joining</th>
+                                                            <th>Date of Realise</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <th class="width-350" style="padding:0px !important;">
+                                                                <div class="card-body" style="padding:4px !important;">
+                                                                    <div class="form-group tblxs">
+                                                                        <input type="text" class="form-control input-sm thtxt txtCompanyName" id="txtCompanyName" name="txtCompanyName">
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+
+                                                            <th style="padding:0px !important;">
+                                                                <div class="card-body" style="padding:4px !important;">
+                                                                    <div class="form-group tblxs">
+                                                                        <input type="text" class="form-control input-sm  thtxt frm rate txtDesignation " id="txtDesignation" name="txtDesignation">
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+                                                            <th style="padding:0px !important;">
+                                                                <div class="card-body" style="padding:4px !important;">
+                                                                    <div class="form-group tblxs">
+                                                                        <input type="text" class="form-control input-sm  singledate thtxt txtDOJ" name="txtDOJ" id="txtDOJ" placeholder="mm/dd/yyyy">
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+
+                                                            <th style="padding:0px !important;">
+                                                                <div class="card-body" style="padding:4px !important;">
+                                                                    <div class="form-group tblxs">
+                                                                        <input type="text" class="form-control input-sm  singledate thtxt txtDOR" name="txtDOR" id="txtDOR" placeholder="mm/dd/yyyy">
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+
+
+
+                                                            <th style="padding:0px !important;">
+                                                                <div class="form-group tblxs">
+                                                                    <button type="button" class="btn btn-social mb-1 mr-1 btn-xs btn-success" style="margin-bottom:0.4rem !important" id="add-row"><span class="la la-check"></span> Add</button>
+                                                                </div>
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+
+                                        <div class="text-left">
+                                            <button type="button" class="btn btn-success" id="btnSubmit" onclick="SaveRecords();">Submit <i class="la la-thumbs-o-up position-right"></i></button>
+                                            <button type="reset" class="btn btn-danger">Cancel <i class="la la-refresh position-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+
+
+
+
+
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee Previous Employment Details</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @{
+            Html.RenderPartial("_ParEmpDetails");
+        }
+        <div class="col-lg-8 order-lg-1">
+            <!-- Change avatar -->
+            @{
+                Html.RenderPartial("_ParEmpProfile");
+            }
+
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!-- Project name -->
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Company Name
+                                </label>
+                                <input type="hidden" id="EPWD_Id" />
+                                <input type="text" class="form-control" id="txtCompanyName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Designation
+                                </label>
+                                <input type="text" class="form-control" id="txtDesignation">
+                            </div>
+
+
+
+                            <!-- Project date -->
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <!-- Start date -->
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Date of Joining
+                                            </label>
+                                            <input type="text" class="form-control datepicker" id="txtDOJ" placeholder="mm/dd/yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <!-- Start date -->
+                                        <div class="form-group">
+                                            <label class="form-control-label">
+                                                Date of Realise
+                                            </label>
+                                            <input type="text" class="form-control datepicker" id="txtDOR" placeholder="mm/dd/yyyy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Details
+                                </label>
+                                <textarea class="form-control" id="txtDetails"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer text-right">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-sm btn-primary rounded-pill mr-auto" data-dismiss="modal" onclick="SaveRecords()">Save</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="card">
+                   
+                    <div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="col-sm-12 text-sm-right">
+                                    <a href="#" onclick="return OpenAddPopUp()" class="btn btn-sm btn-primary rounded-pill mt-3 mt-sm-0" data-toggle="modal">Add Employment</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list-group list-group-flush" id="tblemplyoment">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!-- Attach a new card -->
+                
+                <!-- Add money using PayPal -->
+                
+            
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/CommonEmpDetails.js"></script>
+<script src="~/Scripts/custom/EmpprevEmplyoment.js"></script>
+<script src="~/Content/confirmbox/jquery-confirm.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+

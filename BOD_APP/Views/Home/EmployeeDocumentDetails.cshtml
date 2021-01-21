@@ -1,0 +1,318 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeDocumentDetails";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+<link href="~/Content/confirmbox/jquery-confirm.min.css" rel="stylesheet" />
+@*<style type="text/css">
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<section class="input-validation">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Employee Document Details</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close" href="/Home/EmployeeMasterList"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        @{
+                            Html.RenderPartial("_EmpDetails");
+                        }
+                        <form class="form-horizontal bordered-row" id="frmEmpDocuments" data-parsley-validate="">
+                            <div class="form-body">
+                                <h4 class="form-section"><i class="la la-file"></i>Add Document</h4>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <input type="hidden" id="hdnId" />
+                                        <input type="hidden" id="hdnUserId" />
+                                        <input type="hidden" id="txtReason" />
+                                        <input type="hidden" id="txtDDate" />
+                                      
+                                    </div>
+                                  
+                                </div>
+
+                                <div class="row">
+                                    <div class="card-content collapse show" style="padding:5px;">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered mb-0" id="tblemplyoment">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        <th>Document</th>
+
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <th class="width-350" style="padding:0px !important;">
+                                                            <div class="card-body" style="padding:4px !important;">
+                                                                <div class="form-group tblxs">
+                                                                    <input type="text" class="form-control input-sm thtxt txtTitel" id="txtTitel" name="txtTitel">
+                                                                </div>
+                                                            </div>
+                                                        </th>
+
+                                                        <th style="padding:0px !important;">
+                                                            <div class="card-body" style="padding:4px !important;">
+                                                                <div class="form-group tblxs">
+                                                                    <input type="file" class="form-control" id="fl" name="fl">
+                                                                 
+                                                                </div>
+                                                            </div>
+                                                        </th>
+
+                                                        <th style="padding:0px !important;">
+                                                            <div class="form-group tblxs">
+                                                                <button type="button" class="btn btn-social mb-1 mr-1 btn-xs btn-success" style="margin-bottom:0.4rem !important" id="add-row"><span class="la la-check"></span> Add</button>
+                                                            </div>
+
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="bg-default content-box text-left pad20A mrg25T">
+
+                                <button type="button" class="btn btn-success" id="btnSubmit" onclick="SaveRecord()">Submit <i class="la la-thumbs-o-up position-right"></i></button>
+                              
+                                <button type="reset" class="btn btn-danger">Cancel <i class="la la-refresh position-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+
+
+
+@*<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee Document Details</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @{
+            Html.RenderPartial("_ParEmpDetails");
+        }
+        <div class="col-lg-8 order-lg-1">
+            <!-- Change avatar -->
+            @{
+                Html.RenderPartial("_ParEmpProfile");
+            }
+            <form id="frmEmpDocuments">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="form-section"><i class="la la-file"></i>Add Document</h4>
+                        <!-- General information -->
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="hidden" id="hdnId" />
+                                <input type="hidden" id="hdnUserId" />
+                                <input type="hidden" id="txtReason" />
+                                <input type="hidden" id="txtDDate" />
+
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0" id="tblemplyoment">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Document</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr>
+
+                                        <th class="width-250" style="padding:0px !important;">
+                                            <div class="card-body" style="padding:4px !important;">
+                                                <div class="form-group tblxs">
+                                                    <input type="text" class="form-control input-sm thtxt txtTitel" id="txtTitel" name="txtTitel">
+                                                </div>
+                                            </div>
+                                        </th>
+
+                                        <th style="padding:0px !important;">
+                                            <div class="card-body" style="padding:4px !important;">
+                                                <div class="form-group tblxs">
+                                                    <input type="file" class="form-control" id="fl" name="fl">
+
+                                                </div>
+                                            </div>
+                                        </th>
+
+                                        <th style="padding:0px !important;">
+                                            <div class="form-group tblxs">
+                                                <button type="button" class="btn btn-social mb-1 mr-1 btn-xs btn-success" style="margin-bottom:0.4rem !important" id="add-row"><span class="la la-check"></span> Add</button>
+                                            </div>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="text-right">
+                        <a href="/Home/EmployeeDocumentation" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord()">Submit</button>
+                    </div>
+                </div>
+             
+            </form>
+
+        </div>
+    </div>
+</div>*@
+
+
+
+
+
+
+
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee Document Details</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @{
+            Html.RenderPartial("_ParEmpDetails");
+        }
+        <div class="col-lg-8 order-lg-1">
+            <!-- Change avatar -->
+            @{
+                Html.RenderPartial("_ParEmpProfile");
+            }
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <input type="hidden" id="hdnId" />
+                                    <input type="hidden" id="hdnUserId" />
+                                    <input type="hidden" id="txtReason" />
+                                    <input type="hidden" id="txtDDate" />
+
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">
+                                        Title
+                                    </label>
+                                   
+                                    <input type="text" class="form-control" id="txtTitel" name="txtTitel">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">
+                                        Document
+                                    </label>
+                                    <input type="file" class="form-control" id="fl" name="fl">
+                                    <button type="button" class="btn btn-social mb-1 mr-1 btn-xs btn-success" style="margin-bottom:0.4rem !important" id="add-row"><span class="la la-check"></span> Add</button>
+                                </div>                                                   
+                    </div>
+                        <div class="modal-footer text-right">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-sm btn-primary rounded-pill mr-auto" data-dismiss="modal" id="btnSubmit" onclick="SaveRecord()">Save</button>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+
+        </div>
+     
+
+
+            <div class="card">
+
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="col-sm-12 text-sm-right">
+                                <a href="#" onclick="return OpenAddPopUp()" class="btn btn-sm btn-primary rounded-pill mt-3 mt-sm-0" data-toggle="modal">Add Document</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-group list-group-flush" id="tblemplyoment"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div>
+
+    <li class="list-group-item"> <div class="row align-items-center"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Title</small></div> 
+        <div class="col-sm-8"> <strong>' + item.EMT_Name + '</strong> </div> </div> </li> 
+    <li class="list-group-item"> <div class="row"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Document</small></div> 
+        <div class="col-sm-8">  <div class="row mb-3"> <strong>' + item.EMT_File + '</strong> </div>  </div> </div> </li> <li style="border-style: outset"></li>
+  
+
+    <li class="list-group-item"> <div class="row align-items-center"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Company Name</small></div> <div class="col-sm-8"> <strong>' + item.EPWD_CompanyName + '</strong> </div> </div> </li> <li class="list-group-item"> <div class="row"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Designation</small></div> <div class="col-sm-8">  <div class="row mb-3"> <strong>' + item.EMPWD_Designation + '</strong> </div>  </div> </div> </li> <li class="list-group-item"> <div class="row"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Date of Joining</small></div> <div class="col-sm-8"> <strong>' + item.EPWD_DOJ + '</strong> </div> </div> </li> <li class="list-group-item"> <div class="row"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Date of Realise</small></div> <div class="col-sm-8"> <strong>' + item.EPWD_RealiseDate + '</strong> </div> </div> </li> <li class="list-group-item"> <div class="row"> <div class="col-sm-4"><small class="h6 text-sm mb-3 mb-sm-0">Details</small></div> <div class="col-sm-8"> <p class="mb-0"> <strong>' + item.EMPWD_Details + '</strong> </p> </div> </div> </li> <li class="list-group-item"><div class="col-sm-12 text-sm-right"><a href="#" onclick="return OpenEditPopUp(\'' + item.EPWD_Id + '\',\'' + item.EPWD_EmployeeId + '\',\'' + item.EPWD_CompanyName + '\',\'' + item.EMPWD_Designation + '\',\'' + item.EPWD_DOJ + '\',\'' + item.EPWD_RealiseDate + '\',\'' + item.EMPWD_Details + '\')" class="btn btn-sm btn-primary rounded-pill mt-3 mt-sm-0" data-toggle="modal">Edit</a></div></li><li style="border-style: outset"></li>
+
+</div>*@
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/CommonEmpDetails.js"></script>
+<script src="~/Scripts/custom/EmpDocument.js"></script>
+<script src="~/Content/confirmbox/jquery-confirm.min.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>*@
+@*<script src="~/Scripts/utility/dropdown.js"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+

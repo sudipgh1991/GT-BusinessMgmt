@@ -1,0 +1,270 @@
+﻿@model BOD_DAL.Models.ProjectWiseSMME
+@{
+    ViewBag.Title = "ProjectWiseSMME";
+
+    Layout = "~/Views/Shared/_LayoutNewForCheckDatatable.cshtml";
+    //Layout = "~/Views/Shared/_LayoutNewTempDatatable.cshtml";
+}
+
+
+
+
+
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Activity Assign To SMME</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        @*@{
+            Html.RenderPartial("_ProjectDetailsTask", new ViewDataDictionary { { "id", @ViewBag.Id } });
+        }
+@{
+                           
+                                foreach (var b in Model.TaskList.Where(a => a.PWT_Id == @ViewBag.taskid))
+                                {
+        <div class="col-sm-6">
+            <!-- Project overview -->
+            <div class="card card-fluid">
+                <div class="card-header">
+                 
+                    <h6 class="mb-0"><span id="taskName">@b.PWT_TaskTitle</span></h6>
+                </div>
+                <div class="card-body py-3 flex-grow-1">
+                    <!-- Progress -->
+                    <div class="pb-3 mb-3 border-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <!-- Avatar -->
+                                <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-2.png" class="avatar rounded-circle">
+                            </div>
+                            <div class="col ml-n2">
+                                <div class="progress-wrapper">
+                                    <span class="progress-percentage"><small class="font-weight-bold">Completed: </small>70%</span>
+                                    <div class="progress progress-xs mt-2">
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <p class="text-sm mb-0">
+                       @b.PWT_Description
+                    </p>
+                </div>
+                <div class="card-footer py-0">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <span class="form-control-label">Project </span>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span class="badge badge-success badge-pill" id="client">Yes</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <span class="form-control-label">Published:</span>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span class="badge badge-danger badge-pill">No</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-0">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <small>Start date:</small>
+                                    <div class="h6 mb-0"><span id="tstartdate">@b.PWT_StartDate</span></div>
+                                </div>
+                                <div class="col-6">
+                                    <small>End date:</small>
+                                    <div class="h6 mb-0"><span id="yenddate">@b.PWT_EndDate</span></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+}
+}*@
+
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Product title -->
+                    <div class="col-lg-12">
+                        <span id="projectName"></span>
+
+                        <ul class="list-inline mb-0 text-sm-right">
+                            <li style="font-size:small" class="list-inline-item">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <span id="startdate"></span>
+                                <span>-</span>
+                                <span id="enddate"></span>
+                            </li>
+                        </ul>
+                        <input type="hidden" id="hdnProject" /><!-- Rating -->
+                        <!-- Description -->
+                        <div class="py-4 my-4 border-top border-bottom">
+                            <h6 class="text-sm">Description:</h6>
+                            <p class="text-sm mb-0" id="pDesc">
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <!-- Stats card -->
+            <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="text-muted mb-1"> Total Activity</h6>
+                            <span class="h3 text-primary" @*data-from="0" data-to="34" data-speed="1500" data-refresh-interval="100"*@ id="Activity"></span>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Project performance -->
+            <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="text-muted mb-1"> Total Task</h6>
+                            <span class="h3 text-primary" @*data-from="0" data-to="34" data-speed="1500" data-refresh-interval="100"*@ id="Task"></span>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-md-6">
+            <div class="card card-fluid">
+                <div class="card-header">
+                    <h6 class="mb-0">Assign SMME</h6>
+                </div>
+                <div class="card-body">
+
+                    <div class="content-detached">
+                        <div class="content-body">
+                            <div class="content-overlay"></div>
+
+                            <div class="row">
+
+                                <div class="card-body">
+                                    <!-- Task List table -->
+                                    <div class="table-responsive">
+                                        <table id="users-contacts" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="checkboxsmallall">
+                                                            <label class="custom-control-label" for="checkboxsmallall"></label>
+                                                        </div>
+                                                    </th>
+                                                    <th>Name</th>
+                                                    <th>Reg.No</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{int i = 1;
+                                                foreach (var a in Model.SmmeList)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <input type="hidden" value="@a.PWS_SM_Id" id="smm_@i" />
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" @a.AssociateProject class="custom-control-input" @a.PWS_TaskSM_Id id="checkboxsmall_@i">
+                                                                <label class="custom-control-label" for="checkboxsmall_@i"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="media">
+                                                                <div class="media-left pr-1"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="@a.SM_Image" alt="avatar"><i></i></span></div>
+                                                                <div class="media-body media-middle">
+                                                                    <a class="media-heading name">@a.SM_TradingName</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">@a.SM_CIPC_RegistrationNo</td>
+                                                        <td class="text-center">
+                                                            <a class="email" href="mailto:email@example.com">@a.SM_Email</a>
+                                                        </td>
+                                                        <td class="phone">@a.SM_PhoneNo</td>
+
+                                                        <td>
+                                                            <a data-toggle="modal" data-target="#EditContactModal" class="primary edit mr-1"><i class="la la-pencil"></i></a>
+
+                                                        </td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                                }
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+
+            <!-- Buttons -->
+            <div class="text-right">
+                <a href="/Project/ProjectWiseTaskList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SelectforTask(@ViewBag.taskid ,@ViewBag.Id)">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/utility/project_details_global.js"></script>
+@*<script src="~/Scripts/utility/project_details_report.js"></script>*@
+
+<script src="~/Scripts/custom/project_task_wise_smme.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

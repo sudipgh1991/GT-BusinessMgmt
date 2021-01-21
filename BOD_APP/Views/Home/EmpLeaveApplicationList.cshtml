@@ -1,0 +1,192 @@
+﻿@model IList<BOD_DAL.Models.EmployeeLeaveApproval>
+    @{
+        ViewBag.Title = "EmpLeaveApplicationList";
+        //Layout = "~/Views/Shared/_MainLayout.cshtml";
+        Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+    }
+    
+
+    @*<section id="html5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Leave Application List</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                     
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body card-dashboard">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered dataex-html5-export ">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Emp Code</th>
+                                            <th>Employee Name</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Leave Type</th>
+                                            <th>Total days</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{ int i = 1; foreach (var item in Model)
+                                         {
+                                            <tr>
+                                                <td>
+                                                    @if (item.EM_ProfilePic == "")
+                                                    {
+                                                        <img class="rounded-circle mr-2" src="~/Content/app-assets/images/elements/no-image-icon.png" alt="img-placeholder" height="30" width="30" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="@item.EM_ProfilePic" class="rounded-circle mr-2" alt="img-placeholder" height="30" width="30">
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    @item.EM_EmpCode
+
+                                                </td>
+
+                                                <td>
+
+                                                    @item.EM_EmpName
+
+                                                </td>
+
+                                                <td>@item.ELA_From</td>
+                                                <td>@item.ELA_To</td>
+                                                <td>@item.ELA_Type</td>
+                                                <td>@item.ELA_TotalDays</td>
+
+                                                <td>
+                                                    <button class="badge badge-@item.Color badge-pill ml-50" @item.mode onclick="confirmBoxClick(@item.ELA_Id)"><i class="glyph-icon icon-file"></i> @item.Status</button>
+                                                  
+
+                                                </td>
+
+                                            </tr>
+                                         }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>*@
+
+
+
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Leave Application List</h5>
+            </div>
+            <!-- Additional info -->
+            @*<div class="align-items-center ml-4 d-inline-flex">
+              
+                <span class="text-sm opacity-7 text-white">Employee List</span>
+            </div>*@
+            <!-- Optional link -->
+            @*<a href="#" class="text-sm text-info d-none d-lg-inline-block ml-4">See card</a>*@
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+
+          
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-body">
+                <!-- data table goes here -->
+                <div class="table-responsive">
+                    <table id="active-accounts" class="table alt-pagination table-wrapper">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0" style="width:40%">Image</th>
+
+                                <th class="border-top-0" style="width:20%">From</th>
+                                <th class="border-top-0" style="width:15%">To</th>
+                                <th class="border-top-0" style="width:15%">Leave Type</th>
+                                <th class="border-top-0" style="width:10%">Total days</th>
+
+                                <th class="border-top-0" style="width:5%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; foreach (var item in Model)
+                             {
+                                <tr>
+                                    <td class="align-middle" style="vertical-align:middle !important">
+                                        <div class="media align-items-center">
+                                            <div>
+                                                <div class="avatar-parent-child">
+                                                    @if (item.EM_ProfilePic == "")
+                                                    {
+                                                        <img alt="Image placeholder" src="~/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <img alt="Image placeholder" src="@item.EM_ProfilePic" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="media-body ml-4">
+                                                <a href="#" class="name h6 mb-0 text-sm">@item.EM_EmpCode</a>
+                                                <small class="d-block font-weight-bold">@item.EM_EmpName</small>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td style="vertical-align:middle !important">@item.ELA_From</td>
+                                    <td style="vertical-align:middle !important">@item.ELA_To</td>
+                                    <td style="vertical-align:middle !important">@item.ELA_Type</td>
+                                    <td style="vertical-align:middle !important">@item.ELA_TotalDays</td>
+
+                                    <td class="align-middle">
+
+                                        <button class="badge badge-@item.Color rounded-pill" @item.mode onclick="confirmBoxClick(@item.ELA_Id)">
+                                         @item.Status</button>
+                                        @*<a href="EmployeeLeaveSetting?Id=@item.EM_EmpId&pageId=1"><i class="fa fa-cog fa-2x" data-toggle="tooltip" title="Edit Employee Leave"></i></a>*@
+                                    </td>
+                                </tr>
+                             }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+    <script src="~/Content/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+    <script src="~/Scripts/custom/EmpLeaveApproval.js"></script>

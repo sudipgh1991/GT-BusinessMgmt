@@ -1,0 +1,91 @@
+﻿@model IList<BOD_DAL.Models.EmployeeMaster>
+@{
+    ViewBag.Title = "SalarySettings";
+    Layout = "~/Views/Shared/_NewDataTable.cshtml";
+}
+
+<section id="html5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Employee Salary Settings</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body card-dashboard">
+
+                        <div class="table-responsive">
+                            <table id="active-accounts" class="table alt-pagination table-wrapper">
+                                <thead>
+                                    <tr>
+                                        <th class="border-top-0"></th>
+                                    
+                                        <th class="border-top-0">Name</th>
+                                        <th class="border-top-0">ID</th>
+                                        <th class="border-top-0">Phone No</th>
+                                        <th class="border-top-0">Email</th>
+                                        <th class="border-top-0">Salary</th>
+                                        <th class="border-top-0">Status</th>
+                                        <th class="border-top-0">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ int i = 1; foreach (var item in Model)
+                                     {
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol joint">
+                                                <i class="la la-users"></i>
+                                                @if (item.EM_ProfilePic == "")
+                                                {
+                                                    <img class="rounded-circle mr-2" src="~/Content/app-assets/images/elements/no-image-icon.png" alt="img-placeholder" height="40" width="40" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="@item.EM_ProfilePic" class="rounded-circle mr-2" alt="img-placeholder" height="40" width="40">
+                                                }
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">@item.EM_EmpCode</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">@item.EM_EmpName</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">@item.EM_EmpContactNo</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">@item.EM_Email</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">@item.EM_TotalSal</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-money primary"></i></a>
+                                              
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,189 @@
+﻿@model BOD_DAL.Models.EmployeeViewModel
+@{
+    ViewBag.Title = "EmployeeDocumentation";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+
+<style type="text/css">
+    .modal-header {
+        background-color: #00c851;
+    }
+
+    .modal-dialog-slideout {
+        min-height: 100%;
+        margin: 0 0 0 auto;
+        background: #fff;
+    }
+
+    .modal.fade .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(100%,0)scale(1);
+        transform: translate(100%,0)scale(1);
+    }
+
+    .modal.fade.show .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(0,0);
+        transform: translate(0,0);
+        display: flex;
+        align-items: stretch;
+        -webkit-box-align: stretch;
+        height: 100%;
+    }
+
+        .modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+    .modal-dialog-slideout .modal-content {
+        border: 0;
+    }
+
+    .modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {
+        height: 69px;
+        display: block;
+    }
+
+        .modal-dialog-slideout .modal-header h5 {
+            float: left;
+        }
+</style>
+
+
+
+
+
+
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee Documentation</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                @*<span class="h4 text-info mb-0 mr-2" id="count"></span>*@
+                <span class="text-sm opacity-7 text-white">Employee List</span>
+            </div>
+            <!-- Optional link -->
+            @*<a href="#" class="text-sm text-info d-none d-lg-inline-block ml-4">See card</a>*@
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+
+            @*<form class="bg-neutral rounded-pill d-inline-block">
+                    <div class="input-group input-group-sm input-group-merge input-group-flush">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-transparent"><i class="fa fa-filter"></i></span>
+                        </div>
+                        <input type="text" class="form-control form-control-flush" placeholder="Filter results">
+                    </div>
+                </form>*@
+            @*<a href="#" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+            </a>*@
+        </div>
+    </div>
+</div>
+
+<!-- Stats -->
+
+
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-body">
+                <!-- data table goes here -->
+                <div class="table-responsive">
+                    <table id="active-accounts" class="table alt-pagination table-wrapper">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0" style="width:40%">Image</th>
+                               
+                                <th class="border-top-0" style="width:20%">Designation</th>
+                                <th class="border-top-0" style="width:15%">Phone No</th>
+                                <th class="border-top-0" style="width:15%">Email</th>
+                                <th class="border-top-0" style="width:10%">Status</th>
+
+                                <th class="border-top-0" style="width:5%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; foreach (var item in Model.cList)
+                             {
+                                <tr>
+                                    <td class="align-middle" style="vertical-align:middle !important">
+                                        <div class="media align-items-center">
+                                            <div>
+                                                <div class="avatar-parent-child">
+                                                    @if (item.EM_ProfilePic == "")
+                                                    {
+                                                        <img alt="Image placeholder" src="~/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <img alt="Image placeholder" src="@item.EM_ProfilePic" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="media-body ml-4">
+                                                <a href="#" class="name h6 mb-0 text-sm">@item.EM_EmpCode</a>
+                                                <small class="d-block font-weight-bold">@item.EM_EmpName</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                  
+                                    <td style="vertical-align:middle !important">@item.EM_Designation</td>
+                                    <td style="vertical-align:middle !important">@item.EM_EmpContactNo</td>
+                                    <td style="vertical-align:middle !important">@item.EM_Email</td>
+                                    <td class="align-middle">
+                                        <div class="ac-status badge badge-success badge-pill badge-sm">
+                                            Active
+                                        </div>
+                                    </td>
+
+                                    <td class="align-middle">
+
+
+                                        <a href="EmployeeDocumentDetails?Id=@item.EM_EmpId&pageId=1"><i class="fa fa-cog fa-2x" data-toggle="tooltip" title="Edit Employee Documentation"></i></a>
+                                    </td>
+                                </tr>
+                             }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@Scripts.Render("~/bundles/dtjquery")
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/EmplyoeeManager.js"></script>
+<script type="text/javascript">
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#btnGo").click(function () {
+                window.location.href = '';
+            });
+        });
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+

@@ -1,0 +1,190 @@
+﻿@model BOD_DAL.Models.ProjectEntry
+@{
+    ViewBag.Title = "SMMEProfile";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="input-validation">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">SMME Profile</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <a href="AsessmentQuestionView?Id=@ViewBag.Id&name=SM" class="btn mr-1 mb-1 btn-success btn-sm">
+                            <i class="la la-desktop"></i>
+                            View Assesment Question Answer
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        @*<p>Add <code>novalidate</code> attribute to form tag.</p>*@
+                        <form class="form-horizontal" novalidate id="frmClient">
+                            <input type="hidden" id="Id" name="Id" />
+                            @foreach (var a in Model.sSMEs)
+                            {
+                                <div class="media">
+
+                                    <div class="media-body mt-75">
+
+                                        <div class="media">
+                                            @if (a.SM_Image == "")
+                                            {
+
+                                                <img src="~/Content/app-assets/images/elements/no-image-icon.png" class="rounded-circle mr-2" alt="img-placeholder" height="50" width="50" />
+                                            }
+                                            else
+                                            {
+                                                <img src="@a.SM_Image" class="rounded-circle mr-2" alt="img-placeholder" height="50" width="50">
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="col-12">
+
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td>Corporate Name:</td>
+                                                <td>@a.SM_CorporateName</td>
+                                                <td>Zipcode :</td>
+                                                <td>@a.SM_Zipcode</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trading Name:</td>
+                                                <td>@a.SM_TradingName</td>
+                                                <td>PostalAddress:</td>
+                                                <td>@a.SM_PostalAddress</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CIPC Registration No:</td>
+                                                <td>@a.SM_CIPC_RegistrationNo</td>
+                                                <td>Phone No. :</td>
+                                                <td>@a.SM_PhoneNo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SARS VAT No. :</td>
+                                                <td>@a.SM_SARS_VATNo</td>
+                                                <td>Email :</td>
+                                                <td>@a.SM_Email</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Address :</td>
+                                                <td>@a.SM_Address</td>
+                                                <td>Contact Person Name:</td>
+                                                <td>@a.SM_ContactPersonName</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            }
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+      </div>
+        <div class="row">
+            <div class="col-xl-8 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Allocated Projects</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="media-list media-bordered">
+                            @{ int i = 1; foreach (var item in Model.projectEntries)
+                                {
+
+                                    <div class="media">
+
+                                        <div class="media-body">
+                                           
+                                            <h5>
+                                                <a href="/Project/ProjectSummary?Id=@item.PE_Id" class="text-info ticket-heading">
+                                                    @item.PE_ProjectName
+                                                </a>
+                                            </h5>
+                                            <p class="text-muted short">
+                                                @item.PE_Description
+                                            </p>
+                                            <ul class="list-unstyled list-inline">
+
+                                                <li class="support-ticket-item  text-light">
+                                                    <i class="font-small-3 la la-calendar"></i>
+                                                    Start On @item.PE_StartDate
+                                                </li>
+                                                <li class="support-ticket-item  text-light">
+                                                    <i class="font-small-3 la la-calendar"></i>
+                                                    End On @item.PE_EndDate
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Allocated Task</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+
+                        </div>
+                    </div>
+                    <div id="pagination-list">
+                        <ul class="list-group list list-group-flush" id="multiple-list-group-b">
+                            @foreach (var a in Model.projectWiseTasks)
+                            {
+                                <li class="list-group-item list ">
+                                    <div class="media">
+                                        @if (a.PWT_Image == "")
+                                        {
+                                            <img src="~/Content/app-assets/images/elements/no-image-icon.png" class="rounded-circle mr-2" alt="img-placeholder" height="50" width="50" />
+                                        }
+                                        else
+                                        {
+                                            <img src="@a.PWT_Image" class="rounded-circle mr-2" alt="img-placeholder" height="50" width="50">
+                                        }
+
+                                        <div class="media-body">
+                                            <h5 class="mt-0 name">@a.PWT_TaskTitle</h5>
+                                            <p class="name short-task" style="width:200p !important "> @a.PWT_Description</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        <ul class="pagination pagination-separate pagination-flat"></ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+</section>
+<script type="text/javascript">
+    var globalData = {
+        TransactionType: 'Select',
+        param1: 'CC_Id',
+        StoreProcedure: 'CorporateClient_USP'
+    };
+
+
+</script>
+<script src="~/Scripts/custom/CorporateClient.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -1,0 +1,42 @@
+﻿<span class="dropdown">
+    <button id="btnSearchDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-danger btn-sm dropdown-toggle dropdown-menu-right">
+        <i class="ft-file white"></i>
+        Expenses
+    </button>
+    <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+        <a href="ProjectWiseExpenses?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> Add Expenses
+        </a>
+        <input type="hidden" id="hdnProject" />
+    </span>
+</span>
+<span class="dropdown">
+    <button id="btnSearchDrop2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-sm dropdown-toggle dropdown-menu-right">
+        <i class="ft-file white"></i>
+        Income
+    </button>
+    <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+        <a href="ProjectWiseJobsFundGrant?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> Jobs fund
+        </a>
+        <a href="MatchedFunding?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> Matched Funding
+        </a>
+        <a href="OtherContributions?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> Other Contributions
+        </a>
+        <a href="LoanFinancing?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> Loan Financing
+        </a>
+        <a href="InKindContributions?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> In Kind Contributions
+        </a>
+        <a href="InterestIncome?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i>Interest Income
+        </a>
+        <a href="OtherEarnings?Id=@ViewData["id"]" class="dropdown-item">
+            <i class="la la-money"></i> Other Earnings
+        </a>
+          
+    </span>
+</span>

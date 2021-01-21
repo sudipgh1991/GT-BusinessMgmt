@@ -1,0 +1,344 @@
+﻿@model BOD_DAL.Models.CorporateClient
+@{
+    ViewBag.Title = "Register Client User Next Step";
+    Layout = "~/Views/Shared/_RegisterClientNextStep.cshtml";
+}
+
+
+
+<form action="/Account/RegisterClientUserNextStep" class="steps-validation wizard-circle" method="post">
+    <input type="hidden" id="Id" />
+    <!-- Step 1 -->
+    <h6>Registration Details</h6>
+    <fieldset>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="CorporateName">
+                        Corporate Name :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_CorporateName, new { @class = "form-control required", @type = "text" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="TradingName">
+                        Trading Name :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_TradingName, new { @class = "form-control required", @type = "text" })
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="CIPC_RegistrationNo">
+                        CIPC Registration No :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_CIPC_RegistrationNo, new { @class = "form-control required", @type = "text" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="SARS_VATNo">
+                        SARS VAT No :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_SARS_VATNo, new { @class = "form-control required", @type = "text" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="PhoneNo">
+                        Phone Number :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_PhoneNo, new { @class = "form-control required", @type = "tel" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="PhoneNo">
+                        Industry :
+                        <span class="danger">*</span>
+                    </label>
+
+                    @Html.DropDownListFor(model => model.CC_PIM_Id, new SelectList(Model.dropdownIndustryList, "Value", "Text"), "Select Industry", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <!-- Step 2 -->
+    <h6>Contact Details</h6>
+    <fieldset>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Address">
+                        Physical Address :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_Address, new { @class = "form-control required", @type = "text" })
+                </div>
+
+                <div class="form-group">
+                    <label for="PostalAddress" style="display:block;">
+                        Postal Address :
+                        <span class="danger">*</span>
+                        <fieldset style="display: contents;">
+                            <input type="checkbox" id="sameAdd" class="sameAdd" style="cursor: pointer;">
+                            <label for="sameAdd" style="cursor: pointer;"> Same as permanent address</label>
+                        </fieldset>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_PostalAddress, new { @class = "form-control required", @type = "text" })
+                </div>
+                <div class="form-group">
+                    <label for="Zipcode">
+                        Postal code :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_Zipcode, new { @class = "form-control required", @type = "text" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ContactPersonName">
+                        Contact Person Name :
+                        <span class="danger">*</span>
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_ContactPersonName, new { @class = "form-control required", @type = "text" })
+                </div>
+                <div class="form-group">
+                    <label for="ContactPersonEmail">
+                        Contact Person Email :
+
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_ContactPersonEmail, new { @class = "form-control", @type = "text" })
+                </div>
+                <div class="form-group">
+                    <label for="ContactPersonPhNo">
+                        Contact Person PhNo :
+
+                    </label>
+                    @Html.TextBoxFor(model => model.CC_ContactPersonPhNo, new { @class = "form-control", @type = "text" })
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <!-- Step 3 -->
+    <h6>Assesment Questions</h6>
+    <fieldset>
+        <div class="row">
+            @foreach (var item in ViewBag.QCategory)
+            {
+                var count = 0;
+                for (int i = 0; i < Model.QA.Count; i++)
+                {
+
+                    if (item.QC_Id == Model.QA[i].QM_QC_Id)
+                    {
+                        if (count == 0)
+                        {
+                            <div class="alert alert-success" style="width: 100%;">
+                                <strong>@item.QC_Name</strong>
+                            </div>
+                            count++;
+                        }
+                        if (Model.QA[i].Type.ToString() == "T")
+                        {
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="@Model.QA[i].Answer">
+                                        @Model.QA[i].Question
+                                        @if (@Model.QA[i].Required == "required")
+                                        {
+                                            <span class="danger">*</span>
+                                        }
+                                    </label>
+                                    @Html.HiddenFor(model => @Model.QA[i].QM_QC_Id)
+                                    @Html.HiddenFor(model => @Model.QA[i].QAId)
+                                    @Html.HiddenFor(model => @Model.QA[i].Question)
+                                    @Html.HiddenFor(model => @Model.QA[i].Type)
+                                    @if (@Model.QA[i].Required == "required")
+                                    {
+                                        @Html.TextBoxFor(model => @Model.QA[i].Answer, new { @class = "form-control required", @type = "text" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => @Model.QA[i].Answer, new { @class = "form-control", @type = "text" })
+                                    }
+
+                                </div>
+                            </div>
+                        }
+                        else if (Model.QA[i].Type.ToString() == "U")
+                        {
+                            <div class="col-md-3">
+                                <div class="form-group">
+
+                                    <label for="@Model.QA[i].Answer">
+                                        @Model.QA[i].Question
+
+                                    </label>
+                                    @Html.HiddenFor(model => @Model.QA[i].QM_QC_Id)
+                                    @Html.HiddenFor(model => @Model.QA[i].QAId)
+                                    @Html.HiddenFor(model => @Model.QA[i].Question)
+                                    @Html.HiddenFor(model => @Model.QA[i].Type)
+                                    @Html.HiddenFor(model => @Model.QA[i].Answer)
+                                    @*@Html.TextBoxFor(model => @Model.QA[i].Answer, new { @class = "form-control required", @type = "text" })*@
+                                    <div class="media">
+
+                                        <div class="media-body mt-75">
+
+                                            <div class="controls">
+                                                @if (@Model.QA[i].Required == "required")
+                                                {
+                                                    <input type="file" name="file" onchange="encodeImgtoBase64(this,'QA[@i].Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" required>
+                                                }
+                                                else
+                                                {
+                                                    <input type="file" name="file" onchange="encodeImgtoBase64(this,'QA[@i].Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp">
+                                                }
+
+
+
+                                            </div>
+                                            <p class="text-muted ml-75 mt-50">
+                                                <small>
+                                                    Allowed .doc,.docx,.pdf, GIF or PNG. Max
+                                                    size of
+                                                    800kB
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else if (Model.QA[i].Type.ToString() == "D")
+                        {
+                            <div class="col-md-6">
+                                <div class="form-group" style="display: block;">
+                                    <label for="@Model.QA[i].Answer">
+                                        @Model.QA[i].Question
+                                        @if (Model.QA[i].Required == "required")
+                                        {
+                                            <span class="danger">*</span>
+                                        }
+                                    </label>
+                                    @Html.HiddenFor(model => @Model.QA[i].QM_QC_Id)
+                                    @Html.HiddenFor(model => @Model.QA[i].QAId)
+                                    @Html.HiddenFor(model => @Model.QA[i].Question)
+                                    @Html.HiddenFor(model => @Model.QA[i].Type)
+                                    <div class="skin skin-square">
+                                        @if (Model.QA[i].Required == "required")
+                                        {
+                                            @Html.DropDownListFor(model => model.QA[i].Answer, new SelectList(Model.QA[i].DropDowns, "OM_Id", "OM_Name"), "Select Option", new { @class = "form-control required" })
+                                        }
+                                        else
+                                        {
+                                            @Html.DropDownListFor(model => model.QA[i].Answer, new SelectList(Model.QA[i].DropDowns, "OM_Id", "OM_Name"), "Select Option", new { @class = "form-control" })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else if (Model.QA[i].Type.ToString() == "M")
+                        {
+                            <div class="col-md-3">
+                                <div class="form-group" style="display: block;">
+                                    <label for="@Model.QA[i].Answer">
+                                        @Model.QA[i].Question
+                                        @if (Model.QA[i].Required == "required")
+                                        {
+                                            <span class="danger">*</span>
+                                        }
+                                    </label>
+                                    @Html.HiddenFor(model => @Model.QA[i].QM_QC_Id)
+                                    @Html.HiddenFor(model => @Model.QA[i].QAId)
+                                    @Html.HiddenFor(model => @Model.QA[i].Question)
+                                    @Html.HiddenFor(model => @Model.QA[i].Type)
+                                    <div class="skin skin-square">
+                                        @if (Model.QA[i].Required == "required")
+                                        {
+                                            @Html.ListBoxFor(model => model.QA[i].Answer2, new SelectList(Model.QA[i].DropDowns, "OM_Id", "OM_Name"), new { @class = "form-control listbox required" })
+                                        }
+                                        else
+                                        {
+                                            @Html.ListBoxFor(model => model.QA[i].Answer2, new SelectList(Model.QA[i].DropDowns, "OM_Id", "OM_Name"), new { @class = "form-control listbox" })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-3">
+                                <div class="form-group" style="display: block;">
+                                    <label for="@Model.QA[i].Answer">
+                                        @Model.QA[i].Question
+                                        <span class="danger"></span>
+                                    </label>
+                                    @Html.HiddenFor(model => @Model.QA[i].QM_QC_Id)
+                                    @Html.HiddenFor(model => @Model.QA[i].QAId)
+                                    @Html.HiddenFor(model => @Model.QA[i].Question)
+                                    @Html.HiddenFor(model => @Model.QA[i].Type)
+                                    <div class="skin skin-square">
+                                        @Html.RadioButtonFor(model => @Model.QA[i].RadioOptions, true, new { @type = "radio", })
+                                        Yes
+                                        @Html.RadioButtonFor(model => @Model.QA[i].RadioOptions, false, new { @type = "radio", })
+                                        No
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+                }
+
+            }
+        </div>
+    </fieldset>
+    <span class="btn btn-danger btn-block mb-5 alert-msg" style="display:none;">Some thing is going wrong</span>
+    <button type="submit" class="btnSubmit" style="display:none;">Submit</button>
+</form>
+
+
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script>
+    $(document).ready(function () {
+        InitUI();
+    });
+    function InitUI() {
+
+        DropdownBinder.DDLData = {
+            tableName: "ProjectIndustryMaster_PIM",
+            Text: 'PIM_Name',
+            Value: 'PIM_Id'
+        };
+
+        DropdownBinder.DDLElem = $("#IndustryId");
+
+        DropdownBinder.Execute();
+
+        
+    }
+</script>
+<script src="~/Content/app-assets/custom-js/client.user.register.js"></script>

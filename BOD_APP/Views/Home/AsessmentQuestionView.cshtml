@@ -1,0 +1,118 @@
+﻿@model BOD_DAL.Models.AssesmentView
+@{
+    ViewBag.Title = "AsessmentQuestionView";
+    //Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+<div class="page-content">
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Assesment Question Answer</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-body ">
+                @{ if (Model.categotyList.Count()>0)
+
+                   {
+                       foreach (var Category in Model.categotyList)
+                    {
+                        //var QsView = Model.qsView.Where(m => m.QM_QC_Id == Category.Id);
+                        <div class="card">
+                            
+                                @{
+                                     var QsView = Model.qsView.Where(m => m.QM_QC_Id == Category.Id);
+
+                                <div class="card-header">
+                                    <h6 class="form-section">@Category.Name </h6>
+                                </div>
+
+
+
+                        if (QsView.Count() > 0)
+                        {
+                            foreach (var qs in QsView)
+                            {
+                                <div class="card-body">
+                                    <div class="form-group row mx-auto">
+                                        <label class="col-md-4 label-control" style="text-align:left !important" for="userinput1">@qs.QM_Name</label>
+
+                                        @if (qs.QM_Container == "U")
+                                        {<div class="col-md-6">
+                                             @if (qs.UQM_Answer == "")
+                                             {
+                                             <label class="col-md-6 label-control" for="userinput1" style="text-align:left !important">Answer Not Given</label>
+                                             }
+                                             else
+                                             {
+                                            <a href="@qs.UQM_Answer" class="float-l ticket-options-icon " download><i class="la la-download text-success" style="font-size: x-large !important;"></i> </a>
+                                        }
+                                        </div>
+                                        }
+                                        else
+                                        {
+                                            if (qs.UQM_Answer == "")
+                                            {
+                                                <label class="col-md-6 label-control" for="userinput1" style="text-align:left !important">Answer Not Given</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="col-md-6 label-control" for="userinput1" style="text-align:left !important">@qs.UQM_Answer</label>
+                                            }
+
+                                        }
+
+                                    </div>
+                                </div>
+
+                              
+                                }
+                                }
+                                }
+
+                          
+                        </div>
+
+                    }
+
+                }
+                else
+                   {
+           
+        <div class="col-lg-12 col-sm-12" style="margin-top:20%">
+            <div class="card hover-shadow-lg">
+                <div class="card-body text-center">
+                    No Record Found
+                    </div>
+                </div>
+
+            </div>
+    }
+                   }
+                   
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

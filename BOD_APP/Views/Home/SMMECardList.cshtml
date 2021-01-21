@@ -1,0 +1,149 @@
+﻿@model  BOD_DAL.Models.SSME
+@{
+    ViewBag.Title = "AllSMME";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">All SMME</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2" id="count"></span>
+                <span class="text-sm opacity-7 text-white">SMME</span>
+            </div>
+            <!-- Optional link -->
+            <a href="/Home/SSMEList" class="text-sm text-info d-none d-lg-inline-block ml-4">See table</a>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end" >
+            <!-- Filter input -->
+            @*<form class="bg-neutral rounded-pill d-inline-block">
+                <div class="input-group input-group-sm input-group-merge input-group-flush">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent"><i class="fa fa-filter"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-flush" placeholder="Filter results">
+                </div>
+            </form>*@
+            <a href="/Home/SSME" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4" data-toggle="tooltip" title="Add new SMME">
+                <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row" id="dvClient">
+    @{ 
+    foreach (var a in Model.ssmeList)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hover-shadow-lg">
+                <div class="card-body text-center">
+                    <div class="avatar-parent-child">
+
+
+                        @if (a.SM_Image == "")
+                        {
+
+                            <img alt="Image placeholder" src="~/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle avatar-lg">
+                        }
+                        else
+                        {
+                            <img alt="Image placeholder" src="@a.SM_Image" class="avatar  rounded-circle avatar-lg">
+                        }
+
+                        <span class="avatar-child avatar-badge bg-success"></span>
+                    </div>
+                    <h5 class="h6 mt-4 mb-0">@a.SM_CorporateName</h5>
+                    <a href="#" class="d-block text-sm text-muted mb-3">@a.SM_Email</a>
+                    <div class="actions d-flex justify-content-between px-4">
+                        <a href="/Home/SSME?id=@a.SM_Id" class="action-item">
+                            <i class="fa fa-user-edit" data-toggle="tooltip" title="Edit SMME Detailss"></i>
+                        </a>
+                        <a href="/Home/AsessmentQuestionView?Id=@a.SM_Id&name=SM" class="action-item">
+                            <i class="fa fa-file" data-toggle="tooltip" title="View Assesment Answers"></i>
+                        </a>
+                        <a href="#" class="action-item">
+                            <i class="fa fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body border-top">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-6" data-toggle="tooltip" title="Manage Employee">
+
+
+
+                            <div class="avatar-group">
+                                @*<a href="#" class="avatar rounded-circle avatar-sm">
+                                    <img alt="Image placeholder" src="~/assets/img/theme/light/team-1-800x800.jpg" class="">
+                                </a>
+                                <a href="#" class="avatar rounded-circle avatar-sm">
+                                    <img alt="Image placeholder" src="~/assets/img/theme/light/team-1-800x800.jpg" class="">
+                                </a>*@
+
+                                @{var EmpList = Model.empList.Where(m => m.CreatedBy == a.UserId);
+
+                                if (EmpList.Count() > 0)
+                                {
+                                    foreach (var b in EmpList)
+                                    {
+                                        <a href="/Home/EmployeeMaster" class="avatar rounded-circle avatar-sm" data-original-title="@b.EM_EmpName">
+                                            <img alt="@b.EM_EmpName" src="@b.EM_ProfilePic" class="">
+                                        </a>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="/Home/EmployeeMaster" class="d-block text-sm mb-3"><span>No Employee Found</span></a>
+
+                                }
+}
+
+
+                            </div>
+                        
+                        
+                        </div>
+                        <div class="col-auto text-center">
+                            <span class="d-block h4 mb-0">@a.SM_TotalProjects</span>
+                            <span class="d-block text-sm text-muted">Open tasks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="actions d-flex justify-content-between">
+                        <a href="#" class="action-item">
+                            <span class="btn-inner--icon">Projects</span>
+                        </a>
+                        <a href="/Home/SMMEProfileDetails?id=@a.SM_Id" class="action-item">
+                            <span class="btn-inner--icon">See profile</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    }
+    @*else
+    { 
+        <div class="col-lg-12 col-sm-12" style="margin-top:20%">
+            <div class="card hover-shadow-lg">
+                <div class="card-body text-center">
+                    No Record Found
+                    </div>
+                </div>
+
+            </div>
+    }*@
+
+
+</div>

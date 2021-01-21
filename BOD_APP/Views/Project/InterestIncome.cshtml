@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "InterestIncome";
+    //Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+@*<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/charts/apexcharts.css">
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/pages/project.css">
+<style type="text/css">
+    .tblxs {
+        margin-bottom: 0px !important;
+    }
+</style>*@
+
+
+
+
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Interest Income</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <div class="avatar-group">
+                <a href="#" class="avatar rounded-circle avatar-sm">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="">
+                </a>
+                <a href="#" class="avatar rounded-circle avatar-sm">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="">
+                </a>
+                <a href="#" class="avatar rounded-circle avatar-sm">
+                    <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="">
+                </a>
+            </div>
+            <a href="#modal-users" class="btn btn-sm btn-white rounded-circle btn-icon-only ml-2" data-toggle="modal">
+                <span class="btn-inner--icon"><i class="far fa-user-plus"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    @{Html.RenderPartial("_ProjectDetails", new ViewDataDictionary { { "id", @ViewBag.Id } });}
+    </div>
+   
+
+
+    <!-- Project details -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h6 class="mb-0">Interest Income</h6>
+                        </div>
+                        @*<div class="col-auto">
+                                <div class="actions">
+                                    <a href="#!" class="action-item">
+                                        <i class="far fa-file-export"></i>
+                                        <span class="d-none d-sm-inline-block mr-4">Export</span>
+                                    </a>
+                                    <a href="#!" class="action-item">
+                                        <i class="far fa-print"></i>
+                                        <span class="d-none d-sm-inline-block">Print</span>
+                                    </a>
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0" id="tblInterestincome">
+                        <thead>
+                            <tr>
+                                <th>Accounting</th>
+                                <th>Interst Instrument</th>
+                                <th>Institution Holding</th>
+                                <th>Enter Date</th>
+                                <th>Interest</th>
+                                <th>Payment Terms</th>
+                                <th>Action</th>
+
+                            </tr>
+                            <tr>
+                                <th class="width-350" style="padding:0px !important;">
+                                    <div class="card-body" style="padding:4px !important;">
+                                        <div class="form-group tblxs">
+                                            <select class="form-control input-sm  drop_down accounting" id="ddlAccounting"></select>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width-350" style="padding:0px !important;">
+                                    <div class="card-body" style="padding:4px !important;">
+                                        <div class="form-group tblxs">
+                                            <input type="text" class="form-control input-sm  thtxt" id="txtItem">
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="width-350" style="padding:0px !important;">
+                                    <div class="card-body" style="padding:4px !important;">
+                                        <div class="form-group tblxs">
+                                            <input type="text" class="form-control input-sm  thtxt" id="txtHolding">
+                                        </div>
+                                    </div>
+                                </th>
+                                <th style="padding:0px !important;">
+                                    <div class="card-body" style="padding:4px !important;">
+                                        <div class="form-group tblxs">
+                                            <input type="text" class="form-control input-sm  singledate thtxt" id="txtDate" placeholder="mm/dd/yyyy">
+                                        </div>
+                                    </div>
+                                </th>
+
+                                <th style="padding:0px !important;">
+                                    <div class="card-body" style="padding:4px !important;">
+                                        <div class="form-group tblxs">
+                                            <input type="text" class="form-control input-sm  thtxt frm rate" id="txtRate">
+                                        </div>
+                                    </div>
+                                </th>
+
+                                <th style="padding:0px !important;" class="width-350">
+                                    <div class="card-body" style="padding:4px !important;">
+                                        <div class="form-group tblxs">
+                                            <input type="text" class="form-control input-sm  thtxt total" id="txtpaymentTerms">
+                                        </div>
+                                    </div>
+                                </th>
+                                <th style="padding:0px !important;">
+                                    <div class="form-group tblxs">
+                                        <button type="button" class="btn btn-social mb-1 mr-1 btn-xs btn-success" style="margin-bottom:0.4rem !important;line-height: normal !important;" id="add-row"><span class="la la-check"></span> Add</button>
+                                    </div>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- Buttons -->
+                    <div class="text-right">
+                        <a href="/Home/ProjectQuestionMasterList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecords();">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<script src="~/Content/app-assets/vendors/js/charts/apexcharts/apexcharts.min.js"></script>
+
+        <script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>*@
+    <script src="~/Scripts/utility/dropdown.js"></script>
+    <script src="~/Scripts/custom/project_interst_income.js"></script>
+    @*<script src="~/Scripts/utility/project_details_report.js"></script>*@
+    <script src="~/Scripts/utility/project_details_global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

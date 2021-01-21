@@ -1,0 +1,31 @@
+﻿@import url("https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css");
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.downloadbtn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 10%;
+   margin-top:27px;
+   display:none;
+   margin-right:12px;
+
+}
+
+    .downloadbtn:hover {
+        background-color: RoyalBlue;
+         color: white;
+    }
+
+    .downloadbtn:active, .downloadbtn:focus {
+        background-color: RoyalBlue;
+        color: white;
+        outline: 0;
+    }

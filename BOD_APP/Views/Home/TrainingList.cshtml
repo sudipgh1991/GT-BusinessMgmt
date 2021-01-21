@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "TrainingList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+@{
+    string Role = "";
+    int? MainId = 0;
+    string name = "";
+    string logo = "/Content/app-assets/images/elements/no-image-icon.png";
+    BOD_DAL.Models.UserModel UserObj;
+    BOD_DAL.Models.UserModel UserObjA;
+    UserObjA = Session["UserDataModel"] as BOD_DAL.Models.UserModel;
+    UserObj = UserObjA;
+    if (UserObjA == null)
+    {
+        BOD_DAL.Models.UserModel UserObjC;
+        BOD_DAL.Models.UserModel UserObjE;
+        UserObjC = Session["CUserDataModel"] as BOD_DAL.Models.UserModel;
+        UserObjE = Session["EUserDataModel"] as BOD_DAL.Models.UserModel;
+
+
+        if ((UserObjC == null) && (UserObjE == null))
+        {
+            BOD_DAL.Models.UserModel UserObjSM;
+            UserObjSM = Session["SMUserDataModel"] as BOD_DAL.Models.UserModel;
+            UserObj = UserObjSM;
+            UserObj.Role = "SM";
+            logo = UserObjSM.Logo;
+            name = UserObjSM.UserName;
+            Role = UserObjSM.Role;
+            MainId = UserObjSM.UM_MainID;
+        }
+        else if (UserObjE != null)
+        {
+            UserObj = UserObjE;
+            UserObj.Role = "E";
+            logo = UserObjE.Logo;
+            name = UserObjE.UserName;
+            Role = UserObjE.Role;
+            MainId = UserObjE.UM_MainID;
+        }
+        else
+        {
+            UserObj = UserObjC;
+            UserObj.Role = "C";
+            logo = UserObjC.Logo;
+            name = UserObjC.UserName;
+            Role = UserObjC.Role;
+            MainId = UserObjC.UM_MainID;
+        }
+
+
+    }
+
+    var SessionModule = Session["AuthorisedModuleModel"] as IList<BOD_DAL.Models.AuthorisedModule>;
+    var SessionComapny = Session["CompanyModel"];
+}
+<link href="~/Content/app-assets/custom-css/TrainingList.css" rel="stylesheet" type="text/css" />
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Projects</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2" id="totalPro">0</span>
+                <span class="text-sm opacity-7 text-white">Running projects</span>
+            </div>
+            <!-- Optional link -->
+            @*<a href="#" class="text-sm text-info d-none d-lg-inline-block ml-4">See table</a>*@
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            @*<div class="actions actions-dark d-inline-block">
+                <a href="#" class="action-item ml-md-4">
+                    <i class="fa fa-file-export mr-2"></i>Export
+                </a>
+                <a href="#" class="action-item ml-3">
+                    <i class="fa fa-cog mr-2"></i>Settings
+                </a>
+            </div>*@
+            <a href="/Home/AddTraining" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4" >
+                <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" id="trainingListData">
+
+</div>
+
+<div class="modal fade" id="assignEmployee" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" style="margin-left:130px;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="overflow-y:initial;">
+        <div class="modal-content" style="height:550px;max-width:900px;">
+            <div class="modal-header" style="border-bottom: 1px solid transparent;display:block;">
+                <div class="form-group has-search">
+                    <span class="ti-search form-control-feedback"></span>
+                    <input type="text" class="form-control input-xlarge" placeholder="Search by Employee Name">
+                </div>
+                <button type="button" id="closebtn" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><span class="ti-close"></span></span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body" style="overflow-y:auto; overflow-x:hidden;">
+
+                <input type="hidden" name="trainingId" id="trainingId" />
+                <section id="simple-user-cards-employee" class="row">
+                </section>
+            </div>
+            <div class="modal-footer" style="border-top:1px solid #E4E4E4;">
+                <button type="button" class="addemployeebtn" id="addemployeebtn"><span>Add Selected Employees</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="closemodalalert" class="closemodalalert-container">
+    <div class="closemodal">
+        <h2 style="color: #f12828;">Alert!!</h2>
+        <p style="margin-top:20px;font-size:15px;">You have cancelled it. No employee was added to the Training List.</p>
+        <button id="gotit">GOT IT!</button>
+    </div>
+</div>
+
+<div id="noemployeeaddedmodalalert" class="noemployeeaddedmodalalert-container">
+    <div class="noemployeeaddedmodal">
+        <h2 style="color: #f12828;">WARNING!!</h2>
+        <p style="margin-top:20px;font-size:17px;">Are you sure you want to delete all Employees from the training list ?</p>
+        <div style="float:right;margin-top:20px;">
+
+            <button id="cancelnoemployeeadded" class="btn btn-dark">CANCEL</button>
+            <button id="deleteall" class="btn btn-danger" style="margin-left:5px;">I AM SURE</button>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/custom/TrainingList.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+

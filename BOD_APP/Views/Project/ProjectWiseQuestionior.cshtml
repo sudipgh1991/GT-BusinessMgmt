@@ -1,0 +1,141 @@
+﻿@model IList<BOD_DAL.Models.ProjectSectorwiseQuestion>
+    @{
+        ViewBag.Title = "Project Wise Question Setup";
+        Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+    }
+
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <h5 class="h3 font-weight-400 mb-0 text-white">Project Wise Question</h5>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-md-6">
+            <div class="card card-fluid">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-0">
+                    <div class="actions-search" id="actions-search">
+                        <div class="input-group input-group-merge input-group-flush">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-transparent"><i class="far fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control form-control-flush" placeholder="Type and hit enter ...">
+                            <div class="input-group-append">
+                                <a href="#" class="input-group-text bg-transparent" data-action="search-close" data-target="#actions-search"><i class="far fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Question List</h6>
+                        </div>
+                        @*<div class="col text-right">
+                        <div class="actions">
+
+
+                            <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="far fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item">Refresh</a>
+                                    <a href="#" class="dropdown-item">Manage Widgets</a>
+                                    <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <input type="hidden" id="hdprojectId" name="hdprojectId" value=@ViewBag.Id />
+                        <input type="hidden" id="hdsectorId" name="hdsectorId" value=@ViewBag.SectorId />
+                        <table class="table align-items-center tblQuestion">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <div class="custom-checkbox">
+                                            <input name="checkboxForAll" type="checkbox" class="input-chk-all">
+                                        </div>
+
+                                    </th>
+                                    <th scope="col">Sector</th>
+                                    <th scope="col">Question</th>
+                                    <th scope="col">Container</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{ int i = 1; foreach (var item in Model)
+                                 {
+
+                                    <tr>
+                                        @*<th scope="row">
+                                <div class="media align-items-center">
+                                    <div>
+                                        <div class="avatar-parent-child">
+                                            <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="avatar  rounded-circle">
+                                            <span class="avatar-child avatar-badge bg-success"></span>
+                                        </div>
+                                    </div>
+                                    <div class="media-body ml-4">
+                                        <a href="#" class="name h6 mb-0 text-sm">John Sullivan</a>
+
+                                    </div>
+                                </div>
+                            </th>*@
+                                        <td>
+                                            <input id="@("hdnquestionId" + item.PQM_Id)" name=@("hdnquestionId" + item.PQM_Id) type="hidden" value="@item.PQM_Id" />
+                                            <div class="custom-checkbox">
+                                                <input name="checkboxForSingle" type="checkbox" class="input-chk" id="@("chk" + item.PQM_Id)">
+                                            </div>
+                                        </td>
+                                        <td>@item.PQM_PIM_Name</td>
+                                        <td>@item.PQM_Name</td>
+                                        <td>@item.PQM_Container</td>
+                                    </tr>
+                                 }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="text-right">
+
+                                <a href="/Project/ProjectList" class="btn btn-link text-muted">Cancel</a>
+                                <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecords()">Submit</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- Table -->
+               
+
+
+
+
+            
+               
+              
+            </div>
+        </div>
+     
+
+
+
+    </div>
+
+    <script src="~/Scripts/custom/ProjectWiseQuestionior.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

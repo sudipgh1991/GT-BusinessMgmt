@@ -1,0 +1,228 @@
+﻿@model IList<BOD_DAL.Models.ProjectEntry>
+@{
+    ViewBag.Title = "ProjectList";
+    Layout = "~/Views/Shared/_LayoutNewProjectList.cshtml";
+    //Layout = "~/Views/Shared/_LayoutNewTempDatatable.cshtml";
+
+}
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">All Project </h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                @*<span class="h4 text-info mb-0 mr-2" id="count"></span>*@
+
+            </div>
+            <!-- Optional link -->
+            <a href="/Project/ProjectCardList" class="text-sm text-info d-none d-lg-inline-block ml-4">See card</a>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            <!-- Filter input -->
+            <form class="bg-neutral rounded-pill d-inline-block">
+               
+            </form>
+            <a href="/Project/Project" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-header">
+                <h6 class="mb-0">Project List</h6>
+            </div>
+            <div class="card-body">
+                <!-- Chart -->
+                <div class="table-responsive">
+                    <table id="invoices-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle" style="max-width:800px !important">
+                        <thead>
+                            <tr>
+                                <th>Project.No s</th>
+                                <th>Sector</th>
+                                <th>Project Details</th>
+                                <th>Project Name</th>
+                                <th>Actions</th>
+                                <th>Exepenses</th>
+                                <th>Income</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @{ int i = 1; foreach (var item in Model)
+                             {
+                                <tr>
+                                    <td><a href="ProjectSummary?Id=@item.PE_Id" class="text-bold-600">@item.PE_RegNo </a></td>
+                                    <td>@item.PIM_Name</td>
+                                    <td>
+                                        <a href="ProjectSummary?Id=@item.PE_Id" class=" text-bold-600">@item.PE_ProjectName</a>
+                                        <p class="text-muted">Start On:@item.PE_StartDate |End On: @item.PE_EndDate</p>
+                                    </td>
+
+                                    <td>
+                                        <h6 class="mb-0">
+                                            Project Owner :  <span class="text-bold-600">@item.CC_CorporateName</span>
+
+
+                                        </h6>
+                                    </td>
+
+                                    <td>
+                                        <span class="dropdown">
+                                            <button id="btnSearchDrop1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-sm dropdown-toggle dropdown-menu-right">
+                                                <i class="ft-file white"></i>
+                                            </button>
+                                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                @{if ((ViewBag.UserRole != "S") && (ViewBag.UserRole != "E"))
+                                                {
+                                                    <a href="Project?Id=@item.PE_Id" class="dropdown-item">
+                                                        <i class="fa fa-user" aria-hidden="true"></i>Edit
+                                                    </a>
+                                                    <a href="AddSMME?Id=@item.PE_Id" class="dropdown-item">
+                                                        <i class="ft-users"></i> Manage SMME
+                                                    </a>
+                                                    <a href="ProjectWiseEmployee?Id=@item.PE_Id" class="dropdown-item">
+                                                        <i class="ft-user-check"></i> Manage Employee
+                                                    </a>
+                                                    <a href="ProjectPlanningList?Id=@item.PE_Id" class="dropdown-item">
+                                                        <i class="ft-check-square"></i> Manage Phase
+                                                    </a>
+                                                    <a href="ProjectWiseTask?Id=@item.PE_Id" class="dropdown-item">
+                                                        <i class="ft-check-square"></i> Add Activity
+                                                    </a>
+
+                                                    <a href="ProjectWiseQuestionior?Id=@item.PE_Id&SectorId=@item.PE_IndustryId" class="dropdown-item">
+                                                        <i class="ft-check-square"></i> Add Question
+                                                    </a>
+
+                                                    <a href="#" class="dropdown-item"><i class="fa fa-trash" aria-hidden="true"></i> Delete </a>
+                                                }
+
+                                                else if (ViewBag.UserRole == "S")
+                                                {
+                                                    <a href="ProjectAsessmentQuestion?Id=@item.PE_Id&UserId=3&type=S" class="dropdown-item">
+                                                        <i class="ft-user-check"></i> Give Assesment Answer
+                                                    </a>
+                                                }
+                                                else if (ViewBag.UserRole == "E")
+                                                {
+                                                    <a href="ProjectAsessmentQuestion?Id=@item.PE_Id&type=E" class="dropdown-item">
+                                                        <i class="ft-user-check"></i> Give Assesment Answer
+                                                    </a>
+
+                                                }
+                                                }
+
+                                            </span>
+                                        </span>
+
+                                    </td>
+                                    <td>
+
+                                        <span class="dropdown">
+                                            <button id="btnSearchDrop2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-info btn-sm dropdown-toggle dropdown-menu-right">
+                                                <i class="ft-settings white"></i>
+                                            </button>
+                                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+
+                                                <a href="Budget?Id=@item.PE_Id&start=@item.PE_StartDate&end=@item.PE_EndDate" class="dropdown-item">
+                                                    <i class="la la-money"></i> Budget
+                                                </a>
+                                                <a href="ProjectWiseExpenses?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i>Actual Expenses
+                                                </a>
+                                                @*<a href="ProjectIndicator?Id=@item.PE_Id&start=@item.PE_StartDate&end=@item.PE_EndDate" class="dropdown-item">
+                                                        <i class="la la-money"></i> Project Indicator
+                                                    </a>
+                                                    <a href="ProjectPerformanceIndicator?Id=@item.PE_Id&start=@item.PE_StartDate&end=@item.PE_EndDate" class="dropdown-item">
+                                                        <i class="la la-money"></i> Project Performance Indicator
+                                                    </a>*@
+                                            </span>
+                                        </span>
+
+                                    </td>
+                                    <td>
+
+                                        <span class="dropdown">
+                                            <button id="btnSearchDrop3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-sm dropdown-toggle dropdown-menu-right">
+                                                <i class="ft-bar-chart white"></i>
+                                            </button>
+                                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                <a href="Income?Id=@item.PE_Id&start=@item.PE_StartDate&end=@item.PE_EndDate" class="dropdown-item">
+                                                    <i class="la la-money"></i> Budget
+                                                </a>
+                                                <a href="ProjectWiseJobsFundGrant?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> Grant Funding
+                                                </a>
+                                                <a href="MatchedFunding?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> Matched Funding
+                                                </a>
+                                                <a href="OtherContributions?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> Other Contributions
+                                                </a>
+                                                <a href="LoanFinancing?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> Loan Financing
+                                                </a>
+                                                <a href="InKindContributions?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> In Kind Contributions
+                                                </a>
+                                                <a href="InterestIncome?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> Interest Incomes
+                                                </a>
+                                                <a href="OtherEarnings?Id=@item.PE_Id" class="dropdown-item">
+                                                    <i class="la la-money"></i> Other Earnings
+                                                </a>
+
+                                            </span>
+                                        </span>
+
+                                    </td>
+                                </tr>
+                             }
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+@*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<style>
+    invoices-list {
+        transition: all .5s;
+        max-width: 120px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+</style>
+
+
+@*@Scripts.Render("~/bundles/dtjqueryproject")
+    <script src="~/Content/app-assets/js/scripts/pages/invoices-list.js"></script>*@

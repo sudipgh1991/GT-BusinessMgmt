@@ -1,0 +1,155 @@
+F:\Dreamix Project\Business On Demand\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.dll
+F:\Dreamix Project\Business On Demand\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.pdb
+F:\Dreamix Project\Business On Demand\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+F:\Dreamix Project\Business On Demand\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.dll
+F:\Dreamix Project\Business On Demand\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+D:\Picture\BusinessOnDemand\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.pdb
+F:\Dreamix Project\Business On Demand\BOD_14_7_2020\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.dll
+F:\Dreamix Project\Business On Demand\BOD_14_7_2020\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.pdb
+F:\Dreamix Project\Business On Demand\BOD_14_7_2020\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+F:\Dreamix Project\Business On Demand\BOD_14_7_2020\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.dll
+F:\Dreamix Project\Business On Demand\BOD_14_7_2020\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\Project\Modern\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\Project\Modern\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand07_08_2018Latest\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand07_08_2018Latest\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand07_08_2018Latest\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\Project\Modern\BusinessOnDemand07_08_2018Latest\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\Project\Modern\BusinessOnDemand07_08_2018Latest\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand07_08_2018Latest\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Personal\Retina\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Personal\Retina\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Personal\Retina\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\Personal\Retina\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\Personal\Retina\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Personal\Retina\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Personal\Retina\14_09_2020\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Personal\Retina\14_09_2020\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Personal\Retina\14_09_2020\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\Personal\Retina\14_09_2020\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\Personal\Retina\14_09_2020\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Personal\Retina\14_09_2020\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\DREAMIX PROJECT\BOD\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\DREAMIX PROJECT\BOD\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\DREAMIX PROJECT\BOD\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\DREAMIX PROJECT\BOD\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\DREAMIX PROJECT\BOD\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\DREAMIX PROJECT\BOD\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand24_09_2020Updated\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand24_09_2020Updated\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand24_09_2020Updated\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\Project\Modern\BusinessOnDemand24_09_2020Updated\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\Project\Modern\BusinessOnDemand24_09_2020Updated\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand24_09_2020Updated\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\DREAMIX PROJECT\BOD\Update BOD\BusinessOnDemand (1)\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\DREAMIX PROJECT\BOD\Update BOD\BusinessOnDemand (1)\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\DREAMIX PROJECT\BOD\Update BOD\BusinessOnDemand (1)\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\DREAMIX PROJECT\BOD\Update BOD\BusinessOnDemand (1)\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\DREAMIX PROJECT\BOD\Update BOD\BusinessOnDemand (1)\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\DREAMIX PROJECT\BOD\Update BOD\BusinessOnDemand (1)\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand04_10_2020\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand04_10_2020\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Project\Modern\BusinessOnDemand04_10_2020\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+D:\Project\Modern\BusinessOnDemand04_10_2020\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\Project\Modern\BusinessOnDemand04_10_2020\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Project\Modern\BusinessOnDemand04_10_2020\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\DELLL\Documents\Kushal Projects\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\DELLL\Documents\Kushal Projects\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\DELLL\Documents\Kushal Projects\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+C:\Users\DELLL\Documents\Kushal Projects\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+C:\Users\DELLL\Documents\Kushal Projects\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\DELLL\Documents\Kushal Projects\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\abhij\Downloads\BusinessOnDemandUp\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\abhij\Downloads\BusinessOnDemandUp\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\abhij\Downloads\BusinessOnDemandUp\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\abhij\Downloads\BusinessOnDemandUp\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\abhij\Downloads\BusinessOnDemandUp\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\New folder (2)\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\New folder (2)\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\New folder (2)\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\New folder (2)\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\New folder (2)\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Downloads\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Downloads\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Downloads\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Downloads\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Downloads\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.pdb
+E:\Bhashkar Doc\New Project\New Solutions\15 12\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.dll
+E:\Bhashkar Doc\New Project\New Solutions\15 12\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.pdb
+E:\Bhashkar Doc\New Project\New Solutions\15 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+E:\Bhashkar Doc\New Project\New Solutions\15 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+E:\Bhashkar Doc\New Project\New Solutions\15 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.dll
+E:\Bhashkar Doc\New Project\New Solutions\15 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\16 12\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\16 12\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\16 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Desktop\16 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\16 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\17 12\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\17 12\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\17 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Desktop\17 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\17 12\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.pdb
+E:\Bhashkar Doc\New Project\3rd Phase\18 122 BOD_APPNew\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.dll
+E:\Bhashkar Doc\New Project\3rd Phase\18 122 BOD_APPNew\BOD_APPNew\BOD_DAL\bin\Debug\BOD_DAL.pdb
+E:\Bhashkar Doc\New Project\3rd Phase\18 122 BOD_APPNew\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+E:\Bhashkar Doc\New Project\3rd Phase\18 122 BOD_APPNew\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+E:\Bhashkar Doc\New Project\3rd Phase\18 122 BOD_APPNew\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.dll
+E:\Bhashkar Doc\New Project\3rd Phase\18 122 BOD_APPNew\BOD_APPNew\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\19 12\New folder\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\19 12\New folder\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\19 12\New folder\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\19 12\New folder\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\19 12\New folder\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Desktop\bod\21 12\BOD_App21_12_2020\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\21 12\BOD_App21_12_2020\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\bod\21 12\BOD_App21_12_2020\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\21 12\BOD_App21_12_2020\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\abhij\Downloads\2212\BODNew22_12_2020 (1)\BODNew22_12_2020\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\abhij\Downloads\2212\BODNew22_12_2020 (1)\BODNew22_12_2020\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\abhij\Downloads\2212\BODNew22_12_2020 (1)\BODNew22_12_2020\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\abhij\Downloads\2212\BODNew22_12_2020 (1)\BODNew22_12_2020\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\abhij\Downloads\2212\BODNew22_12_2020 (1)\BODNew22_12_2020\BOD_DAL\obj\Debug\BOD_DAL.pdb
+E:\Bhashkar Doc\New Project\4th Phase\BODNew23_12_2020Last\BOD_DAL\bin\Debug\BOD_DAL.dll
+E:\Bhashkar Doc\New Project\4th Phase\BODNew23_12_2020Last\BOD_DAL\bin\Debug\BOD_DAL.pdb
+E:\Bhashkar Doc\New Project\4th Phase\BODNew23_12_2020Last\BOD_DAL\obj\Debug\BOD_DAL.csprojAssemblyReference.cache
+E:\Bhashkar Doc\New Project\4th Phase\BODNew23_12_2020Last\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+E:\Bhashkar Doc\New Project\4th Phase\BODNew23_12_2020Last\BOD_DAL\obj\Debug\BOD_DAL.dll
+E:\Bhashkar Doc\New Project\4th Phase\BODNew23_12_2020Last\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\bod\24 12\BODNew23_12_2020Last\BODNew23_12_2020Last\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\24 12\BODNew23_12_2020Last\BODNew23_12_2020Last\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\bod\24 12\BODNew23_12_2020Last\BODNew23_12_2020Last\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\24 12\BODNew23_12_2020Last\BODNew23_12_2020Last\BOD_DAL\obj\Debug\BOD_DAL.pdb
+C:\Users\abhij\Downloads\BOD05_01_2021Night\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\abhij\Downloads\BOD05_01_2021Night\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\abhij\Downloads\BOD05_01_2021Night\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\abhij\Downloads\BOD05_01_2021Night\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\abhij\Downloads\BOD05_01_2021Night\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\Picture\BusinessOnDemand\Newtemp\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\bin\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\bin\Debug\BOD_DAL.pdb
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\obj\Debug\BOD_DAL.csprojResolveAssemblyReference.cache
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\obj\Debug\BOD_DAL.dll
+C:\Users\joy\Desktop\bod\11 01\BOD_DAL\obj\Debug\BOD_DAL.pdb
+D:\20 01(2)\BOD_DAL\bin\Debug\BOD_DAL.dll
+D:\20 01(2)\BOD_DAL\bin\Debug\BOD_DAL.pdb
+D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.csproj.CoreCompileInputs.cache
+D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.dll
+D:\20 01(2)\BOD_DAL\obj\Debug\BOD_DAL.pdb

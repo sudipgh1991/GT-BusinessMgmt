@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C60FD03-EDD3-4A7A-9B26-6EEBE86AD8F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BOD_DAL</RootNamespace>
+    <AssemblyName>BOD_DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Convertor\Extensions.cs" />
+    <Compile Include="Convertor\HelperFunctions.cs" />
+    <Compile Include="DAL.cs" />
+    <Compile Include="Models\AccountingCode.cs" />
+    <Compile Include="Models\AddTraining.cs" />
+    <Compile Include="Models\AssesmentView.cs" />
+    <Compile Include="Models\AuthorisedModule.cs" />
+    <Compile Include="Models\Budget.cs" />
+    <Compile Include="Models\BudgetMonthList.cs" />
+    <Compile Include="Models\BudgetReturnData.cs" />
+    <Compile Include="Models\ClientWiseSSME.cs" />
+    <Compile Include="Models\CompanyMaster.cs" />
+    <Compile Include="Models\CorpDashIncomeExpenesGraph.cs" />
+    <Compile Include="Models\CorporateClient.cs" />
+    <Compile Include="Models\CorporateClientDocument.cs" />
+    <Compile Include="Models\CorporateDashboard.cs" />
+    <Compile Include="Models\CURegisterModel.cs" />
+    <Compile Include="Models\DDLJoinList.cs" />
+    <Compile Include="Models\DDLList.cs" />
+    <Compile Include="Models\DepartmentMaster.cs" />
+    <Compile Include="Models\EmpDesignation.cs" />
+    <Compile Include="Models\EmpLeaveApplication.cs" />
+    <Compile Include="Models\EmpLeaveSchedule.cs" />
+    <Compile Include="Models\EmployeeLeaveApproval.cs" />
+    <Compile Include="Models\EmployeeLeaveDetails.cs" />
+    <Compile Include="Models\EmployeeLeaveViewModel.cs" />
+    <Compile Include="Models\EmployeeMaster.cs" />
+    <Compile Include="Models\EmployeeMasterTransaction.cs" />
+    <Compile Include="Models\EmployeePrevWorkingDetails.cs" />
+    <Compile Include="Models\EmployeeViewModel.cs" />
+    <Compile Include="Models\ExamDetails.cs" />
+    <Compile Include="Models\GlobalData.cs" />
+    <Compile Include="Models\GlobalDelete.cs" />
+    <Compile Include="Models\GlobalDelTrans.cs" />
+    <Compile Include="Models\IncomeBudget.cs" />
+    <Compile Include="Models\IncomeBudgetReturnData.cs" />
+    <Compile Include="Models\IncomeContributerName.cs" />
+    <Compile Include="Models\IncomeTypeMaster.cs" />
+    <Compile Include="Models\InKindContributions.cs" />
+    <Compile Include="Models\InterestIncome.cs" />
+    <Compile Include="Models\Interface\IModelBase.cs" />
+    <Compile Include="Models\ItemMaster.cs" />
+    <Compile Include="Models\LoanFinancing.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuMaster.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\OptionMaster.cs" />
+    <Compile Include="Models\OptionTypeMaster.cs" />
+    <Compile Include="Models\OtherContributions.cs" />
+    <Compile Include="Models\OtherEarnings.cs" />
+    <Compile Include="Models\OwnFundingContributions.cs" />
+    <Compile Include="Models\ProjectAssesmentType.cs" />
+    <Compile Include="Models\ProjectAssesmentView.cs" />
+    <Compile Include="Models\ProjectCategoryMaster.cs" />
+    <Compile Include="Models\ProjectEntry.cs" />
+    <Compile Include="Models\ProjectIncomeBudget.cs" />
+    <Compile Include="Models\ProjectIndicator.cs" />
+    <Compile Include="Models\ProjectIndicatorReturnData.cs" />
+    <Compile Include="Models\ProjectIndicatorType.cs" />
+    <Compile Include="Models\ProjectIndustryMaster.cs" />
+    <Compile Include="Models\ProjectPerformanceIndicatorReturnData.cs" />
+    <Compile Include="Models\ProjectPhase.cs" />
+    <Compile Include="Models\ProjectQuestionMaster.cs" />
+    <Compile Include="Models\ProjectQuestionView.cs" />
+    <Compile Include="Models\ProjectSectorwiseQuestion.cs" />
+    <Compile Include="Models\ProjectSummaryDashBoard.cs" />
+    <Compile Include="Models\ProjectTaskWiseComment.cs" />
+    <Compile Include="Models\ProjectTaskWisePase.cs" />
+    <Compile Include="Models\ProjectTypeMaster.cs" />
+    <Compile Include="Models\ProjectWiseEmployee.cs" />
+    <Compile Include="Models\ProjectWiseExpenses.cs" />
+    <Compile Include="Models\ProjectWiseJobsFundGrant.cs" />
+    <Compile Include="Models\ProjectWiseQuestion.cs" />
+    <Compile Include="Models\ProjectWiseSMME.cs" />
+    <Compile Include="Models\ProjectWiseTask.cs" />
+    <Compile Include="Models\ProvinceMaster.cs" />
+    <Compile Include="Models\QA.cs" />
+    <Compile Include="Models\QuestionCategory.cs" />
+    <Compile Include="Models\QuestionCategoryModel.cs" />
+    <Compile Include="Models\QuestionMaster.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\QuestionView.cs" />
+    <Compile Include="Models\RegisterClientUserNextStep.cs" />
+    <Compile Include="Models\SSME.cs" />
+    <Compile Include="Models\SSMEDocument.cs" />
+    <Compile Include="Models\StatusResponse.cs" />
+    <Compile Include="Models\TrainingDocumentsMaster.cs" />
+    <Compile Include="Models\TrainingPhase.cs" />
+    <Compile Include="Models\TrainingTypeMaster.cs" />
+    <Compile Include="Models\TrainingWiseDocuments.cs" />
+    <Compile Include="Models\TrainingWiseEmployee.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLHelper.cs" />
+    <Compile Include="Utilities\IgnoreAttribute.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

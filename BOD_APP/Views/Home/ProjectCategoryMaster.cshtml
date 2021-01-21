@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "ProjectCategoryMaster";
+    // Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+@*<!-- Input Validation start -->
+    <section class="input-validation">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Project Category</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+
+                            <ul class="list-inline mb-0">
+
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close" href="/Home/ProjectCategoryMasterList"><i class="ft-x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+
+
+                            <form class="form-horizontal" novalidate id="frmCatmaster" data-parsley-validate="">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <h5>Category Name <span class="required">*</span></h5>
+                                            <input type="hidden" id="Id" name="Id" />
+
+                                            <div class="controls">
+                                                <input type="text" id="Name" name="Name" class="form-control mb-1" required data-validation-required-message="This field is required">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+
+                                        <div class="text-left">
+                                            <button type="button" class="btn btn-success" id="btnSubmit">Submit <i class="la la-thumbs-o-up position-right"></i></button>
+                                            <button type="reset" class="btn btn-danger">Cancel <i class="la la-refresh position-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Input Validation end -->
+
+    <!-- Switch Validation end -->*@
+
+
+
+
+
+
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Project Category</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-8 order-lg-1">
+
+        <form id="frmCatmaster">
+            <input type="hidden" value="@ViewBag.UserId">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="hidden" id="Id" name="Id" />
+                                <label class="form-control-label">
+                                    Category Name
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter  Category name">
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="form-control-label">Description</label>
+                                    <textarea class="form-control" placeholder="Tell us a few words about yourself" rows="3" name="Description" id="Description"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- Buttons -->
+                    <div class="text-right">
+                        <a href="/Home/ProjectCategoryMasterList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-info"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Page Information</a>
+                                <p class="mb-0 text-sm">This page is intended to add / edit enterprise.</p><p> Enlisted below are few field description.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a class="stretched-link h6 mb-1">Usage</a>
+                                <p class="mb-0 text-sm">Please give us the business usage write up</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var URLList = {
+
+        SaveRecord: '@Url.Action("ProjectCategoryMaster", "ScriptJson")',
+        GetEntityMasterById: '@Url.Action("GetGlobalMaster", "ScriptJson")'
+    };
+
+    var globalData = {
+        TransactionType: 'Select',
+        Param: 'PCM_Id',
+        //paramValue: parseInt(id),
+        StoreProcedure: 'ProjectCategoryMaster_USP'
+    };
+</script>
+<script src="~/Scripts/custom/ProjectCategory.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+

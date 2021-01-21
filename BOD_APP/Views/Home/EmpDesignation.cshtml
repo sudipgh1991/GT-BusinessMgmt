@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "EmpDesignation";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<section class="input-validation">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Designation </h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close" href="/Home/EmpDesignation"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    @*<p>Add <code>novalidate</code> attribute to form tag.</p>*@
+                    <form class="form-horizontal" novalidate id="frmMaster">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="hidden" id="Id" name="Id" />
+                                    <h5>Designation Name <span class="required">*</span></h5>
+                                    <div class="controls">
+                                        <input type="text" id="DesignationName" name="Name" class="form-control mb-1" required data-validation-required-message="This field is required">
+                                    </div>
+                                    @*<p>Add <code>required</code> attribute to field for required validation.</p>*@
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+
+                                <div class="text-left">
+                                    <button type="button" class="btn btn-success" id="lnkSave">Submit <i class="la la-thumbs-o-up position-right"></i></button>
+                                    <button type="reset" class="btn btn-danger">Cancel <i class="la la-refresh position-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<script type="text/javascript">
+    var URLList = {
+
+        SaveRecord: '@Url.Action("EmpDesignation", "ScriptJson")',
+        GetEntityMasterById: '@Url.Action("GetGlobalMaster", "ScriptJson")'
+    };
+
+    var globalData = {
+        TransactionType: 'Select',
+        Param: 'ED_Id',
+        //paramValue: parseInt(id),
+        StoreProcedure: 'EmpDesignation_USP'
+    };
+</script>
+
+<script src="~/Scripts/custom/EmpDesignation.js"></script>     

@@ -1,0 +1,475 @@
+﻿
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+ <!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">ADD/EDIT PROJECT</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+@*<div class="row justify-content-center">
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-user"></i>
+                            <div class="media-body ml-3">
+                                <a href="settings.html" class="stretched-link h6 mb-1">Settings</a>
+                                <p class="mb-0 text-sm">Details about your personal information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div class="media-body ml-3">
+                                <a href="addresses.html" class="stretched-link h6 mb-1">Addresses</a>
+                                <p class="mb-0 text-sm">Faster checkout with saved addresses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a href="billing.html" class="stretched-link h6 mb-1">Billing</a>
+                                <p class="mb-0 text-sm">Speed up your shopping experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-file-invoice"></i>
+                            <div class="media-body ml-3">
+                                <a href="payment-history.html" class="stretched-link h6 mb-1">Payment history</a>
+                                <p class="mb-0 text-sm">See previous orders and invoices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-bell"></i>
+                            <div class="media-body ml-3">
+                                <a href="notifications.html" class="stretched-link h6 mb-1">Notifications</a>
+                                <p class="mb-0 text-sm">Choose what notification you will receive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+
+
+        <form id="frmProject">
+
+
+            <div class="card bg-gradient-warning hover-shadow-lg border-0">
+                <div class="card-body py-3">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-lg-8">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar avatar-lg rounded-circle mr-3 pic">
+                                    <img alt="Image placeholder" class="pic" src="~/Content/app-assets/images/elements/no-image-icon.png" id="user_image">
+                                </a>
+                                <div class="media-body">
+
+                                    <div>
+                                        <form>
+                                            <input type="file" id="account-upload" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple="" accept="image/x-png,image/gif,image/jpeg" />
+                                            <label for="account-upload">
+                                                <span class="text-white">Change avatar</span>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="style: float-right">
+                                <small>
+                                    Allowed JPG, GIF or PNG. Max
+                                    size of
+                                    50Kb to 100kB
+                                </small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" id="Id" name="Id" />
+                    <!-- General information -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Name</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="ProjectName" name="ProjectName" placeholder="Enter Project Name">
+                                <input type="hidden" id="JobFundno">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Province(s) in which project will oparate</label>
+                                <span style="color: red">*</span>
+                                <select id="ProjectOparate" name="ProjectOparate" class="select2 form-control" multiple="multiple"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Create For</label>
+                                <span style="color: red">*</span>
+                                <input type="hidden" id="hdnClintId" value="@ViewBag.MainId">
+                                <select id="ClientId" @ViewBag.disabled class="select2 form-control"></select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Sector Name</label>
+                                <span style="color: red">*</span>
+                                <select id="IndustryId" class="select2 form-control"> </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Start date
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control datepicker" id="StartDate" name="StartDate" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    End date
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control datepicker" id="EndDate" name="EndDate" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Contact Person </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="ProjectCName" name="ProjectCName" placeholder="Project Contact Person Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Contact Person No</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control OnlyNumbers" name="ProjectCPhno" id="ProjectCPhno" placeholder="Project Contact Person NUmber">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Details</label>
+
+                                <textarea name="textarea" id="ProjectDetails" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Save changes buttons -->
+                    <div class="text-right">
+
+                        <a href="/Project/ProjectList" class="btn btn-link text-muted">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord()">Submit</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>*@
+
+
+
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-user"></i>
+                            <div class="media-body ml-3">
+                                <a href="settings.html" class="stretched-link h6 mb-1">Settings</a>
+                                <p class="mb-0 text-sm">Details about your personal information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div class="media-body ml-3">
+                                <a href="addresses.html" class="stretched-link h6 mb-1">Addresses</a>
+                                <p class="mb-0 text-sm">Faster checkout with saved addresses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a href="billing.html" class="stretched-link h6 mb-1">Billing</a>
+                                <p class="mb-0 text-sm">Speed up your shopping experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-file-invoice"></i>
+                            <div class="media-body ml-3">
+                                <a href="payment-history.html" class="stretched-link h6 mb-1">Payment history</a>
+                                <p class="mb-0 text-sm">See previous orders and invoices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-bell"></i>
+                            <div class="media-body ml-3">
+                                <a href="notifications.html" class="stretched-link h6 mb-1">Notifications</a>
+                                <p class="mb-0 text-sm">Choose what notification you will receive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+
+
+        <form id="frmProject">
+
+
+            <div class="card bg-gradient-warning hover-shadow-lg border-0">
+                <div class="card-body py-3">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-lg-8">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar avatar-lg rounded-circle mr-3 pic">
+                                    <img alt="Image placeholder" class="pic" src="~/Content/app-assets/images/elements/no-image-icon.png" id="user_image">
+                                </a>
+                                <div class="media-body">
+
+                                    <div>
+                                        <form>
+                                            <input type="file" id="account-upload" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple="" @*accept=".jpg,.jpeg,.png"*@ accept="image/x-png,image/gif,image/jpeg" />
+                                            <label for="account-upload">
+                                                <span class="text-white">Change avatar</span>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="style: float-right">
+                                <small>
+                                    Allowed JPG, GIF or PNG. Max
+                                    size of
+                                    50Kb to 100kB
+                                </small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" id="Id" name="Id" />
+                    <!-- General information -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Choose Enterprise</label>
+                                <span style="color: red">*</span>
+                                <input type="hidden" id="hdnClintId" value="@ViewBag.MainId">
+                                <select id="ClientId" @ViewBag.disabled class="select2 form-control"></select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Name</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="ProjectName" name="ProjectName" placeholder="Enter Project Name">
+                                <input type="hidden" id="JobFundno">
+                            </div>
+                        </div>
+                     
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Province(s) in which project will oparate</label>
+                                <span style="color: red">*</span>
+                                <select id="ProjectOparate" name="ProjectOparate" class="select2 form-control" multiple="multiple"></select>
+                            </div>
+                        </div>
+
+                   
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Industry Sector</label>
+                                <span style="color: red">*</span>
+                                <select id="IndustryId" class="select2 form-control"> </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Start date
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control datepicker" id="StartDate" name="StartDate" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    End date
+                                </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control datepicker" id="EndDate" name="EndDate" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person </label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="ProjectCName" name="ProjectCName" placeholder="Project Contact Person Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person Phone No</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control OnlyNumbers" name="ProjectCPhno" id="ProjectCPhno" placeholder="Contact Person Phone Number">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact Person Email</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control"  placeholder="Contact Person Email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Description</label>
+
+                                <textarea name="textarea" id="ProjectDetails" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Save changes buttons -->
+                    <div class="text-right">
+
+                        <a href="/Project/ProjectList" class="btn btn-link text-muted">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord()">Submit</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var globalData = {
+        TransactionType: 'Select',
+        Param: 'PE_Id',
+
+        StoreProcedure: 'ProjectEntry_USP'
+    };
+    </script>
+    @*<script src="~/Scripts/utility/select2.js"></script>*@
+
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+
+
+<script src="~/Content/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="~/Scripts/custom/project.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

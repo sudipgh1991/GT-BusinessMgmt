@@ -1,0 +1,89 @@
+﻿@model BOD_DAL.Models.ClientWiseSSME
+@{
+
+    Layout = "~/Views/Shared/_ADDSMME.cshtml";
+    ViewBag.Title = "ClientwiseSMME";
+}
+<title>Client Wise SMME</title>
+<style type="text/css">
+    .tblxs {
+        margin-bottom: 0px !important;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/forms/selects/select2.min.css">
+<div class="content-detached">
+    <div class="content-body">
+        <section class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <!-- project-info -->
+                    <!-- project-info -->
+                    <div class="card-body">
+                        <div class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+                            <span>Client Wise SMME</span>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3">
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <select class="select2 form-control" style="position:center!important" id="ddlClient" onchange="RefreshTable();">
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                            </div>
+                        </div>
+
+                            
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <h4 class="my-1">Available SMME</h4>
+                                    <div id="pagination-list">
+                                        <input type="text" class="search form-control round border-primary mb-1" placeholder="Search" />
+                                        <ul class="list-group list list-group-flush " id="multiple-list-group-a">
+
+                                           
+                                           
+                                        </ul>
+                                        <ul class="pagination pagination-separate pagination-flat"></ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <h4 class="my-1">Allocated SMME</h4>
+                                    <div id="basic-list">
+                                        <input type="text" class="search form-control round border-primary mb-1" placeholder="Search" />
+                                        <ul class="list-group list" id="multiple-list-group-b">
+                            </ul>
+                                     @*   <ul class="pagination pagination-separate pagination-flat"></ul>*@
+                                    </div>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+
+                                    <div class="text-right">
+                                        <button type="button" class="btn btn-success" id="btnSubmit" onclick="SaveRecords();">Submit <i class="la la-thumbs-o-up position-right"></i></button>
+                                        <button type="reset" class="btn btn-danger">Cancel <i class="la la-refresh position-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <!-- Task Progress -->
+
+    </div>
+</div>
+
+<script src="~/Content/app-assets/vendors/js/charts/apexcharts/apexcharts.min.js"></script>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script src="~/Content/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="~/Scripts/custom/ClientWiseSSME.js"></script>
+<script src="~/Scripts/utility/project_details_report.js"></script>

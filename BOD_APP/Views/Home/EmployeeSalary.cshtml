@@ -1,0 +1,368 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeSalary";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+@*<style type="text/css">
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<section class="input-validation">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Employee Salary</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close" href="/Home/EmployeeMasterList"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+
+
+                        @{
+                            Html.RenderPartial("_EmpDetails");
+                        }
+
+                        <form class="form-horizontal row-separator" id="frmEmpSalary" data-parsley-validate="">
+
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <input type="hidden" id="hdnId" />
+                                    <input type="hidden" id="hdnUserId" />
+                                    <input type="hidden" id="txtReason" />
+                                    <input type="hidden" id="txtDDate" />
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-body">
+                                <h4 class="form-section"><i class="la la-rupee"></i> Salary Info</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Basic Salary<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control sl" id="txtBasic" placeholder="Enter Basic" name="txtBasic" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">HRA<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control sl" id="txtHRA" placeholder="Enter HRA" name="txtHRA" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">DA<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtDA" placeholder="Enter DA" name="txtDA" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Conveyance<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtConveyance" placeholder="Enter Conveyance" name="txtConveyance" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Medical Allowance<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtMdclAllnc" placeholder="Enter Medical Allowance" name="txtMdclAllnc" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Festival Allowance<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control sl" id="txtTlphAllnc" placeholder=" enter festival allowance" name="txtTlphAllnc" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Provident Fund<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control " id="txtPF" placeholder="Enter Provident Fund" name="txtPF" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Professional Tax<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtPTAX" placeholder="Enter Professional Tax" name="txtPTAX" onkeyup="Calculation();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Total Salary</label>
+                                            <div class="col-md-9">
+                                                <input type="number" class="form-control" id="txtSal" placeholder="Total Salaray" name="txtSal" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Co.Contribution<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtTDS" placeholder="Co.Contribution" name="txtPTAX" onkeyup="CalTDS()" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="form-section"><i class="la la-bank"></i> Bank Details</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Bank Name<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtBank" placeholder="Enter Bank" name="txtBank" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Account No.<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtAccountNo" placeholder="Enter Account" name="txtAccountNo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Routing No.<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtIFSC" placeholder="Enter Routing" name="txtIFSC" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row mx-auto">
+                                            <label class="col-md-3 label-control" for="projectinput1">Branch Name.<span class="">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" id="txtBrsnch" placeholder="Enter Bank" name="txtBrsnch" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-actions text-right">
+                                <button type="button" class="btn btn-success" id="btnSubmit" onclick="SaveRecord()">Submit <i class="la la-thumbs-o-up position-right"></i></button>
+                              
+                                <button type="reset" class="btn btn-danger">Cancel <i class="la la-refresh position-right"></i></button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Account settings</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @{
+            Html.RenderPartial("_ParEmpDetails");
+        }
+        <div class="col-lg-8 order-lg-1">
+            <!-- Change avatar -->
+            @{
+                Html.RenderPartial("_ParEmpProfile");
+            }
+            <form id="frmEmpSalary">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="form-section"><i class="la la-rupee"></i> Salary Info</h4>
+                        <!-- General information -->
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="hidden" id="hdnId" />
+                                <input type="hidden" id="hdnUserId" />
+                                <input type="hidden" id="txtReason" />
+                                <input type="hidden" id="txtDDate" />
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Basic Salary</label>
+                                    <input class="form-control" type="text" id="txtBasic" placeholder="Enter Basic" name="txtBasic" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">HRA</label>
+                                    <input class="form-control" type="text" id="txtHRA" placeholder="Enter HRA" name="txtHRA" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">DA</label>
+                                    <input class="form-control" type="text" id="txtDA" placeholder="Enter DA" name="txtDA" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Conveyance</label>
+                                    <input class="form-control" type="text" id="txtConveyance" placeholder="Enter Conveyance" name="txtConveyance" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Medical Allowance</label>
+                                    <input class="form-control" type="text" id="txtMdclAllnc" placeholder="Enter Medical Allowance" name="txtMdclAllnc" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Festival Allowance</label>
+                                    <input class="form-control" type="text" id="txtTlphAllnc" placeholder=" enter festival allowance" name="txtTlphAllnc" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Provident Fund</label>
+                                    <input class="form-control" type="text" id="txtPF" placeholder="Enter Provident Fund" name="txtPF" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Professional Tax</label>
+                                    <input class="form-control" type="text" id="txtPTAX" placeholder="Enter Professional Tax" name="txtPTAX" onkeyup="Calculation();">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Total Salary</label>
+                                    <input class="form-control" type="text" id="txtSal" placeholder="Total Salaray" name="txtSal" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Co.Contribution</label>
+                                    <input class="form-control" type="text" id="txtTDS" placeholder="Co.Contribution" name="txtPTAX" onkeyup="CalTDS()">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="form-section"><i class="la la-bank"></i> Bank Details</h4>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Bank Name</label>
+                                    <input class="form-control" type="text" id="txtBank" placeholder="Enter Bank" name="txtBank">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Account No.</label>
+                                    <input class="form-control" type="text" id="txtAccountNo" placeholder="Enter Account" name="txtAccountNo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Routing No.</label>
+                                    <input class="form-control" type="text" id="txtIFSC" placeholder="Enter Routing" name="txtIFSC">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Branch Name.</label>
+                                    <input class="form-control" type="text" id="txtBrsnch" placeholder="Enter Bank" name="txtBrsnch">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <a href="/Home/EmployeeSalarySettings" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                            <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord()">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/CommonEmpDetails.js"></script>
+<script src="~/Scripts/custom/EmpSalary.js"></script>
+@*<script src="~/Scripts/utility/dropdown.js"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+

@@ -1,0 +1,287 @@
+﻿
+@{
+    ViewBag.Title = "AddTraining";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+@{
+    string Role = "";
+    int? MainId = 0;
+    string name = "";
+    string logo = "/Content/app-assets/images/elements/no-image-icon.png";
+    BOD_DAL.Models.UserModel UserObj;
+    BOD_DAL.Models.UserModel UserObjA;
+    UserObjA = Session["UserDataModel"] as BOD_DAL.Models.UserModel;
+    UserObj = UserObjA;
+    if (UserObjA == null)
+    {
+        BOD_DAL.Models.UserModel UserObjC;
+        BOD_DAL.Models.UserModel UserObjE;
+        UserObjC = Session["CUserDataModel"] as BOD_DAL.Models.UserModel;
+        UserObjE = Session["EUserDataModel"] as BOD_DAL.Models.UserModel;
+
+
+        if ((UserObjC == null) && (UserObjE == null))
+        {
+            BOD_DAL.Models.UserModel UserObjSM;
+            UserObjSM = Session["SMUserDataModel"] as BOD_DAL.Models.UserModel;
+            UserObj = UserObjSM;
+            UserObj.Role = "SM";
+            logo = UserObjSM.Logo;
+            name = UserObjSM.UserName;
+            Role = UserObjSM.Role;
+            MainId = UserObjSM.UM_MainID;
+        }
+        else if (UserObjE != null)
+        {
+            UserObj = UserObjE;
+            UserObj.Role = "E";
+            logo = UserObjE.Logo;
+            name = UserObjE.UserName;
+            Role = UserObjE.Role;
+            MainId = UserObjE.UM_MainID;
+        }
+        else
+        {
+            UserObj = UserObjC;
+            UserObj.Role = "C";
+            logo = UserObjC.Logo;
+            name = UserObjC.UserName;
+            Role = UserObjC.Role;
+            MainId = UserObjC.UM_MainID;
+        }
+
+
+    }
+
+    var SessionModule = Session["AuthorisedModuleModel"] as IList<BOD_DAL.Models.AuthorisedModule>;
+    var SessionComapny = Session["CompanyModel"];
+}
+
+
+
+
+
+
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Add Training</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+
+<div class="row justify-content-center">
+
+
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-user"></i>
+                            <div class="media-body ml-3">
+                                <a href="settings.html" class="stretched-link h6 mb-1">Settings</a>
+                                <p class="mb-0 text-sm">Details about your personal information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div class="media-body ml-3">
+                                <a href="addresses.html" class="stretched-link h6 mb-1">Addresses</a>
+                                <p class="mb-0 text-sm">Faster checkout with saved addresses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a href="billing.html" class="stretched-link h6 mb-1">Billing</a>
+                                <p class="mb-0 text-sm">Speed up your shopping experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-file-invoice"></i>
+                            <div class="media-body ml-3">
+                                <a href="payment-history.html" class="stretched-link h6 mb-1">Payment history</a>
+                                <p class="mb-0 text-sm">See previous orders and invoices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-bell"></i>
+                            <div class="media-body ml-3">
+                                <a href="notifications.html" class="stretched-link h6 mb-1">Notifications</a>
+                                <p class="mb-0 text-sm">Choose what notification you will receive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+        
+
+        <form id="frmTraining">
+            <input type="hidden" id="Id" name="Id" />
+            <div class="card bg-gradient-warning hover-shadow-lg border-0">
+                <div class="card-body py-3">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-lg-8">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar avatar-lg rounded-circle mr-3 pic">
+                                    <img alt="Image placeholder" class="pic" src="~/Content/app-assets/images/elements/no-image-icon.png" id="user_image">
+                                </a>
+                                <div class="media-body">
+
+                                    <div>
+                                        <form>
+                                            <input type="file" id="account-upload" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple="" @*accept=".jpg,.jpeg,.png"*@ accept="image/x-png,image/gif,image/jpeg" />
+                                            
+                                            <label for="account-upload">
+                                                <span class="text-white">Change avatar</span>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="style: float-right">
+                                <small>
+                                    Allowed JPG,  PNG. Max
+                                    size of
+                                    100kB and MIN 50kB
+                                </small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- General information -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Training Name</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="TrainingName" name="TrainingName" placeholder="Training Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Training Type</label>
+                                <span style="color: red">*</span>
+                                <div class="controls">
+                                    <div id="Ttype">
+                                        <select class="select2 form-control" title=" Select Training Type " id="TrainingType" required> </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Start Date</label>
+                                <span style="color: red">*</span>
+                                <div class='input-group'>
+                                    <input type='text' class="form-control datepicker" id="StartDate" name="StartDate" placeholder="mm/dd/yyyy" />
+                                    @*<div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <span class="la la-calendar"></span>
+                                        </span>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label class="form-control-label">End Date</label>
+                                <span style="color: red">*</span>
+                                <div class='input-group' id="Edate">
+                                    <input type='text' class="form-control datepicker" id="EndDate" name="EndDate" placeholder="mm/dd/yyyy" />
+
+                                    @*<div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <span class="la la-calendar"></span>
+                                        </span>
+                                    </div>*@
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="addcertificatediv">
+                            <div class="form-group">
+                                <label class="form-control-label">Add Certificate</label>
+                                <input type="file" name="file-1[]" id="file-1" class="custom-input-file" data-multiple-caption="{count} files selected" multiple />
+                                <label for="file-1">
+                                    <i class="fa fa-upload"></i>
+                                    <span>Choose a file…</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Project Details</label>
+                                <textarea name="textarea" id="ProjectDetails" class="form-control mb-1" required placeholder="Write your project details"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    @if (@Role != "E")
+                    {
+
+                    <!-- Save changes buttons -->
+                        <div class="text-right">
+                            <a href="/Home/TrainingList" class="btn btn-link text-muted">Cancel</a>
+                            <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord();">Submit</button>
+
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="~/Scripts/custom/AddTraining.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

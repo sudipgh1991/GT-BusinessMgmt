@@ -1,0 +1,111 @@
+﻿@model IList<BOD_DAL.Models.ProjectWiseTask>
+
+@{
+    ViewBag.Title = "ProjectWiseTaskList";
+    Layout = "~/Views/Shared/_LayoutNewTempDatatable.cshtml";
+}
+
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 mb-3 mb-md-0">
+            <h5 class="h3 font-weight-400 mb-0 text-white">Project Wise Activity</h5>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">
+            <div class="card-header">
+                <h6 class="mb-0">Project Wise Activity List</h6>
+            </div>
+            <div class="card-body">
+                <!-- Chart -->
+                <div class="table-responsive">
+                    <table style="width:100%" id="invoices-list" class="table table-white-space table-bordered row-grouping display no-wrap icheck table-middle">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="input-chk-all"></th>
+                                <th>Task</th>
+                                <th>Project Name</th>
+                                <th>Details</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            @{ int i = 1; foreach (var item in Model)
+                             {
+
+                                <tr>
+                                    <td><input type="checkbox" class="input-chk"></td>
+                                    <td>
+
+                                        <a href="/SSME/TaskDetails?Id=@item.PWT_ProjectId&TaskId=@item.PWT_Id&IsSub=@item.PWT_ParentTaskCount&Type=A" class="text-bold-600">@item.PWT_TaskTitle </a>
+
+                                    </td>
+                                    <td>
+
+                                        <span class="badge badge-success badge-md"> @item.PE_ProjectName</span>
+
+                                    </td>
+
+                                    <td><p class="text-muted text-bold-600">@item.PWT_Description</p></td>
+
+
+
+                                    <td>
+
+                                        <span class="dropdown">
+                                            <button id="btnSearchDrop2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-info btn-sm dropdown-toggle dropdown-menu-right">
+                                                <i class="ft-settings white"></i>
+                                            </button>
+                                            <span aria-labelledby="btnSearchDrop1" class="dropdown-menu mt-1 dropdown-menu-right">
+                                                <a href="ProjectWiseSMME?Id=@item.PWT_ProjectId&TaskId=@item.PWT_Id" class="dropdown-item">
+                                                    <i class="la la-users"></i> Asign SMME
+                                                </a>
+                                                <a href="ProjectWiseEmployeeTask?Id=@item.PWT_ProjectId&TaskId=@item.PWT_Id" class="dropdown-item">
+                                                    <i class="la la-user-plus"></i> Asign Employee
+                                                </a>
+                                                <a href="ProjectWiseTask?Id=@item.PWT_ProjectId&TaskId=@item.PWT_Id" class="dropdown-item">
+                                                    <i class="la la-ticket"></i>  Add Task
+                                                </a>
+                                                @if (item.PWT_ParentTaskCount > 0)
+                                                {
+
+                                                    <a href="/SSME/TaskList?ProjectId=@item.PWT_ProjectId&Id=@item.PWT_Id" class="dropdown-item">
+                                                        <i class="la la-tasks"></i>  All Task
+                                                    </a>
+                                                }
+
+                                            </span>
+
+
+
+
+
+
+                                        </span>
+
+                                    </td>
+
+                                </tr>
+                             }
+                            }
+                        </tbody>
+                       
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

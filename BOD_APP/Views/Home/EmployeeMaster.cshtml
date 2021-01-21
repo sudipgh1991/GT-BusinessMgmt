@@ -1,0 +1,435 @@
+﻿@model BOD_DAL.Models.EmployeeViewModel
+@{
+    ViewBag.Title = "EmployeeMaster";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+@*<style type="text/css">
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>*@
+
+
+<style type="text/css">
+    
+
+    .modal-dialog-slideout {
+        min-height: 100%;
+        margin: 0 0 0 auto;
+        background: #fff;
+    }
+
+    .modal.fade .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(100%,0)scale(1);
+        transform: translate(100%,0)scale(1);
+    }
+
+    .modal.fade.show .modal-dialog.modal-dialog-slideout {
+        -webkit-transform: translate(0,0);
+        transform: translate(0,0);
+        display: flex;
+        align-items: stretch;
+        -webkit-box-align: stretch;
+        height: 100%;
+    }
+
+        .modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+    .modal-dialog-slideout .modal-content {
+        border: 0;
+    }
+
+    .modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {
+        height: 69px;
+        display: block;
+    }
+
+        .modal-dialog-slideout .modal-header h5 {
+            float: left;
+        }
+</style>
+
+
+
+
+
+
+ <!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee</h5>
+            </div>
+            <!-- Additional info -->
+        </div>
+
+    </div>
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-4 order-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-user"></i>
+                            <div class="media-body ml-3">
+                                <a href="settings.html" class="stretched-link h6 mb-1">Settings</a>
+                                <p class="mb-0 text-sm">Details about your personal information</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div class="media-body ml-3">
+                                <a href="addresses.html" class="stretched-link h6 mb-1">Addresses</a>
+                                <p class="mb-0 text-sm">Faster checkout with saved addresses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-credit-card"></i>
+                            <div class="media-body ml-3">
+                                <a href="billing.html" class="stretched-link h6 mb-1">Billing</a>
+                                <p class="mb-0 text-sm">Speed up your shopping experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-file-invoice"></i>
+                            <div class="media-body ml-3">
+                                <a href="payment-history.html" class="stretched-link h6 mb-1">Payment history</a>
+                                <p class="mb-0 text-sm">See previous orders and invoices</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item">
+                        <div class="media">
+                            <i class="fa fa-bell"></i>
+                            <div class="media-body ml-3">
+                                <a href="notifications.html" class="stretched-link h6 mb-1">Notifications</a>
+                                <p class="mb-0 text-sm">Choose what notification you will receive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+
+    <div class="col-lg-8 order-lg-1">
+       
+
+        <form id="frmEmp">
+            <input type="hidden" id="hdnmanagerId" />
+            <input type="hidden" id="hdnId" />
+            <input type="hidden" id="hdnUserId" />
+            <input type="hidden" id="txtReason" />
+            <input type="hidden" id="txtDDate" />
+            <div class="card bg-gradient-warning hover-shadow-lg border-0">
+                <div class="card-body py-3">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-md-9">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar avatar-lg rounded-circle mr-3 pic">
+                                    <img alt="Image placeholder" class="pic" src="~/Content/app-assets/images/elements/no-image-icon.png" id="user_image">
+                                </a>
+                                <div class="media-body">
+
+                                    <div>
+                                        <form>
+                                            <input type="file" id="account-upload" class="custom-input-file custom-input-file-link" data-multiple-caption="{count} files selected" multiple="" @*accept=".jpg,.jpeg,.png"*@ accept="image/x-png,image/gif,image/jpeg" />
+                                            <label for="account-upload">
+                                                <span class="text-white">Change avatar</span>
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="style: float-left">
+                                    <small>
+                                        Allowed JPG, GIF or PNG. Max
+                                        size of
+                                        50Kb to 100kB
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-body">
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Emp Code</label>
+                                <input class="form-control" type="text" id="txtEmpCode" name="txtEmpCode" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Name</label>
+                                <span style="color: red">*</span>
+                                <input class="form-control" type="text" id="txtName" name="txtName" placeholder="Enter Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Sex</label>
+                                <span style="color: red">*</span>
+                                <select id="ddlSex" class="custom-select">
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Date of Joining</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control datepicker" name="txtDOJ" id="txtDOJ" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label class="form-control-label">Department</label>
+                                <span style="color: red">*</span>
+                                <select class="custom-select" id="ddlDepartment" name="ddlDepartment"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label class="form-control-label">Designation</label>
+                                <span style="color: red">*</span>
+                                <select class="custom-select" id="ddlDesg" name="ddlDesg"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">D.O.B</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control datepicker" name="txtDOB" id="txtDOB" placeholder="mm/dd/yyyy">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Fathers Name</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="txtFather" placeholder="Enter Fathers name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Mothers Name</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="txtMother" placeholder="Enter Mothers name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Contact No</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control OnlyNumbers" id="txtMob" name="txtMob" placeholder="Enter Contact no">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Email</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" placeholder="Enter Email">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">National ID Number</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" name="txtNID" id="txtNID" placeholder="Enter NID no">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Province</label>
+                                <span style="color: red">*</span>
+                                <select class="custom-select" id="ddlState" name="ddlState"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Zipcode</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control OnlyNumbers" id="txtZipCode" placeholder="Enter ZipCode">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Highest Qualification</label>
+                                <span style="color: red">*</span>
+                                <input type="text" class="form-control" id="txtDegree" placeholder="Enter Qualification">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label class="form-control-label">Reporting Manager</label>
+                                <input type="text" class="form-control" id="txtManagerName" readonly placeholder="Reporting Manager" onclick="return OpenManagerPopUp()" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Address</label>
+                                <textarea id="txtAddrs" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                   
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="custom-control custom-checkbox">
+
+                                @*<label class="form-control-label">Is Super Admin</label>*@
+                                @*<input type="checkbox" class="form-control" id="switch9" />*@
+
+                                <input type="checkbox" class="custom-control-input" value="" id="switch9" name="project-privacy5">
+
+                                <label class="custom-control-label form-control-label text-muted" for="switch9">Is Super Admin</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="custom-control custom-checkbox">
+                                @*<label class="form-control-label">IsManager</label>*@
+                                @*<input type="checkbox" class="form-control" id="chkManager" />*@
+                                <input type="checkbox" class="custom-control-input" value="" id="chkManager" name="project-privacy5">
+
+                                <label class="custom-control-label form-control-label text-muted" for="chkManager">Is Manager</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <!-- Save changes buttons -->
+                    <a href="/Home/EmployeeMasterList" class="btn btn-link text-muted">Cancel</a>
+
+                    <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmitPermission" onclick="SaveRecord('Y')">Submit And Permission</button>
+                    <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord('N')">Submit</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+
+    <div class="modal fade fixed-right" id="exampleModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-vertical" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-items-center">
+                    <div class="modal-title">
+                        <h6 class="mb-0">Manager List</h6>
+                        
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="scrollbar-inner">
+                    <!-- Chat contacts -->
+                    <div class="list-group list-group-flush">
+
+                        @foreach (var a in Model.managerList)
+                        {
+                            <a href="#" onclick='return ShowManager("@a.EM_EmpName","@a.EM_EmpId")' class="list-group-item list-group-item-action">
+                                <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="">
+                                    <div>
+                                        <div class="avatar-parent-child">
+                                            <img alt="Image placeholder" src="@a.EM_ProfilePic" class="avatar  rounded-circle">
+                                            <span class="avatar-child avatar-badge bg-warning"></span>
+                                        </div>
+                                    </div>
+                                    <div class="flex-fill ml-3">
+                                        <h6 class="text-sm mb-0">@a.EM_EmpName</h6>
+                                        <p class="text-sm mb-0">
+                                            @a.EM_EmpCode
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/custom/Employee.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

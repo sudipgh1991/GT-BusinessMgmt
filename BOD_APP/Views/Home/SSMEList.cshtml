@@ -1,0 +1,199 @@
+﻿@model BOD_DAL.Models.SSME
+@{
+    ViewBag.Title = "SSMEList";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+     //Layout = "~/Views/Shared/_LayoutNewTempDatatable.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+            <!-- Page title + Go Back button -->
+            <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">All SMME</h5>
+            </div>
+            <!-- Additional info -->
+            <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2" id="count"></span>
+               
+            </div>
+            <!-- Optional link -->
+            <a href="/Home/SMMECardList" class="text-sm text-info d-none d-lg-inline-block ml-4">See card</a>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+           
+            <a href="/Home/SSME" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4">
+                <span class="btn-inner--icon"><i class="fa fa-plus" data-toggle="tooltip" title="Add new SMME"></i></span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- HTML5 export buttons table -->
+  <!-- Stats -->
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">New users</h6>
+                        <span class="h5 font-weight-bold mb-0">@Model.TotalSMME</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-warning text-white rounded-circle icon-shape">
+                            <i class="far fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-success mr-2"><i class="far fa-arrow-up"></i> 25%</span>
+                    <span class="text-nowrap">Since last month</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Total SMME Year</h6>
+                        <span class="h5 font-weight-bold mb-0">@Model.TotalInYear</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-primary text-white rounded-circle icon-shape">                            
+                            <i class="far fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-warning mr-2"><i class="far fa-arrow-up"></i> 10%</span>
+                    <span class="text-nowrap">Since last month</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Total SMME In Month</h6>
+                        <span class="h5 font-weight-bold mb-0">@Model.TotalInMonth</span>
+                    </div>
+                    <div class="col-auto">
+                        <div class="icon bg-gradient-danger text-white rounded-circle icon-shape">
+                            <i class="far fa-user-tag"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                    <span class="badge badge-soft-danger mr-2"><i class="far fa-arrow-down"></i> 5,85%</span>
+                    <span class="text-nowrap">Since last month</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-md-6">
+        <div class="card card-fluid">           
+            <div class="card-body">
+                <!-- data table goes here -->
+                <div class="table-responsive">
+                    <table id="active-accounts" class="table alt-pagination table-wrapper">
+                        <thead>
+                            <tr>                               
+                                <th class="border-top-0" style="width:40%">Name</th>
+                                <th class="border-top-0" style="width:20%">Trading Name</th>
+                                <th class="border-top-0" style="width:15%">Phone No</th>                                
+                                <th class="border-top-0" style="width:10%">Status</th>
+                                <th class="border-top-0" style="width:5%">Assesment</th>                               
+                                <th class="border-top-0" style="width:5%">Employee</th>
+                                <th class="border-top-0" style="width:5%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; 
+                               
+                               foreach (var item in Model.ssmeList)
+                             {
+                                <tr>
+                                    <td class="align-middle" style="vertical-align:middle !important">
+                                        <div class="media align-items-center">
+                                            <div>
+                                                <div class="avatar-parent-child">
+                                                    @if (item.SM_Image == "")
+                                                    {
+                                                        <img alt="Image placeholder" src="~/Content/app-assets/images/elements/no-image-icon.png" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <img alt="Image placeholder" src="@item.SM_Image" class="avatar  rounded-circle">
+                                                        <span class="avatar-child avatar-badge bg-success"></span>
+                                                    }
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="media-body ml-4">
+                                                <a href="/Home/SMMEProfileDetails?id=@item.SM_Id" class="name h6 mb-0 text-sm">@item.SM_CorporateName</a>
+                                                <small class="d-block font-weight-bold">@item.SM_Email</small>
+                                            </div>
+                                        </div>
+                                    </td>   
+                                    <td style="vertical-align:middle !important">@item.SM_TradingName</td>
+                                    <td style="vertical-align:middle !important">@item.SM_PhoneNo</td>
+                                    <td class="align-middle">
+                                        <div class="ac-status badge badge-success badge-pill badge-sm">
+                                            Active
+                                        </div>
+                                    </td>                                    
+                                    <td class="align-middle">
+                                        <a href="/Project/AsessmentQuestion?userId=@item.UserId&name=C"><i class="fa fa-file fa-2x" data-toggle="tooltip" title="View Assesment Answers"></i></a>
+                                    </td>                                    
+                                    <td class="align-middle">
+                                        <a href="/Home/EmployeeMaster?SMId=@item.UserId&Mode=O"><i class="fa fa-users fa-2x" data-toggle="tooltip" title="Manage Employee"></i></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="SSME?Id=@item.SM_Id"><i class="fa fa-cog fa-2x" data-toggle="tooltip" title="Edit SMME Details"></i></a>
+                                        <a href="SSME?Id=@item.SM_Id&mode=v" data-toggle="tooltip" title="View SMME Details"><i class="fa fa-address-card fa-2x"></i></a>
+
+                                    </td>
+                                </tr>
+                             }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#btnGo").click(function () {
+            window.location.href = 'SSME';
+        });
+    });
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

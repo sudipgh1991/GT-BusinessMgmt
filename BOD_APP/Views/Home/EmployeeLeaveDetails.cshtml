@@ -1,0 +1,256 @@
+﻿@model BOD_DAL.Models.EmployeeLeaveViewModel
+@{
+    ViewBag.Title = "EmployeeLeaveDetails";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Page content -->
+<div class="page-content">
+    <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee Leave Details </h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                    <div class="actions actions-dark d-inline-block">
+                        @*<a href="#" class="action-item ml-md-4">
+                            <i class="far fa-file-export mr-2"></i>Export
+                        </a>*@
+                        @*<a href="#" class="action-item ml-3">
+                            <i class="far fa-cog mr-2"></i>Settings
+                        </a>*@
+                    </div>
+                <a href="EmployeeLeaveApplication">
+                    <i class="far fa-plus"></i>Apply Leave
+                </a>
+                </div>
+        </div>
+    </div>
+    <!-- Stats -->
+    <div class="row">
+        @if (Model.BalanceLeaveList != null)
+        {
+
+            foreach (var item in Model.BalanceLeaveList)
+            {
+                <div class="col-lg-4">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="text-muted mb-1">Earned Leave</h6>
+                                    <span class="h5 font-weight-bold mb-0">Used: @item.ApplyEL</span>
+                                   
+                                </div>
+
+                                <div class="col-auto">
+                                    <span class="font-weight-bold mb-0">Total : @item.EL</span>
+                                </div>
+                                <br/>
+                                <br />
+                               
+                            </div>
+                            <div class="mt-3 mb-0 text-sm">
+                                <span class="font-weight-bold mb-0">Balance : @item.BalanceEL</span>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <div class="col-lg-4">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="text-muted mb-1">Casual Leave</h6>
+                                    <span class="h5 font-weight-bold mb-0">Used: @item.ApplyCL</span>
+                                   
+                                </div>
+
+                                <div class="col-auto">
+                                    <span class="font-weight-bold mb-0">Total : @item.CL</span>
+                                </div>
+                                <br/>
+                                <br />
+                              
+                            </div>
+                            <div class="mt-3 mb-0 text-sm">
+                                <span class="font-weight-bold mb-0">Balance : @item.BalanceCL</span>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-lg-4">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h6 class="text-muted mb-1">Medical Leave</h6>
+                                    <span class="h5 font-weight-bold mb-0">Used: @item.ApplyML</span>
+                                   
+                                </div>
+
+                                <div class="col-auto">
+                                    <span class="font-weight-bold mb-0">Total : @item.ML</span>
+                                </div>
+                                <br/>
+                                <br />
+                                @*<div class="mt-2 mb-0 text-sm">
+                                    <span class="font-weight-bold mb-0">Balance : 339</span>
+                                </div>*@
+                            </div>
+                            <div class="mt-3 mb-0 text-sm">
+                                <span class="font-weight-bold mb-0">Balance : @item.BalanceML</span>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+<!-- Listing -->
+<div class="card">
+    <!-- Card header -->
+    @*<div class="card-header actions-toolbar border-0">
+            <div class="actions-search" id="actions-search">
+                <div class="input-group input-group-merge input-group-flush">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent"><i class="far fa-search"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-flush" placeholder="Type and hit enter ...">
+                    <div class="input-group-append">
+                        <a href="#" class="input-group-text bg-transparent" data-action="search-close" data-target="#actions-search"><i class="far fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center">
+                <div class="col">
+                    <h6 class="d-inline-block mb-0">Users</h6>
+                </div>
+                <div class="col text-right">
+                    <div class="actions">
+                        <a href="#" class="action-item mr-3" data-action="search-open" data-target="#actions-search"><i class="far fa-search"></i></a>
+                        <div class="dropdown mr-3">
+                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-filter"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">
+                                    <i class="far fa-sort-amount-down"></i>Newest
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="far fa-sort-alpha-down"></i>From A-Z
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="far fa-sort-alpha-up"></i>From Z-A
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dropdown" data-toggle="dropdown">
+                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-ellipsis-h"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="#" class="dropdown-item">Refresh</a>
+                                <a href="#" class="dropdown-item">Manage Widgets</a>
+                                <a href="#" class="dropdown-item">Settings</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table align-items-center">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Emp Code</th>
+                    <th scope="col">From Date</th>
+                    <th scope="col">To Date</th>
+                    <th scope="col">Leave Type</th>
+                    <th scope="col">Total Day</th>
+                    <th scope="col">Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (Model.LeaveList != null)
+                {
+
+                    foreach (var item in Model.LeaveList)
+                    {
+
+                        <tr>
+
+                            <td>
+                                @item.EM_EmpName
+                            </td>
+                            <td>
+                                @item.EM_EmpCode
+                            </td>
+                            <td>
+                                @item.ELA_From
+                            </td>
+                            <td>
+                                @item.ELA_To
+                            </td>
+                            <td>
+                                @item.ELA_Type
+                            </td>
+                            <td>
+                                @item.ELA_TotalDays
+                            </td>
+                            <td>
+                                @item.Status
+                            </td>
+                        </tr>
+
+                    }
+                }
+                @*<tr>
+
+                        <td>
+                            10/09/2018
+                        </td>
+                        <td>
+                            15
+                        </td>
+                        <td>
+                            $1035,00
+                        </td>
+                        <td>
+                            $1035,00
+                        </td>
+                        <td>
+                            $1035,00
+                        </td>
+                        <td>
+                            $1035,00
+                        </td>
+                        <td>
+                            $1035,00
+                        </td>
+                    </tr>*@
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    </div>
+

@@ -1,0 +1,80 @@
+﻿@using BOD_DAL;
+@using BOD_DAL.Models;
+@{
+    DAL dl = new DAL();
+    
+    var UserModel = (UserModel)System.Web.HttpContext.Current.Session["UserDataModel"];
+    if(UserModel==null)
+    {
+        UserModel = (UserModel)System.Web.HttpContext.Current.Session["CUserDataModel"];
+        if(UserModel==null)
+        {
+            UserModel = (UserModel)System.Web.HttpContext.Current.Session["SMUserDataModel"];
+            if(UserModel==null)
+            {
+                UserModel = (UserModel)System.Web.HttpContext.Current.Session["EUserDataModel"];
+            }
+        }
+    }
+    MenuModel ObjMenuModel = new MenuModel();
+    ObjMenuModel.MainMenuModel = new List<MainMenu>();
+    int? SelectedModule = UserModel.SelectedModule;
+    int? Id = UserModel.UserID;
+    ObjMenuModel.MainMenuModel = dl.GetMainMenu(SelectedModule, Id);
+    ObjMenuModel.SubMenuModel = new List<SubMenu>();
+    ObjMenuModel.SubMenuModel = dl.GetSubMenu(SelectedModule, Id);
+    }
+    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+        @{
+            foreach (var MenuItem in ObjMenuModel.MainMenuModel)
+            {
+                var SubMenuItem = ObjMenuModel.SubMenuModel.Where(m => m.MainMenuID == MenuItem.MenuId);
+                var action = (ViewContext.RouteData.Values["action"] ?? "").ToString().ToLower();
+
+                var controller = (ViewContext.RouteData.Values["controller"] ?? "").ToString().ToLower();
+                string path = "/" + controller + "/" + action;
+                string aa = path.Equals(MenuItem.MainMenuURL.ToLower()) ? "active" : "";
+                string MenuStatus = "";
+                string MenuCollapsibleStatus = "";
+
+                if (SubMenuItem.Count() > 0)
+                {
+                    foreach (var SubItem in SubMenuItem)
+                    {
+                        if (path.Equals(SubItem.SubMenuURL.ToLower()))
+                        {
+                            MenuStatus = "active";
+                            MenuCollapsibleStatus = "menu-collapsed-open open";
+                        }
+                    }
+                }
+                if (SubMenuItem.Count() > 0)
+                {
+                    <li class="nav-item @MenuCollapsibleStatus">
+
+                        <a href="#"><i class="@MenuItem.MenuIcon"></i><span class="menu-title" data-i18n="@MenuItem.MainMenuItem">@MenuItem.MainMenuItem</span></a>
+                        <ul class="menu-content">
+                            @foreach (var SubItem in SubMenuItem)
+                            {
+                                <li class="@(path.Equals(SubItem.SubMenuURL.ToLower()) ? "active":"")">
+                                    <a class="menu-item" href="@SubItem.SubMenuURL"><i></i><span data-i18n="@SubItem.SubMenuItem">@SubItem.SubMenuItem</span></a>
+                                </li>
+                            }
+
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li class="@aa nav-item">
+                        <a href="@MenuItem.MainMenuURL" ><i class="@MenuItem.MenuIcon"></i><span class="menu-title" data-i18n="@MenuItem.MainMenuItem">@MenuItem.MainMenuItem</span></a>
+                    </li>
+                }
+
+
+
+            }
+        }
+
+    </ul>

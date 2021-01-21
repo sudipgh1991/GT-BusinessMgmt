@@ -1,0 +1,554 @@
+﻿@model IList<BOD_DAL.Models.ProjectQuestionView>
+    @{
+        ViewBag.Title = "ProjectAsessmentQuestion";
+        //Layout = "~/Views/Shared/_MainLayout.cshtml";
+        Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+        
+        bool yes = true;
+        bool No = false;
+    }
+
+
+<div class="page-content">
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Project Asessment Question</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <form class="" action="/Project/ProjectAsessmentQuestion" method="post">
+             
+                    @{
+                        foreach (var item in ViewBag.QCategory)
+                        {
+
+                            var count = 0;
+
+
+
+
+                            for (int i = 0; i < Model.Count; i++)
+                            {
+
+                                if (item.QC_Id == Model[i].PQM_CategoryId)
+                                {
+                                    <div class="card card-fluid">
+
+                                        @if (count == 0)
+                                        {
+
+                                            <div class="card-header">
+                                                <h6 class="mb-0">@item.QC_Name </h6>
+
+                                            </div>
+
+                                            count++;
+                                        }
+
+                                        <div class="card-body">
+
+
+                                            @if (Model[i].PQM_Container == "T")
+                                            {
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label class="label-control" style="text-align:left !important" for="@Model[i].PQM_Answer">
+
+                                                            @Model[i].PQM_Name
+                                                            @if (Model[i].PQM_IsRequired == "required")
+                                                                                                            {
+                                                                                                                <span class="danger">*</span>
+                                                                                                            }
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        @Html.HiddenFor(model => @Model[i].PQM_CategoryId)
+                                                        @Html.HiddenFor(model => @Model[i].PWQ_PQM_Id)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Name)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Container)
+
+
+                                                        @if (ViewBag.Role == "A")
+                                                                                                            { <div class="col-md-4">
+
+                                                                                                                <label class="label-control" for="userinput1" style="text-align:left !important">@Model[i].PQM_Answer</label>
+                                                                                                            </div>
+                                                                                                            @*if (Model[i].PQM_IsRequired == "required")
+                                                                                                                {
+                                                                                                                    @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control required ", @type = "text", disabled = "" })
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                                    @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control ", @type = "text", disabled = "" })
+                                                                                                                }*@
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                                if (Model[i].PQM_IsRequired == "required")
+                                                                                                                {
+                                                                                                            @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control required ", @type = "text" })
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                            @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control ", @type = "text" })
+                                                                                                                }
+                                                                                                            }
+
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            else if (Model[i].PQM_Container == "U")
+                                            {
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <label class="label-control" style="text-align:left !important" for="@Model[i].PQM_Answer">
+
+                                                            @Model[i].PQM_Name
+                                                            @if (Model[i].PQM_IsRequired == "required")
+                                                                                                            {
+                                                                                                            <span class="danger">*</span>
+                                                                                                            }
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        @Html.HiddenFor(model => @Model[i].PQM_CategoryId)
+                                                        @Html.HiddenFor(model => @Model[i].PWQ_PQM_Id)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Name)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Container)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Answer)
+
+                                                        <div class="media">
+
+                                                            <div class="media-body mt-75">
+
+                                                                <div class="controls">
+                                                                    @if (ViewBag.Role == "A")
+                                                                                                                    {
+                                                                                                                    <a href="@Model[i].PQM_Answer" class=" float-l ticket-options-icon " download><i class=" la la-download text-success" style="font-size: x-large !important;"></i> </a>
+                                                                                                                    @*if (Model[i].PQM_IsRequired == "required")
+                                                                                                                        {
+                                                                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" required disabled="">
+                                                                                                                        }
+                                                                                                                        else
+                                                                                                                        {
+                                                                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" disabled="">
+                                                                                                                        }*@
+                                                                                                                    }
+                                                                                                                    else
+                                                                                                                    {
+                                                                                                                        if (Model[i].PQM_IsRequired == "required")
+                                                                                                                        {
+                                                                                                                    <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" required>
+                                                                                                                        }
+                                                                                                                        else
+                                                                                                                        {
+                                                                                                                    <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp">
+                                                                                                                        }
+                                                                                                                    }
+
+
+
+
+
+                                                                </div>
+                                                                <p class="text-muted ml-75 mt-50">
+                                                                    <small>
+                                                                        Allowed .doc,.docx,.pdf, GIF or PNG. Max
+                                                                        size of
+                                                                        500kB
+                                                                    </small>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        @if (Model[i].PQM_Answer != "")
+                                                                                                        {
+                                                                                                        <a href="@Model[i].PQM_Answer" class="float-l ticket-options-icon " download><strong><i class="la la-download text-success" style="font-size: x-large !important;"></i></strong> </a>
+                                                                                                        }
+                                                    </div>
+                                                </div>
+                                            }
+
+
+                                            else
+                                            {
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <label class="label-control" style="text-align:left !important" for="@Model[i].PQM_Answer">
+
+                                                            @Model[i].PQM_Name
+                                                            @if (Model[i].PQM_IsRequired == "required")
+                                                                                                        {
+                                                                                                        <span class="danger"></span>
+                                                                                                        }
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        @if (@Model[i].PQM_Answer == "Yes")
+                                                                                                        {
+                                                                                                            yes = false;
+                                                                                                            No = true;
+
+                                                                                                        }
+                                                                                                        else
+                                                                                                        {
+                                                                                                            yes = true;
+                                                                                                            No = false;
+                                                                                                        }
+                                                        @Html.HiddenFor(model => @Model[i].PQM_CategoryId)
+                                                        @Html.HiddenFor(model => @Model[i].PWQ_PQM_Id)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Name)
+                                                        @Html.HiddenFor(model => @Model[i].PQM_Container)
+
+                                                        <div class="skin skin-square">
+
+
+
+
+                                                            @if (ViewBag.Role == "A")
+                                                                                                            {
+                                                                                                            <div class="col-md-6 ">
+                                                                                                                <label class="label-control" for="userinput1" style="text-align:left !important">@Model[i].PQM_Answer</label>
+                                                                                                            </div>
+                                                                                                            @*@Html.RadioButtonFor(model => @Model[i].RadioOptions, @yes, new { @type = "radio", disabled = "" })
+                                                                                                                <span>Yes </span>
+
+                                                                                                                @Html.RadioButtonFor(model => @Model[i].RadioOptions, @No, new { @type = "radio", disabled = "" })
+                                                                                                                <span>No </span>*@
+                                                                                                                    }
+                                                                                                                    else
+                                                                                                                    {
+                                                                                                            @Html.RadioButtonFor(model => @Model[i].RadioOptions, @yes, new { @type = "radio" })
+                                                                                                            <span>Yes </span>
+                                                                                                            @Html.RadioButtonFor(model => @Model[i].RadioOptions, @No, new { @type = "radio" })
+                                                                                                            <span>No </span>
+                                                                                                                    }
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            }
+
+                                        </div>
+
+                                    </div>
+
+                                }
+                            }
+
+                        }
+
+                    }
+
+               
+
+             
+                    @if (ViewBag.Role != "A")
+                        {
+
+                        <div class="card">
+                        <div class="card-body">
+
+                            <!-- Buttons -->
+                            <div class="text-right">
+                                @*<a href="/Project/ProjectList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>*@
+                                <button type="submit" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                        
+                        
+                        }
+
+              
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    @*<div class="page-content">
+            <div class="page-title">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                        <!-- Page title + Go Back button -->
+                        <div class="d-inline-block">
+                            <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Project Asessment Question</h5>
+                        </div>
+                        <!-- Additional info -->
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                    </div>
+                </div>
+            </div>
+            <form action="/Project/AsessmentQuestion" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-body ">
+                            @{
+                                foreach (var item in ViewBag.QCategory)
+                                {
+
+                                    var count = 0;
+
+
+
+
+                                        for (int i = 0; i < Model.Count; i++)
+                                        {
+
+                                            if (item.QC_Id == Model[i].PQM_CategoryId)
+                                            {
+                                                <div class="card">
+
+                                                @if (count == 0)
+                                                {
+                                                <div class="card-header">
+                                                    <h6 class="form-section">@item.QC_Name </h6>
+
+                                                </div>
+                                                count++;
+                                                }
+                                                <div class="card-body">
+                                                    <div class="form-group row mx-auto">
+
+
+
+                                                        @if (Model[i].PQM_Container == "T")
+                                                        {
+                                                        <label class="col-md-4 label-control" style="text-align:left !important" for="@Model[i].PQM_Answer">
+
+                                                            @Model[i].PQM_Name
+                                                            @if (Model[i].PQM_IsRequired == "required")
+                                                                {
+                                                                <span class="danger">*</span>
+                                                                }
+                                                        </label>
+                                                        <div class="col-md-6">
+                                                            @Html.HiddenFor(model => @Model[i].PQM_CategoryId)
+                                                            @Html.HiddenFor(model => @Model[i].PWQ_PQM_Id)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Name)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Container)
+
+
+                                                            @if (ViewBag.Role == "A")
+                                                                {
+                                                                    if (Model[i].PQM_IsRequired == "required")
+                                                                    {
+                                                                @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control required ", @type = "text", disabled = "" })
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control ", @type = "text", disabled = "" })
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (Model[i].PQM_IsRequired == "required")
+                                                                    {
+                                                                @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control required ", @type = "text" })
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                @Html.TextBoxFor(model => @Model[i].PQM_Answer, new { @class = "form-control ", @type = "text" })
+                                                                    }
+                                                                }
+
+                                                        </div>
+                                                        }
+
+                                                        else if (Model[i].PQM_Container == "U")
+                                                        {
+                                                        <label class="col-md-4 label-control" style="text-align:left !important" for="@Model[i].PQM_Answer">
+
+                                                            @Model[i].PQM_Name
+                                                            @if (Model[i].PQM_IsRequired == "required")
+                                                                {
+                                                                <span class="danger">*</span>
+                                                                }
+                                                        </label>
+                                                        <div class="col-md-6">
+
+                                                            @Html.HiddenFor(model => @Model[i].PQM_CategoryId)
+                                                            @Html.HiddenFor(model => @Model[i].PWQ_PQM_Id)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Name)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Container)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Answer)
+
+                                                            <div class="media">
+
+                                                                <div class="media-body mt-75">
+
+                                                                    <div class="controls">
+                                                                        @if (ViewBag.Role == "A")
+                                                                            {
+                                                                                if (Model[i].PQM_IsRequired == "required")
+                                                                                {
+                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" required disabled="">
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" disabled="">
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if (Model[i].PQM_IsRequired == "required")
+                                                                                {
+                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" required>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].PQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp">
+                                                                                }
+                                                                            }
+
+
+
+
+
+                                                                    </div>
+                                                                    <p class="text-muted ml-75 mt-50">
+                                                                        <small>
+                                                                            Allowed .doc,.docx,.pdf, GIF or PNG. Max
+                                                                            size of
+                                                                            500kB
+                                                                        </small>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            @if (Model[i].PQM_Answer != "")
+                                                                {
+                                                                <a href="@Model[i].PQM_Answer" class="float-l ticket-options-icon " download><strong><i class="la la-download text-success" style="font-size: x-large !important;"></i></strong> </a>
+                                                                }
+                                                        </div>
+                                                        }
+
+
+                                                        else
+                                                        {
+                                                        <label class="col-md-4 label-control" style="text-align:left !important" for="@Model[i].PQM_Answer">
+
+                                                            @Model[i].PQM_Name
+                                                            @if (Model[i].PQM_IsRequired == "required")
+                                                                {
+                                                                <span class="danger"></span>
+                                                                }
+                                                        </label>
+                                                        <div class="col-md-6">
+
+                                                            @if (@Model[i].PQM_Answer == "Yes")
+                                                                {
+                                                                    yes = false;
+                                                                    No = true;
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    yes = true;
+                                                                    No = false;
+                                                                }
+                                                            @Html.HiddenFor(model => @Model[i].PQM_CategoryId)
+                                                            @Html.HiddenFor(model => @Model[i].PWQ_PQM_Id)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Name)
+                                                            @Html.HiddenFor(model => @Model[i].PQM_Container)
+
+                                                            <div class="skin skin-square">
+
+
+                                                                @if (ViewBag.Role == "A")
+                                                                    {
+
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, @yes, new { @type = "radio", disabled = "" })
+                                                                    <span>Yes </span>
+
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, @No, new { @type = "radio", disabled = "" })
+                                                                    <span>No </span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, @yes, new { @type = "radio" })
+                                                                    <span>Yes </span>
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, @No, new { @type = "radio" })
+                                                                    <span>No </span>
+                                                                    }
+
+                                                            </div>
+                                                        </div>
+
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                                 </div>
+
+                                                }
+                                                }
+
+                                                }
+                                                }
+
+
+
+                                            </div>
+                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                            @if (ViewBag.Role != "A")
+                            {
+
+                                <div class="card">
+                                    <div class="card-body">
+
+
+                                        <div class="text-right">
+                                            <a href="/Project/ProjectList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                                            <button type="submit" class="btn btn-sm btn-primary rounded-pill">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+
+        </div>*@
+    <script>
+
+        function encodeImgtoBase64(element, id) {
+            var img = element.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                $('input[name="' + id + '"]').val(reader.result);
+            }
+
+            reader.readAsDataURL(img);
+        }
+
+
+    </script>
+

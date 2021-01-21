@@ -1,0 +1,361 @@
+﻿
+@{
+    ViewBag.Title = "SalaryTest";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+        <!-- Page title -->
+        <div class="page-title">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                    <!-- Page title + Go Back button -->
+                    <div class="d-inline-block">
+                        <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Data Table</h5>
+                    </div>
+                    <!-- Additional info -->
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                    <a href="#modal-users" class="btn btn-sm btn-white btn-icon rounded-pill" data-toggle="modal">
+                        <span class="btn-inner--icon"><i class="fa fa-users"></i></span>
+                        <span class="btn-inner--text"> Create New </span>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-md-6">
+                <div class="card card-fluid">
+                    <div class="card-header">
+                        <h6 class="mb-0">Datatable</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- data table goes here -->
+                        <div class="table-responsive">
+                            <table id="active-accounts" class="table alt-pagination table-wrapper">
+                                <thead>
+                                    <tr>
+                                        <th class="border-top-0"></th>
+                                        <th class="border-top-0">Type</th>
+                                        <th class="border-top-0">A/c Number</th>
+                                        <th class="border-top-0">Holder Name</th>
+                                        <th class="border-top-0">Status</th>
+                                        <th class="border-top-0">Balance</th>
+                                        <th class="border-top-0">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol saving">
+                                                <i class="la la-suitcase"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Saving</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">2043********951</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Jane Andre</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$2,984.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol joint">
+                                                <i class="la la-users"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Joint</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">2043********951</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Kail Reack</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$32,325.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol loan">
+                                                <i class="la la-money"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Loan</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">2043********951</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Shail Black</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-danger badge-pill badge-sm">
+                                                Deactived
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$940.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol current">
+                                                <i class="la la-street-view"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Current</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">2043********951</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Zena wall</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$64,235.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol joint">
+                                                <i class="la la-users"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Joint</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">2043********784</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Colin Welch</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$6,436.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol current">
+                                                <i class="la la-street-view"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Current</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">2043********216</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Jones smith</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$400.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol saving">
+                                                <i class="la la-suitcase"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Saving</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">4387********548</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Monica Luice</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-danger badge-pill badge-sm">
+                                                Deactived
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$23,642.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol loan">
+                                                <i class="la la-money"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Loan</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">8637********986</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Black Smith</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$32,323.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol current">
+                                                <i class="la la-street-view"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Current</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">9587********235</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">Mark Shawn</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-danger badge-pill badge-sm">
+                                                Deactived
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance"> $212.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle">
+                                            <div class="ac-symbol joint">
+                                                <i class="la la-users"></i>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-type">Joint</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-number">9866********651</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-hol-name">George Nelson</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-status badge badge-success badge-pill badge-sm">
+                                                Active
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="ac-balance">$3,422.00</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="action">
+                                                <a href="bank-add-account.html"><i class="la la-pencil-square success"></i></a>
+                                                <a href="#"><i class="la la-trash danger"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+  
+
+

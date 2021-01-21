@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.Title = "ProjectWiseTask";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+
+
+
+<div class="page-content">
+        <!-- Page title -->
+        <div class="page-title">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                    <!-- Page title + Go Back button -->
+                    <div class="d-inline-block">
+                        <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white" id="hTitel"></h5>
+                    </div>
+                    <!-- Additional info -->
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          
+            @*@{
+                Html.RenderPartial("_ProjectDetails", new ViewDataDictionary { { "id", @ViewBag.Id } });
+            }*@
+            
+
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Product title -->
+                        <div class="col-lg-12">
+                            <span id="projectName"></span>
+
+                            <ul class="list-inline mb-0 text-sm-right">
+                                <li style="font-size:small" class="list-inline-item">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <span id="startdate"></span>
+                                    <span>-</span>
+                                    <span id="enddate"></span>
+                                </li>
+                            </ul>
+                            <input type="hidden" id="hdnProject" /><!-- Rating -->
+                            <!-- Description -->
+                            <div class="py-4 my-4 border-top border-bottom">
+                                <h6 class="text-sm">Description:</h6>
+                                <p class="text-sm mb-0" id="pDesc">
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <!-- Stats card -->
+                <div class="card card-stats">
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h6 class="text-muted mb-1"> Total Activity</h6>
+                                <span class="h3 text-primary" @*data-from="0" data-to="34" data-speed="1500" data-refresh-interval="100"*@ id="Activity"></span>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-address-card" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project performance -->
+                <div class="card card-stats">
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h6 class="text-muted mb-1"> Total Task</h6>
+                                <span class="h3 text-primary" @*data-from="0" data-to="34" data-speed="1500" data-refresh-interval="100"*@ id="Task"></span>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <form id="frmClient">
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <!-- General information -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="hidden" id="Id" name="Id" />
+                                <input type="hidden" id="projectId" name="projectId" />
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <input type="hidden" id="Id" name="Id" />
+                                    <label class="form-control-label" for="projectinput1" id="htaskTitle"></label>
+                                    <span style="color: red">*</span>
+                                    <input class="form-control" type="text" id="TaskTitle" name="TaskTitle" placeholder="Enter Titel">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Description</label>
+                                    <span style="color: red">*</span>
+                                    <textarea id="Description" name="Description" class="form-control" placeholder="Enter Description"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Start Date</label>
+                                    <span style="color: red">*</span>
+                                    <input class="form-control datepicker " type="text" id="StartDate" placeholder="mm/dd/yyyy">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">End Date</label>
+                                    <span style="color: red">*</span>
+                                    <input class="form-control datepicker" type="text" id="EndDate" name="EndDate" placeholder="mm/dd/yyyy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Priority</label>
+                                    <span style="color: red">*</span>
+                                    <div class="controls">
+                                        <select class="select form-control" id="Priority">
+                                            <option value="">Select</option>
+                                            <option value="High">High</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Low">Low</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="projectinput1">Upload File</label>
+                                    <input type="file" name="file-1[]" id="file-1" class="custom-input-file" data-multiple-caption="{count} files selected" multiple />
+                                    <label for="file-1">
+                                        <i class="fa fa-upload"></i>
+                                        <span>Choose a file…</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="text-right">
+                            <a href="/Project/ProjectWiseTaskList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                            <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord();">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    </div>
+
+
+<script type="text/javascript">
+    var globalData = {
+        TransactionType: 'Select',
+        param1: 'PWT_Id',
+        StoreProcedure: 'ProjectWiseTask_USP'
+    };
+
+
+</script>
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="~/Content/app-assets/js/scripts/forms/custom-file-input.min.js"></script>
+<script src="~/Scripts/custom/ProjectWiseTask.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+<script src="~/Scripts/utility/project_details_report.js"></script>
+<script src="~/Scripts/utility/project_details_global.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

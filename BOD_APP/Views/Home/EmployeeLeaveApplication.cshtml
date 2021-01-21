@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeLeaveApplication";
+    //Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+}
+
+<style type="text/css">
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+<div class="page-content">
+        <!-- Page title -->
+        <div class="page-title">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                    <!-- Page title + Go Back button -->
+                    <div class="d-inline-block">
+                        <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Employee Leave Application</h5>
+                    </div>
+                    <!-- Additional info -->
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                Html.RenderPartial("_ParEmpDetails");
+            }
+            <div class="col-lg-8 order-lg-1">
+                <!-- Change avatar -->
+                @{
+                    Html.RenderPartial("_ParEmpProfile");
+                }
+                <form id="frmEmpLeaveSetting">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="hidden" id="hdnId" />
+                            <input type="hidden" id="hdnELId" />
+                            <input type="hidden" id="hdnUserId" />
+                            <input type="hidden" id="txtReason" />
+                            <input type="hidden" id="txtDDate" />
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="form-section"><i class="la la-hotel"></i>Leave Details</h4>
+                            <!-- General information -->
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Casual Leave</label>
+                                        <label id="lbltotalCl" class="col-md-2 label-control" for="projectinput1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Balance Leave</label>
+                                        <label id="lblBalaneCl" class="col-md-2 label-control" for="projectinput1"></label>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Earned Leave</label>
+                                        <label id="lbltotalEl" class="col-md-2 label-control" for="projectinput1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Balance Leave</label>
+                                        <label id="lblBalaneEl" class="col-md-2 label-control" for="projectinput1"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Medical Leave</label>
+                                        <label id="lbltotalMl" class="col-md-2 label-control" for="projectinput1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Balance Leave</label>
+                                        <label id="lblBalaneMl" class="col-md-2 label-control" for="projectinput1"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="form-section"><i class="la la-hotel"></i>Leave Application</h4>
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Range</label>
+                                        <span style="color: red">*</span>
+                                        <select id="ddlELSId" class="custom-select"> </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Leave Type</label>
+                                        <span style="color: red">*</span>
+                                        <select id="ddlType" class="custom-select">
+                                            <option value="">Select</option>
+                                            <option value="CL">CL</option>
+                                            <option value="EL">EL</option>
+                                            <option value="ML">Medical</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Date From</label>
+                                        <input type="text" class="form-control datepicker" required name="txtFrom" id="txtFrom" placeholder="mm/dd/yyyy">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">To Date</label>
+                                        <input type="text" class="form-control datepicker" required name="txtTo" id="txtTo" placeholder="mm/dd/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="projectinput1">Days</label>
+                                         <input type="text" id="txtDays" class="form-control"  required name="txtDays" />
+                                     
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="text-right">
+                                <a href="#" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>
+                                <button type="button" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit" onclick="SaveRecord()">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Content/app-assets/js/scripts/forms/select/form-select2.js"></script>
+<script src="~/Content/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+<script src="~/Scripts/custom/CommonEmpDetails.js"></script>
+<script src="~/Scripts/custom/EmpLeaveApplication.js"></script>
+<script src="~/Scripts/utility/dropdown.js"></script>
+
+@*<script src="~/Scripts/custom/EmployeeLeaveSettings.js"></script>*@
+
+
+

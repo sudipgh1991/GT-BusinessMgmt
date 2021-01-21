@@ -1,0 +1,405 @@
+﻿@model IList<BOD_DAL.Models.QuestionView>
+@{
+    ViewBag.Title = "AsessmentQuestion";
+    //Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutNewTemp.cshtml";
+    //Layout = "~/Views/Shared/_LayoutNewTempDatatable.cshtml";
+    bool yes = true;
+    bool No = false;
+}
+@*<section id="row-separator-form-layouts">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title" id="row-separator-colored-controls">Assesment Question Answer</h4>
+
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <div class="card-text">
+
+                                <form class="form form-horizontal row-separator" action="/Project/AsessmentQuestion" method="post">
+                                    <div class="form-body ">
+                                        @{
+                                            foreach (var item in ViewBag.QCategory)
+                                            {
+
+                                                var count = 0;
+                                                for (int i = 0; i < Model.Count; i++)
+                                                {
+
+                                                    if (item.Id == Model[i].QM_QC_Id)
+                                                    {
+                                                        if (count == 0)
+                                                        {                        <h4 class="form-section"><i class="la la-tasks"></i>@item.Name </h4>
+                                                            count++;
+                                                        }
+
+                                                        <div class="form-group row mx-auto">
+                                                            <label class="col-md-4 label-control" style="text-align:left !important" for="@Model[i].UQM_Answer" >@Model[i].QM_Name</label>
+
+                                                            @if (Model[i].QM_Container == "T")
+                                                            {
+                                                                <div class="col-md-6">
+                                                                    @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                                    @Html.HiddenFor(model => @Model[i].QM_Id)
+                                                                    @Html.HiddenFor(model => @Model[i].QM_Name)
+                                                                    @Html.HiddenFor(model => @Model[i].QM_Container)
+
+
+                                                                    @Html.TextBoxFor(model => @Model[i].UQM_Answer, new { @class = "form-control required", @type = "text" })
+
+
+                                                                </div>
+                                                            }
+
+                                                            else if (Model[i].QM_Container == "U")
+                                                            { <div class="col-md-6">
+
+                                                                @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                                @Html.HiddenFor(model => @Model[i].QM_Id)
+                                                                @Html.HiddenFor(model => @Model[i].QM_Name)
+                                                                @Html.HiddenFor(model => @Model[i].QM_Container)
+                                                                @Html.HiddenFor(model => @Model[i].UQM_Answer)
+
+                                                                <div class="media">
+
+                                                                    <div class="media-body mt-75">
+
+                                                                        <div class="controls">
+
+                                                                            <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].UQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" >
+
+
+
+
+
+                                                                        </div>
+                                                                        <p class="text-muted ml-75 mt-50">
+                                                                            <small>
+                                                                                Allowed .doc,.docx,.pdf, GIF or PNG. Max
+                                                                                size of
+                                                                                500kB
+                                                                            </small>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                               @if(Model[i].UQM_Answer!="")
+                                                               {
+                                                                   <a href="@Model[i].UQM_Answer" class="float-l ticket-options-icon " download><strong><i class="la la-download text-success" style="font-size: x-large !important;"></i></strong> </a>
+                                                               }
+                                                            </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="col-md-6">
+
+                                                                    @if(@Model[i].UQM_Answer=="Yes")
+                                                                     {
+                                                                         yes = false;
+                                                                         No = true;
+
+                                                                     }
+                                                                    else
+                                                                    {
+                                                                        yes = true;
+                                                                        No = false;
+                                                                    }
+                                                                    @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                                    @Html.HiddenFor(model => @Model[i].QM_Id)
+                                                                    @Html.HiddenFor(model => @Model[i].QM_Name)
+                                                                    @Html.HiddenFor(model => @Model[i].QM_Container)
+
+                                                                    <div class="skin skin-square">
+                                                                        @Html.RadioButtonFor(model => @Model[i].RadioOptions, @yes, new { @type = "radio", })
+                                                                        Yes
+                                                                        @Html.RadioButtonFor(model => @Model[i].RadioOptions, @No, new { @type = "radio", })
+                                                                        No
+                                                                    </div>
+                                                                </div>
+
+                                                            }
+                                                        </div>
+
+
+
+
+
+
+
+
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    </div>
+
+                                    <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                                        <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">
+                                            Save
+                                            changes
+                                        </button>
+
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>*@
+
+
+
+
+
+
+
+
+<div class="page-content">
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+                <!-- Page title + Go Back button -->
+                <div class="d-inline-block">
+                    <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Assesment Question Answer</h5>
+                </div>
+                <!-- Additional info -->
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-end">
+            </div>
+        </div>
+    </div>
+    <form action="/Project/AsessmentQuestion" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-body ">
+                    @{
+                        foreach (var item in ViewBag.QCategory)
+                        {
+                            var count = 0;
+
+                            for (int i = 0; i < Model.Count; i++)
+                            {
+
+                                if (item.Id == Model[i].QM_QC_Id)
+                                {
+                                    <div class="card">
+                                        @if (count == 0)
+                                        {
+                                            <div class="card-header">
+                                                <h6 class="form-section">@item.Name </h6>
+
+                                            </div>
+                                            count++;
+                                        }
+
+
+                                        <div class="card-body">
+                                            <div class="form-group row mx-auto">
+                                                <label class="col-md-4 label-control" style="text-align:left !important" for="@Model[i].UQM_Answer">@Model[i].QM_Name</label>
+                                                @if (Model[i].QM_Container == "T")
+                                                {
+                                                    <div class="col-md-6">
+                                                        @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                        @Html.HiddenFor(model => @Model[i].QM_Id)
+                                                        @Html.HiddenFor(model => @Model[i].QM_Name)
+                                                        @Html.HiddenFor(model => @Model[i].QM_Container)
+
+                                                        @if (ViewBag.onlyVisible == "Yes")
+                                                        {
+                                                            <label class="label-control" for="userinput1" style="text-align:left !important">@Model[i].UQM_Answer</label>
+                                                        }
+                                                        else
+                                                        {
+                                                            @Html.TextBoxFor(model => @Model[i].UQM_Answer, new { @class = "form-control required", @type = "text" })
+                                                        }
+
+
+                                                    </div>
+                                                }
+
+                                                else if (Model[i].QM_Container == "U")
+                                                { <div class="col-md-6">
+
+                                                    @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                    @Html.HiddenFor(model => @Model[i].QM_Id)
+                                                    @Html.HiddenFor(model => @Model[i].QM_Name)
+                                                    @Html.HiddenFor(model => @Model[i].QM_Container)
+                                                    @Html.HiddenFor(model => @Model[i].UQM_Answer)
+                                                    @*@Html.TextBoxFor(model => @Model[i].Answer, new { @class = "form-control required", @type = "text" })*@
+                                                    <div class="media">
+
+                                                        <div class="media-body mt-75">
+
+                                                            @*<div class="controls">
+
+                                                                    <input type="file" name="file" onchange="encodeImgtoBase64(this,'[@i].UQM_Answer')" class="form-control mb-1" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp">
+                                                                </div>*@
+
+                                                            <div class="form-group">
+
+                                                                <input type="file" name="file" id="file-@i" onchange="encodeImgtoBase64(this,'[@i].UQM_Answer')" accept=".doc,.pdf,.png,.jpg,.gif,.jpeg,.bmp" class="custom-input-file" data-multiple-caption="{count} files selected" multiple />
+
+                                                                @if (ViewBag.onlyVisible == "No")
+                                                                {
+                                                                    <label for="file-@i">
+                                                                        <i class="fa fa-upload"></i>
+                                                                        <span>Choose a file…</span>
+                                                                    </label>
+                                                                }
+
+                                                            </div>
+                                                            @if (ViewBag.onlyVisible == "No")
+                                                            {
+                                                                <p class="text-muted ml-75 mt-50">
+                                                                    <small>
+                                                                        Allowed .doc,.docx,.pdf, GIF or PNG. Max
+                                                                        size of
+                                                                        500kB
+                                                                    </small>
+                                                                </p>
+                                                            }
+                                                        </div>
+                                                    </div>
+
+                                                
+                                                    @if (Model[i].UQM_Answer != "")
+                                                    {
+                                                        <a href="@Model[i].UQM_Answer" class="float-l ticket-options-icon " download><strong><i class="la la-download text-success" style="font-size: x-large !important;"></i></strong> </a>
+                                                    }
+
+                                                    else
+                                                    {
+                                                        if (ViewBag.onlyVisible == "Yes")
+                                                        {
+                                                        <p class="text-muted ml-75 mt-50">
+                                                            <small>
+                                                                No file selected
+                                                            </small>
+                                                        </p>
+                                                    }
+                                                    }                                  
+                                                
+
+                                                </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="col-md-6">
+
+                                                        @if (@Model[i].UQM_Answer == "Yes")
+                                                        {
+                                                            yes = true;
+                                                            No = false;
+
+                                                        }
+                                                        else
+                                                        {
+                                                            yes = false;
+                                                            No = true;
+                                                        }
+                                                        @Html.HiddenFor(model => @Model[i].QM_QC_Id)
+                                                        @Html.HiddenFor(model => @Model[i].QM_Id)
+                                                        @Html.HiddenFor(model => @Model[i].QM_Name)
+                                                        @Html.HiddenFor(model => @Model[i].QM_Container)
+
+                                                        @if (ViewBag.onlyVisible == "No")
+                                                        {
+                                                            if (@Model[i].UQM_Answer == "Yes")
+                                                            {
+                                                                <div class="skin skin-square">
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, true, new { @type = "radio", @checked = "checked" })
+                                                                    Yes
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, false, new { @type = "radio" })
+                                                                    No
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="skin skin-square">
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, true, new { @type = "radio" })
+                                                                    Yes
+                                                                    @Html.RadioButtonFor(model => @Model[i].RadioOptions, false, new { @type = "radio", @checked = "checked" })
+                                                                    No
+                                                                </div>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="skin skin-square">
+                                                                @Html.RadioButtonFor(model => @Model[i].RadioOptions, @yes, new { @type = "radio", @style = "pointer-events:none;opacity:0.5;" })
+                                                                Yes
+                                                                @Html.RadioButtonFor(model => @Model[i].RadioOptions, @No, new { @type = "radio", @style = "pointer-events:none;opacity:0.5;" })
+                                                                No
+                                                            </div>
+
+                                                        }
+                                                    </div>
+
+                                                }
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                }
+                            }
+
+
+
+
+
+                        }
+
+                    }
+
+                    @if (ViewBag.Role != "A" && ViewBag.onlyVisible == "No")
+                    {
+                        <div class="card">
+                            <div class="card-body">
+
+                                <!-- Buttons -->
+                                <div class="text-right">
+                                    @*<a href="/Project/ProjectList" class="btn btn-link text-sm text-muted font-weight-bold">Cancel</a>*@
+                                    <button type="submit" class="btn btn-sm btn-primary rounded-pill" id="btnSubmit">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+
+
+
+
+
+<script>
+
+    function encodeImgtoBase64(element, id) {
+        var img = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('input[name="' + id + '"]').val(reader.result);
+        }
+
+        reader.readAsDataURL(img);
+    }
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
