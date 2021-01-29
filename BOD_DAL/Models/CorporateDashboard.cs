@@ -24,6 +24,8 @@ namespace BOD_DAL.Models
        public List<SSME> smmList { get; set; }
        public List<ProjectEntry> projectList { get; set; }
        public List<CorporateDashboard> corpDashList{get;set;}
+
+       public List<AddTraining> training { get; set; } 
        public CorporateDashboard()
        {
            smmList = new List<SSME>();

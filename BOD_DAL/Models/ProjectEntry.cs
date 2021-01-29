@@ -66,6 +66,8 @@ namespace BOD_DAL.Models
 
         public List<SSME> sSMEs { get; set; }
         public List<ProjectWiseEmployee> prjectWiseEmp { get; set; }
+
+        public List<EmployeeMaster> ProjectEmpMaster { get; set; }
         public ProjectEntry()
         {
             ProjectWiseSMME = new List<ProjectWiseSMME>();

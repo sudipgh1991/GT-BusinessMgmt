@@ -2628,15 +2628,11 @@ namespace BOD_APP.Controllers
             if (CUserModel != null)
             {
 
-
                 global.CompanyID = CUserModel.CompanyID;
                 global.FYId = CUserModel.FyId;
 
                 global.param1 = "UserId";
                 global.param1Value = CUserModel.UserID;
-
-
-
             }
             global.TransactionType = "SelectIncome";
             global.StoreProcedure = "ClientDashboard_USP";

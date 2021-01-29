@@ -134,7 +134,11 @@ namespace BOD_APP.Controllers
                 {
 
                 }
-
+            global.StoreProcedure = "TrainingEntry_USP";
+            global.TransactionType = "Select";
+            ds = dl.GetGlobalMasterTransactionSingle1(global);
+            if (ds.Tables.Count > 0)
+                corp.training = ConvertDataTable<AddTraining>(ds.Tables[0]);
 
 
             return View(corp);

@@ -14,5 +14,6 @@ namespace BOD_DAL.Models
         public decimal? TotalExpenses { get; set; }
         public int? CompletedTask { get; set; }
         public int? OnGoingTask { get; set; }
+        public ProjectEntry ProjectEntry { get; set; }
     }
 }
