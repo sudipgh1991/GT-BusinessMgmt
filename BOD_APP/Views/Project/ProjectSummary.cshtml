@@ -10,22 +10,22 @@
 
     int? OpenJobs = Model.OnGoingTask;
 
-    int ?compledPercentage = 0;
+    int? compledPercentage = 0;
     int? openPercentage = 0;
-    if(totalJobs>0)
+    if (totalJobs > 0)
     {
-        compledPercentage=((Convert.ToInt32(completedJobs) / Convert.ToInt32(totalJobs)) * 100);
+        compledPercentage = ((Convert.ToInt32(completedJobs) / Convert.ToInt32(totalJobs)) * 100);
     }
     else
     {
         compledPercentage = 0;
-        
+
     }
     if (totalJobs > 0)
     {
         openPercentage = ((Convert.ToInt32(OpenJobs) / Convert.ToInt32(totalJobs)) * 100);
-}
-    
+    }
+
     else
     {
         openPercentage = 0;
@@ -34,39 +34,12 @@
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="page-title">
     <div class="row justify-content-between align-items-center">
         <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
             <!-- Page title + Go Back button -->
             <div class="d-inline-block">
-                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white" >Project Summery</h5>
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white" >Project Summary</h5>
             </div>
          
         </div>
@@ -86,47 +59,20 @@
                         <h6 class="text-muted mb-1">No Of SMME</h6>
                         <span class="h3 font-weight-bold mb-0 ">@Model.NoOfSMME</span>
                     </div>
-                 
+
                 </div>
             </div>
         </div>
         <!-- Project performance -->
-        <div class="card">
+        <div class="card card-stats border-0">
+            <!-- Card body -->
             <div class="card-body">
-                <div class="">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="mb-0">@Model.NoOftask</h6>
-                            <span class="text-sm text-muted">Total Activity</span>
-                        </div>
-                        <div class="col-6 text-right">
-                            <span class="badge badge-pill badge-success">
-                                Good
-                            </span>
-                        </div>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Total Income</h6>
+                        <span class="h3 font-weight-bold mb-0 ">$ @(Model.ProjectEntry.TotalIncome ?? 0)</span>
                     </div>
-                </div>
-                <div class="w-100 pt-4 pb-5" style="position: relative;">
-                    <div class="spark-chart" data-toggle="spark-chart" data-color="info" data-dataset="[47, 94, 24, 18, 26, 65, 31, 47, 10, 44, 45]" style="min-height: 35px;"><div id="apexchartspbhtqjbt" class="apexcharts-canvas apexchartspbhtqjbt light" style="width: 198px; height: 35px;"><svg id="SvgjsSvg1063" width="198" height="35" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1065" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1064"><clipPath id="gridRectMaskpbhtqjbt"><rect id="SvgjsRect1069" width="200" height="37" x="-1" y="-1" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath><clipPath id="gridRectMarkerMaskpbhtqjbt"><rect id="SvgjsRect1070" width="238" height="75" x="-20" y="-20" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath></defs><line id="SvgjsLine1068" x1="78.7" y1="0" x2="78.7" y2="35" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="78.7" y="0" width="1" height="35" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG1077" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1078" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1081" class="apexcharts-grid"><line id="SvgjsLine1083" x1="0" y1="35" x2="198" y2="35" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1082" x1="0" y1="1" x2="0" y2="35" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1072" class="apexcharts-line-series apexcharts-plot-series"><g id="SvgjsG1073" class="apexcharts-series seriesx1" data:longestSeries="true" rel="1" data:realIndex="0"><path id="apexcharts-line-0" d="M 0 18.55C 6.93 18.55 12.870000000000001 2.1000000000000014 19.8 2.1000000000000014C 26.73 2.1000000000000014 32.67 26.6 39.6 26.6C 46.53 26.6 52.47 28.7 59.4 28.7C 66.33 28.7 72.27 25.9 79.2 25.9C 86.13 25.9 92.07000000000001 12.25 99 12.25C 105.92999999999999 12.25 111.87 24.15 118.8 24.15C 125.72999999999999 24.15 131.67 18.55 138.6 18.55C 145.53 18.55 151.47 31.5 158.4 31.5C 165.33 31.5 171.27 19.6 178.20000000000002 19.6C 185.13000000000002 19.6 191.07 19.25 198 19.25" fill="none" fill-opacity="1" stroke="rgba(0,184,217,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="2" stroke-dasharray="0" class="apexcharts-line" index="0" clip-path="url(#gridRectMaskpbhtqjbt)" pathTo="M 0 18.55C 6.93 18.55 12.870000000000001 2.1000000000000014 19.8 2.1000000000000014C 26.73 2.1000000000000014 32.67 26.6 39.6 26.6C 46.53 26.6 52.47 28.7 59.4 28.7C 66.33 28.7 72.27 25.9 79.2 25.9C 86.13 25.9 92.07000000000001 12.25 99 12.25C 105.92999999999999 12.25 111.87 24.15 118.8 24.15C 125.72999999999999 24.15 131.67 18.55 138.6 18.55C 145.53 18.55 151.47 31.5 158.4 31.5C 165.33 31.5 171.27 19.6 178.20000000000002 19.6C 185.13000000000002 19.6 191.07 19.25 198 19.25" pathFrom="M -1 35L -1 35L 19.8 35L 39.6 35L 59.4 35L 79.2 35L 99 35L 118.8 35L 138.6 35L 158.4 35L 178.20000000000002 35L 198 35"></path><g id="SvgjsG1074" class="apexcharts-series-markers-wrap"><g class="apexcharts-series-markers"><circle id="SvgjsCircle1089" r="0" cx="79.2" cy="25.9" class="apexcharts-marker w2co5qluv no-pointer-events" stroke="#ffffff" fill="#00b8d9" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g><g id="SvgjsG1075" class="apexcharts-datalabels"></g></g></g><line id="SvgjsLine1084" x1="0" y1="0" x2="198" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1085" x1="0" y1="0" x2="198" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1086" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1087" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1088" class="apexcharts-point-annotations"></g></g><rect id="SvgjsRect1067" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect><g id="SvgjsG1079" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)"><g id="SvgjsG1080" class="apexcharts-yaxis-texts-g"></g></g></svg><div class="apexcharts-legend"></div><div class="apexcharts-tooltip light" style="left: 90px; top: 0px;"><div class="apexcharts-tooltip-series-group active" style="display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(0, 184, 217); display: none;"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value">26</span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div></div></div>
-                    <div class="resize-triggers"><div class="expand-trigger"><div style="width: 199px; height: 108px;"></div></div><div class="contract-trigger"></div></div>
-                </div>
-                <div class="progress-wrapper mb-3">
-                    <small class="progress-label">Concept</small>
-                    <div class="progress mt-0" style="height: 3px;">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="progress-wrapper">
-                    <small class="progress-label">Prototyping</small>
-                    <div class="progress mt-0" style="height: 3px;">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="progress-wrapper">
-                    <small class="progress-label">Testing</small>
-                    <div class="progress mt-0" style="height: 3px;">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -139,49 +85,22 @@
                 <div class="row">
                     <div class="col">
                         <h6 class="text-muted mb-1">No Of SMME Employee</h6>
-                        <span class="h3 font-weight-bold mb-0 ">0</span>
+                        <span class="h3 font-weight-bold mb-0">@Model.ProjectEntry.prjectWiseEmp.Count</span>
                     </div>
-                 
+
                 </div>
             </div>
         </div>
         <!-- Project performance -->
-        <div class="card">
+        <div class="card card-stats">
+            <!-- Card body -->
             <div class="card-body">
-                <div class="">
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="mb-0">642</h6>
-                            <span class="text-sm text-muted">Hours spent</span>
-                        </div>
-                        <div class="col-6 text-right">
-                            <span class="badge badge-pill badge-danger">
-                                At risk
-                            </span>
-                        </div>
+                <div class="row">
+                    <div class="col">
+                        <h6 class="text-muted mb-1">Total Expense</h6>
+                        <span class="h3 font-weight-bold mb-0">$ @(Model.ProjectEntry.TotalExpenses ?? 0)</span>
                     </div>
-                </div>
-                <div class="w-100 pt-4 pb-5" style="position: relative;">
-                    <div class="spark-chart" data-toggle="spark-chart" data-color="warning" data-dataset="[47, 94, 24, 18, 26, 65, 31, 47, 10, 44, 45]" style="min-height: 35px;"><div id="apexchartsnsprhheg" class="apexcharts-canvas apexchartsnsprhheg light" style="width: 198px; height: 35px;"><svg id="SvgjsSvg1093" width="198" height="35" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1095" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1094"><clipPath id="gridRectMasknsprhheg"><rect id="SvgjsRect1099" width="200" height="37" x="-1" y="-1" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath><clipPath id="gridRectMarkerMasknsprhheg"><rect id="SvgjsRect1100" width="238" height="75" x="-20" y="-20" rx="0" ry="0" fill="#ffffff" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect></clipPath></defs><line id="SvgjsLine1098" x1="78.7" y1="0" x2="78.7" y2="35" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="78.7" y="0" width="1" height="35" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG1107" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1108" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1111" class="apexcharts-grid"><line id="SvgjsLine1113" x1="0" y1="35" x2="198" y2="35" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1112" x1="0" y1="1" x2="0" y2="35" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1102" class="apexcharts-line-series apexcharts-plot-series"><g id="SvgjsG1103" class="apexcharts-series seriesx1" data:longestSeries="true" rel="1" data:realIndex="0"><path id="apexcharts-line-0" d="M 0 18.55C 6.93 18.55 12.870000000000001 2.1000000000000014 19.8 2.1000000000000014C 26.73 2.1000000000000014 32.67 26.6 39.6 26.6C 46.53 26.6 52.47 28.7 59.4 28.7C 66.33 28.7 72.27 25.9 79.2 25.9C 86.13 25.9 92.07000000000001 12.25 99 12.25C 105.92999999999999 12.25 111.87 24.15 118.8 24.15C 125.72999999999999 24.15 131.67 18.55 138.6 18.55C 145.53 18.55 151.47 31.5 158.4 31.5C 165.33 31.5 171.27 19.6 178.20000000000002 19.6C 185.13000000000002 19.6 191.07 19.25 198 19.25" fill="none" fill-opacity="1" stroke="rgba(255,171,0,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="2" stroke-dasharray="0" class="apexcharts-line" index="0" clip-path="url(#gridRectMasknsprhheg)" pathTo="M 0 18.55C 6.93 18.55 12.870000000000001 2.1000000000000014 19.8 2.1000000000000014C 26.73 2.1000000000000014 32.67 26.6 39.6 26.6C 46.53 26.6 52.47 28.7 59.4 28.7C 66.33 28.7 72.27 25.9 79.2 25.9C 86.13 25.9 92.07000000000001 12.25 99 12.25C 105.92999999999999 12.25 111.87 24.15 118.8 24.15C 125.72999999999999 24.15 131.67 18.55 138.6 18.55C 145.53 18.55 151.47 31.5 158.4 31.5C 165.33 31.5 171.27 19.6 178.20000000000002 19.6C 185.13000000000002 19.6 191.07 19.25 198 19.25" pathFrom="M -1 35L -1 35L 19.8 35L 39.6 35L 59.4 35L 79.2 35L 99 35L 118.8 35L 138.6 35L 158.4 35L 178.20000000000002 35L 198 35"></path><g id="SvgjsG1104" class="apexcharts-series-markers-wrap"><g class="apexcharts-series-markers"><circle id="SvgjsCircle1119" r="0" cx="79.2" cy="25.9" class="apexcharts-marker wktknmtnn no-pointer-events" stroke="#ffffff" fill="#ffab00" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g><g id="SvgjsG1105" class="apexcharts-datalabels"></g></g></g><line id="SvgjsLine1114" x1="0" y1="0" x2="198" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1115" x1="0" y1="0" x2="198" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1116" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1117" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1118" class="apexcharts-point-annotations"></g></g><rect id="SvgjsRect1097" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect><g id="SvgjsG1109" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)"><g id="SvgjsG1110" class="apexcharts-yaxis-texts-g"></g></g></svg><div class="apexcharts-legend"></div><div class="apexcharts-tooltip light" style="left: 90px; top: 0px;"><div class="apexcharts-tooltip-series-group active" style="display: flex;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(255, 171, 0); display: none;"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value">26</span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div></div></div>
-                    <div class="resize-triggers"><div class="expand-trigger"><div style="width: 199px; height: 108px;"></div></div><div class="contract-trigger"></div></div>
-                </div>
-                <div class="progress-wrapper mb-3">
-                    <small class="progress-label">Concept</small>
-                    <div class="progress mt-0" style="height: 3px;">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="progress-wrapper">
-                    <small class="progress-label">Prototyping</small>
-                    <div class="progress mt-0" style="height: 3px;">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                    </div>
-                </div>
-                <div class="progress-wrapper">
-                    <small class="progress-label">Testing</small>
-                    <div class="progress mt-0" style="height: 3px;">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"></div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -190,33 +109,14 @@
         <!-- Project overview -->
         <div class="card card-fluid">
             <div class="card-header">
-                <h6 class="mb-0">Project Name:   <span class="text-muted" id="projectName"></span></h6>
+                <img alt="Image placeholder" src="@Model.ProjectEntry.PE_Image" class="avatar rounded-circle">
+                <h6 class="mb-0">Project Name:   <span class="text-muted">@(Model.ProjectEntry !=null ? Model.ProjectEntry.PE_ProjectName:"") </span></h6>
             </div>
             <div class="card-body py-3 flex-grow-1">
-                <!-- Progress -->
-                <div class="pb-3 mb-3 border-bottom">
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <!-- Avatar -->
-                            <img alt="Image placeholder" src="../../assets/img/theme/light/brand-avatar-2.png" class="avatar rounded-circle">
-                        </div>
-                        <div class="col ml-n2">
-                            <div class="progress-wrapper">
-                                <span class="progress-percentage"><small class="font-weight-bold">Completed: </small>70%</span>
-                                <div class="progress progress-xs mt-2">
-                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Description -->
-                <h6 class="mb-0">Project overview:<span class="text-muted"></span></h6>
+                <h6 class="mb-0">Project Description:<span class="text-muted"></span></h6>
                 <div class="heading-elements">
-                    @*<ul class="list-inline mb-0">
-                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                        <li><a data-action="close"><i class="ft-x"></i></a></li>
-                    </ul>*@
+                    @(Model.ProjectEntry !=null? Model.ProjectEntry.PE_Description : "")
                 </div>
                 <p class="text-sm mb-0" id="projectDetails">
 
@@ -270,7 +170,7 @@
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h6 class="mb-0">User performance</h6>
+                        <h6 class="mb-0">Employees</h6>
                     </div>
                     <div class="col-auto">
                         <div class="actions">
@@ -291,194 +191,41 @@
                     <thead>
                         <tr>
                             <th scope="col" class="sort" data-sort="name">Name</th>
-                            <th scope="col" class="sort" data-sort="groups">Groups</th>
-                            <th scope="col" class="sort" data-sort="tasks">Tasks</th>
-                            <th scope="col" class="sort" data-sort="billing">Hours billed</th>
-                            <th scope="col">Completion</th>
-                            <th scope="col" class="sort" data-sort="issues">Closed issues</th>
+                            <th scope="col" class="sort" data-sort="groups">Email</th>
+                            <th scope="col" class="sort" data-sort="tasks">Company ID</th>
+                            <th scope="col" class="sort" data-sort="billing">Manager Name</th>
+                            <th scope="col">Sex</th>
+                            <th scope="col" class="sort" data-sort="issues">DOB</th>
                         </tr>
                     </thead>
                     <tbody class="list">
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <div>
-                                        <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="avatar  rounded-circle avatar-sm">
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <a href="overview.html" class="name mb-0 h6 text-sm">John Sullivan</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>
-                                <a href="#" class="badge badge-secondary">Design</a>
-                                <a href="#" class="badge badge-secondary">Marketing</a>
-                            </td>
-                            <td class="budget">
-                                <span>11</span>
-                            </td>
-                            <td>
-                                80 h
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">14%</span>
-                                    <div>
-                                        <div class="progress" style="width: 100px;">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100" style="width: 14%;"></div>
+                        @foreach (var employee in Model.ProjectEntry.ProjectEmpMaster)
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body ml-3">
+                                            <a href="overview.html" class="name mb-0 h6 text-sm">@employee.EM_EmpName</a>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="badge badge-secondary mr-2">7</span>
-                                <a href="#" class="text-muted" data-toggle="tooltip" data-original-title="Unclosed issues">8</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <div>
-                                        <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="avatar  rounded-circle avatar-sm">
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <a href="overview.html" class="name mb-0 h6 text-sm">Heather Wright</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>
-                                <a href="#" class="badge badge-secondary">Dev</a>
-                                <a href="#" class="badge badge-secondary">Testing</a>
-                            </td>
-                            <td class="budget">
-                                <span>22</span>
-                            </td>
-                            <td>
-                                160 h
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">28%</span>
-                                    <div>
-                                        <div class="progress" style="width: 100px;">
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="badge badge-secondary mr-2">14</span>
-                                <a href="#" class="text-muted" data-toggle="tooltip" data-original-title="Unclosed issues">16</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <div>
-                                        <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="avatar  rounded-circle avatar-sm">
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <a href="overview.html" class="name mb-0 h6 text-sm">James Lewis</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>
-                                <a href="#" class="badge badge-secondary">Design</a>
-                                <a href="#" class="badge badge-secondary">Mobile</a>
-                            </td>
-                            <td class="budget">
-                                <span>33</span>
-                            </td>
-                            <td>
-                                240 h
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">42%</span>
-                                    <div>
-                                        <div class="progress" style="width: 100px;">
-                                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width: 42%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="badge badge-secondary mr-2">21</span>
-                                <a href="#" class="text-muted" data-toggle="tooltip" data-original-title="Unclosed issues">24</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <div>
-                                        <img alt="Image placeholder" src="../../assets/img/theme/light/team-4-800x800.jpg" class="avatar  rounded-circle avatar-sm">
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <a href="overview.html" class="name mb-0 h6 text-sm">Martin Gray</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>
-                                <a href="#" class="badge badge-secondary">Dev</a>
-                                <a href="#" class="badge badge-secondary">Mobile</a>
-                            </td>
-                            <td class="budget">
-                                <span>44</span>
-                            </td>
-                            <td>
-                                320 h
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">56%</span>
-                                    <div>
-                                        <div class="progress" style="width: 100px;">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="badge badge-secondary mr-2">28</span>
-                                <a href="#" class="text-muted" data-toggle="tooltip" data-original-title="Unclosed issues">32</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <div>
-                                        <img alt="Image placeholder" src="../../assets/img/theme/light/team-5-800x800.jpg" class="avatar  rounded-circle avatar-sm">
-                                    </div>
-                                    <div class="media-body ml-3">
-                                        <a href="overview.html" class="name mb-0 h6 text-sm">John Snow</a>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>
-                                <a href="#" class="badge badge-secondary">Sales</a>
-                                <a href="#" class="badge badge-secondary">Marketing</a>
-                            </td>
-                            <td class="budget">
-                                <span>55</span>
-                            </td>
-                            <td>
-                                400 h
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">70%</span>
-                                    <div>
-                                        <div class="progress" style="width: 100px;">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="badge badge-secondary mr-2">35</span>
-                                <a href="#" class="text-muted" data-toggle="tooltip" data-original-title="Unclosed issues">40</a>
-                            </td>
-                        </tr>
+                                </th>
+                                <td>
+                                    <a href="#" class="badge badge-secondary">@employee.EM_Email</a>
+                                </td>
+                                <td class="budget">
+                                    <span>@employee.CompanyID</span>
+                                </td>
+                                <td>
+                                    @employee.ManagerName
+                                </td>
+                                <td>
+                                    @employee.EM_Sex
+                                </td>
+                                <td>
+                                   @employee.EM_DOB
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -491,7 +238,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h6 class="mb-0">Attachments</h6>
+                        <h6 class="mb-0">Tasks</h6>
                     </div>
                     <div class="text-right">
                         <div class="actions">
@@ -510,151 +257,23 @@
             </div>
             <div class="card-wrapper p-3">
                 <!-- Files -->
-                <div class="card mb-3 border shadow-none">
-                    <div class="px-3 py-3">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <img alt="Image placeholder" src="../../assets/img/icons/files/pdf.png" class="img-fluid" style="width: 40px;">
-                            </div>
-                            <div class="col ml-n2">
-                                <h6 class="text-sm mb-0">
-                                    <a href="#!">design-principles.pdf</a>
-                                </h6>
-                                <p class="card-text small text-muted">
-                                    189 KB
-                                </p>
-                            </div>
-                            <div class="col-auto actions">
-                                <div class="dropdown" data-toggle="dropdown">
-                                    <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="far fa-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">Refresh</a>
-                                        <a href="#" class="dropdown-item">Manage Widgets</a>
-                                        <a href="#" class="dropdown-item">Settings</a>
-                                    </div>
+                @foreach (var task in Model.ProjectEntry.projectWiseTasks)
+                {
+                    <div class="card mb-3 border shadow-none">
+                        <div class="px-3 py-3">
+                            <div class="row align-items-center">
+                                <div class="col ml-n2">
+                                    <h6 class="text-sm mb-0">
+                                        <a href="#!">@task.PWT_TaskTitle</a>
+                                    </h6>
+                                    <p class="card-text small text-muted">
+                                        @task.PE_StartDate
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card mb-3 border shadow-none">
-                    <div class="px-3 py-3">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <img alt="Image placeholder" src="../../assets/img/icons/files/psd.png" class="img-fluid" style="width: 40px;">
-                            </div>
-                            <div class="col ml-n2">
-                                <h6 class="text-sm mb-0">
-                                    <a href="#!">website-wireframe.psd</a>
-                                </h6>
-                                <p class="card-text small text-muted">
-                                    45.9 MB
-                                </p>
-                            </div>
-                            <div class="col-auto actions">
-                                <div class="dropdown" data-toggle="dropdown">
-                                    <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="far fa-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">Refresh</a>
-                                        <a href="#" class="dropdown-item">Manage Widgets</a>
-                                        <a href="#" class="dropdown-item">Settings</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 border shadow-none">
-                    <div class="px-3 py-3">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <img alt="Image placeholder" src="../../assets/img/icons/files/doc.png" class="img-fluid" style="width: 40px;">
-                            </div>
-                            <div class="col ml-n2">
-                                <h6 class="text-sm mb-0">
-                                    <a href="#!">product-guidelines.doc</a>
-                                </h6>
-                                <p class="card-text small text-muted">
-                                    87 KB
-                                </p>
-                            </div>
-                            <div class="col-auto actions">
-                                <div class="dropdown" data-toggle="dropdown">
-                                    <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="far fa-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">Refresh</a>
-                                        <a href="#" class="dropdown-item">Manage Widgets</a>
-                                        <a href="#" class="dropdown-item">Settings</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 border shadow-none">
-                    <div class="px-3 py-3">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <img alt="Image placeholder" src="../../assets/img/icons/files/avi.png" class="img-fluid" style="width: 40px;">
-                            </div>
-                            <div class="col ml-n2">
-                                <h6 class="text-sm mb-0">
-                                    <a href="#!">banner-video.avi</a>
-                                </h6>
-                                <p class="card-text small text-muted">
-                                    23 MB
-                                </p>
-                            </div>
-                            <div class="col-auto actions">
-                                <div class="dropdown" data-toggle="dropdown">
-                                    <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="far fa-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">Refresh</a>
-                                        <a href="#" class="dropdown-item">Manage Widgets</a>
-                                        <a href="#" class="dropdown-item">Settings</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 border shadow-none">
-                    <div class="px-3 py-3">
-                        <div class="row align-items-center">
-                            <div class="col-auto">
-                                <img alt="Image placeholder" src="../../assets/img/icons/files/png.png" class="img-fluid" style="width: 40px;">
-                            </div>
-                            <div class="col ml-n2">
-                                <h6 class="text-sm mb-0">
-                                    <a href="#!">logo.png</a>
-                                </h6>
-                                <p class="card-text small text-muted">
-                                    189 kb
-                                </p>
-                            </div>
-                            <div class="col-auto actions">
-                                <div class="dropdown" data-toggle="dropdown">
-                                    <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="far fa-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#" class="dropdown-item">Refresh</a>
-                                        <a href="#" class="dropdown-item">Manage Widgets</a>
-                                        <a href="#" class="dropdown-item">Settings</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>

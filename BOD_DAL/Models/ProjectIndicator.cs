@@ -15,6 +15,10 @@ namespace BOD_DAL.Models
 
         public List<ProjectEntry> ProjectList { get; set; }
 
+        public int GetTotalIndicators()
+            => this.ProjectList
+                .Sum(t => (int)t.PE_ProjectIndicartor);
+
         public ProjectIndicator()
         {
             ProjectList = new List<ProjectEntry>();

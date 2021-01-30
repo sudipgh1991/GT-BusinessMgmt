@@ -298,6 +298,34 @@ namespace BOD_APP.Controllers
 
                 }
 
+            global.StoreProcedure = "ProjectEntry_USP";
+            global.TransactionType = "SelectList";
+            global.param1 = "PE_Id";
+            global.param1Value = Id;
+            global.param2 = "PE_ClientId";
+            global.param2Value = Id;
+            ds = dl.GetGlobalMasterTransactionSingle(global);
+            if (ds.Tables.Count > 0)
+                corp.ProjectEntry = ConvertDataTable<ProjectEntry>(ds.Tables[0]).Where(t => t.PE_Id == Id).FirstOrDefault();
+
+            global.StoreProcedure = "EmployeeMaster_USP";
+            global.TransactionType = "SelectProjectWiseEMP";
+            global.param1 = "UserId";
+            global.param1Value = Id;
+            global.param2 = "ProjectId";
+            global.param2Value = Id;
+            ds = dl.GetGlobalMasterTransactionSingle(global);
+
+            if (ds.Tables.Count > 0)
+                corp.ProjectEntry.ProjectEmpMaster = ConvertDataTable<EmployeeMaster>(ds.Tables[0]);
+
+            global.StoreProcedure = "ProjectWiseTask_USP";
+            global.TransactionType = "Select";
+            global.param1 = "PWT_Id";
+            global.param1Value = Id;
+            ds = dl.GetGlobalMasterTransactionSingle(global);
+            if (ds.Tables.Count > 0)
+                corp.ProjectEntry.projectWiseTasks = ConvertDataTable<ProjectWiseTask>(ds.Tables[0]);
 
 
             return View(corp);

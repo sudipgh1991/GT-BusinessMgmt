@@ -1,65 +1,65 @@
 ﻿"use strict";
 //retriveIncomeGraphPoint();
-//function retriveIncomeGraphPoint() {
+setTimeout(() => {
+    retriveIncomeGraphPoint();
+})
+function retriveIncomeGraphPoint() {
+    debugger
+    $.ajax({
+        type: "POST",
+        url: '/ScriptJson/GetMonthWiseIncomeGraphPoint',
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        dataType: "json",
+        success: function (resp) {
+            debugger
+            var data = JSON.parse(resp);
+            var dataArray = [];
+            $.each(data, function (index, table) {
+                dataArray.push(table.MonthWiseExpenses);
+            });
 
-//    var ctx = document.querySelector("#thisYearRevenue").getContext("2d");
-//    $.ajax({
-//        type: "POST",
-//        url: '/ScriptJson/GetMonthWiseIncomeGraphPoint',
-//        contentType: "application/json; charset=utf-8",
-
-//        async: false,
-//        dataType: "json",
-//        success: function (resp) {
-
-
-//            var data = JSON.parse(resp);
-//            var dataArray = [];
-//            $.each(data, function (index, table) {
-//                dataArray.push(table.MonthWiseExpenses);
-//            });
-
-//            var e = $("#apex-engagement");
-//            e.length &&
-//                e.each(function () {
-//                    !(function (e) {
-//                        var t = {
-//                            chart: { width: "100%", zoom: { enabled: !1 }, toolbar: { show: !1 }, shadow: { enabled: !1 } },
-//                            stroke: { width: 7, curve: "smooth" },
-//                            series: [{ name: "Income", data: dataArray }],
-//                            xaxis: {
-//                                labels: { format: "MMM", style: { colors: PurposeStyle.colors.gray[600], fontSize: "14px", fontFamily: PurposeStyle.fonts.base, cssClass: "apexcharts-xaxis-label" } },
-//                                axisBorder: { show: !1 },
-//                                axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[280], height: 6, offsetX: 0, offsetY: 0 },
-//                                type: "datetime",
-//                                categories: ["1/28/2021", "2/28/2021", "3/28/2021", "4/28/2021", "5/28/2021", "6/28/2021", "7/28/2021", "8/28/2021"],
-//                            },
-//                            yaxis: {
-//                                labels: { style: { color: PurposeStyle.colors.gray[600], fontSize: "12px", fontFamily: PurposeStyle.fonts.base } },
-//                                axisBorder: { show: !1 },
-//                                axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[280], height: 6, offsetX: 0, offsetY: 0 },
-//                            },
-//                            fill: { type: "solid" },
-//                            markers: { size: 4, opacity: 0.7, strokeColor: "#fff", strokeWidth: 3, hover: { size: 7 } },
-//                            grid: { borderColor: PurposeStyle.colors.gray[280], strokeDashArray: 5 },
-//                            dataLabels: { enabled: !1 },
-//                        },
-//                            a = (e.data().dataset, e.data().labels, e.data().color),
-//                            n = e.data().height,
-//                            o = e.data().type;
-//                        (t.colors = [PurposeStyle.colors.theme[a]]), (t.markers.colors = [PurposeStyle.colors.theme[a]]), (t.chart.height = n || 350), (t.chart.type = o || "line");
-//                        var i = new ApexCharts(e[0], t);
-//                        setTimeout(function () {
-//                            i.render();
-//                        }, 280);
-//                    })($(this));
-//                });
+            var e = $("#apex-engagement");
+            e.length &&
+                e.each(function () {
+                    !(function (e) {
+                        var t = {
+                            chart: { width: "100%", zoom: { enabled: !1 }, toolbar: { show: !1 }, shadow: { enabled: !1 } },
+                            stroke: { width: 7, curve: "smooth" },
+                            series: [{ name: "Income", data: dataArray }],
+                            xaxis: {
+                                labels: { format: "MMM", style: { colors: PurposeStyle.colors.gray[600], fontSize: "14px", fontFamily: PurposeStyle.fonts.base, cssClass: "apexcharts-xaxis-label" } },
+                                axisBorder: { show: !1 },
+                                axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[280], height: 6, offsetX: 0, offsetY: 0 },
+                                type: "datetime",
+                                categories: ["1/28/2021", "2/28/2021", "3/28/2021", "4/28/2021", "5/28/2021", "6/28/2021", "7/28/2021", "8/28/2021"],
+                            },
+                            yaxis: {
+                                labels: { style: { color: PurposeStyle.colors.gray[600], fontSize: "12px", fontFamily: PurposeStyle.fonts.base } },
+                                axisBorder: { show: !1 },
+                                axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[280], height: 6, offsetX: 0, offsetY: 0 },
+                            },
+                            fill: { type: "solid" },
+                            markers: { size: 4, opacity: 0.7, strokeColor: "#fff", strokeWidth: 3, hover: { size: 7 } },
+                            grid: { borderColor: PurposeStyle.colors.gray[280], strokeDashArray: 5 },
+                            dataLabels: { enabled: !1 },
+                        },
+                            a = (e.data().dataset, e.data().labels, e.data().color),
+                            n = e.data().height,
+                            o = e.data().type;
+                        (t.colors = [PurposeStyle.colors.theme[a]]), (t.markers.colors = [PurposeStyle.colors.theme[a]]), (t.chart.height = n || 350), (t.chart.type = o || "line");
+                        var i = new ApexCharts(e[0], t);
+                        setTimeout(function () {
+                            i.render();
+                        }, 280);
+                    })($(this));
+                });
 
 
 
-//        },
-//    });
-//}
+        },
+    });
+}
 
 var Layout = (function () {
     function e(e) {
@@ -1233,43 +1233,43 @@ var Dropzones = (function () {
                 $(this).find("path").wavify({ height: 50, bones: 5, amplitude: 40, speed: 0.15 });
             });
     })(),
-    EngagementChart = (function () {
-        var e = $("#apex-engagement");
-        e.length &&
-            e.each(function () {
-                !(function (e) {
-                    var t = {
-                        chart: { width: "100%", zoom: { enabled: !1 }, toolbar: { show: !1 }, shadow: { enabled: !1 } },
-                        stroke: { width: 7, curve: "smooth" },
-                        series: [{ name: "Income", data: [4, 3, 10, 9, 29, 19, 22, 9] }],
-                        xaxis: {
-                            labels: { format: "MMM", style: { colors: PurposeStyle.colors.gray[600], fontSize: "14px", fontFamily: PurposeStyle.fonts.base, cssClass: "apexcharts-xaxis-label" } },
-                            axisBorder: { show: !1 },
-                            axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[300], height: 6, offsetX: 0, offsetY: 0 },
-                            type: "datetime",
-                            categories: ["1/31/2021", "2/28/2021", "3/31/2021", "4/30/2021", "5/31/2021", "6/30/2021", "7/31/2021", "8/30/2021"],
-                        },
-                        yaxis: {
-                            labels: { style: { color: PurposeStyle.colors.gray[600], fontSize: "12px", fontFamily: PurposeStyle.fonts.base } },
-                            axisBorder: { show: !1 },
-                            axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[300], height: 6, offsetX: 0, offsetY: 0 },
-                        },
-                        fill: { type: "solid" },
-                        markers: { size: 4, opacity: 0.7, strokeColor: "#fff", strokeWidth: 3, hover: { size: 7 } },
-                        grid: { borderColor: PurposeStyle.colors.gray[300], strokeDashArray: 5 },
-                        dataLabels: { enabled: !1 },
-                    },
-                        a = (e.data().dataset, e.data().labels, e.data().color),
-                        n = e.data().height,
-                        o = e.data().type;
-                    (t.colors = [PurposeStyle.colors.theme[a]]), (t.markers.colors = [PurposeStyle.colors.theme[a]]), (t.chart.height = n || 350), (t.chart.type = o || "line");
-                    var i = new ApexCharts(e[0], t);
-                    setTimeout(function () {
-                        i.render();
-                    }, 300);
-                })($(this));
-            });
-    })(),
+    //EngagementChart = (function () {
+    //    var e = $("#apex-engagement");
+    //    e.length &&
+    //        e.each(function () {
+    //            !(function (e) {
+    //                var t = {
+    //                    chart: { width: "100%", zoom: { enabled: !1 }, toolbar: { show: !1 }, shadow: { enabled: !1 } },
+    //                    stroke: { width: 7, curve: "smooth" },
+    //                    series: [{ name: "Income", data: [4, 3, 10, 9, 29, 19, 22, 9] }],
+    //                    xaxis: {
+    //                        labels: { format: "MMM", style: { colors: PurposeStyle.colors.gray[600], fontSize: "14px", fontFamily: PurposeStyle.fonts.base, cssClass: "apexcharts-xaxis-label" } },
+    //                        axisBorder: { show: !1 },
+    //                        axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[300], height: 6, offsetX: 0, offsetY: 0 },
+    //                        type: "datetime",
+    //                        categories: ["1/31/2021", "2/28/2021", "3/31/2021", "4/30/2021", "5/31/2021", "6/30/2021", "7/31/2021", "8/30/2021"],
+    //                    },
+    //                    yaxis: {
+    //                        labels: { style: { color: PurposeStyle.colors.gray[600], fontSize: "12px", fontFamily: PurposeStyle.fonts.base } },
+    //                        axisBorder: { show: !1 },
+    //                        axisTicks: { show: !0, borderType: "solid", color: PurposeStyle.colors.gray[300], height: 6, offsetX: 0, offsetY: 0 },
+    //                    },
+    //                    fill: { type: "solid" },
+    //                    markers: { size: 4, opacity: 0.7, strokeColor: "#fff", strokeWidth: 3, hover: { size: 7 } },
+    //                    grid: { borderColor: PurposeStyle.colors.gray[300], strokeDashArray: 5 },
+    //                    dataLabels: { enabled: !1 },
+    //                },
+    //                    a = (e.data().dataset, e.data().labels, e.data().color),
+    //                    n = e.data().height,
+    //                    o = e.data().type;
+    //                (t.colors = [PurposeStyle.colors.theme[a]]), (t.markers.colors = [PurposeStyle.colors.theme[a]]), (t.chart.height = n || 350), (t.chart.type = o || "line");
+    //                var i = new ApexCharts(e[0], t);
+    //                setTimeout(function () {
+    //                    i.render();
+    //                }, 300);
+    //            })($(this));
+    //        });
+    //})(),
     LineChart = (function () {
         var e = $("#apex-line");
         e.length &&
